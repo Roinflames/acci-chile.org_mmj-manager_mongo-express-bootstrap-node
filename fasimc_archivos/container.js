@@ -1,2 +1,0 @@
-"use strict";define("container",["lodash","containerCommon"],function(n,i){return{displayName:"WixContainer",mixins:[i.mixins.containerMixin],statics:{useSantaTypes:!0},getSkinProperties:function(){return{inlineContent:{children:this.props.children}}}}});
-//# sourceMappingURL=container.min.js.map

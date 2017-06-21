@@ -1,2 +1,0 @@
-"use strict";define("multilingual",["lodash"],function(n){var t=null,e={LanguageCode:{ENGLISH:"eng",HEBREW:"heb"},setCurrentLanguage:function(n){t=n},getCurrentLanguage:function(){return t},getTranslationPath:function(t,e){var a=n.indexOf(e,"data");return-1!==a?n.concat(n.take(e,a),"translations",t,n.drop(e,a)):e},getTranslatedDataItem:function(t,a,r){var u=e.getTranslationPath(t,r),i=n.get(a,u);return n.isUndefined(i)&&(i=n.get(a,r)),i}};return e});
-//# sourceMappingURL=multilingual.min.js.map
