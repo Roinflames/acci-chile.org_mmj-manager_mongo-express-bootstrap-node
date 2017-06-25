@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res) {
-  res.render('index', { title: 'DM-FASIMC' });
+router.get('/cannabis', function(req, res) {
+  res.render('cannabis', { title: 'CANNABIS' });
 });
 
 module.exports = router;
