@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node fasimc-app.js"
+    "start": "node fasimc-app.js",
+    "server": "nodemon fasimc-app.js"
   },
   "dependencies": {
     "body-parser": "~1.0.0",

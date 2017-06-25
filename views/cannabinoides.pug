@@ -1,0 +1,117 @@
+extends layout
+
+block content
+    body#page-top.index
+    //Navbar theme
+
+    nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+      .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            |  Menu
+            i.fa.fa-bars
+          a.navbar-brand.page-scroll(href='/') DM-FASIMC
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.hidden
+              a(href='#page-top')
+            li
+              a.page-scroll(href='/#benefits') BENEFICIOS
+            li
+              a.page-scroll(href='/#testimonies') TESTIMONIOS
+            li
+              a.page-scroll(href='/#contact') CONTACTO
+
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                | CANNABIS
+                span.caret
+                  ul.dropdown-menu
+                    li
+                      a(href='/descripcion') DESCRIPCIÓN
+                    li
+                      a(href='/especies') ESPECIES
+                    li
+                      a(href='#') TERPENOS
+                    li
+                      a(href='/cannabinoides') CANNABINOIDES
+            li
+              a.page-scroll(href='/tratamientos') TRATAMIENTOS
+            li
+              a(href='#')
+                span.glyphicon.glyphicon-user
+                |  REGISTRO
+            li
+              a(href='#')
+                span.glyphicon.glyphicon-log-in
+                |  INGRESA
+
+    // Portfolio Grid Section
+    section#testimonies.bg-light-gray
+      .container
+        .row
+          .col-lg-12.text-justify
+            h2.section-heading.text-center ¿Qué son los Cannabinoides?
+            br
+            p Los cannabinoides son sustancias químicas orgánicas, capaces de activar los receptores cannabinoides presentes en el cuerpo y cerebro de animales. Se trata de un grupo de sustancias muy amplio y diverso, pero con una estructura química similar, caracterizada por ser carbocíclica y formada por 21 átomos de carbono.
+            p Actualmente, se reconocen tres tipos generales de cannabinoides: los fitocannabinoides sintetizados naturalmente por la planta de cannabis; los cannabinoides endógenos, producidos por los organismos animales; y los cannabinoides sintéticos, compuestos similares creados en laboratorio.​
+            br
+
+            h4.text-center FITOCANNABINOIDES
+            p Hacen referencia a los cannabinoides producidos naturalmente por la planta Cannabis sativa. Hasta la actualida se han identificado cerca de 70 fitocannabinoides, incluidas sus formas ácidas y neutras, análogos y otros productos de transformación.​
+            p Los principales cannabinoides son delta-9-tetrahidrocannabinol (es decir Δ9-THC o THC), cannabinol (CBN), y cannabidiol (CBD). Otros cannabinoides que se encuentran en el cannabis incluyen cannabigerol (CBG), cannabicromeno (CBC), tetrahidrocannabivarina (THCV) y muchos otros más.        ​
+            br
+
+            h4.text-center THC
+            p El tetrahidrocannabinol o Δ9-THC es el canabinoide más abundante en la planta de cannabis, es entre todos  los cannabinoides, el mejor estudiado y es responsable de muchos de efectos físicos y psicoactivos del cannabis. Es el principal cannabinoide involucrado en producir el “estado de volades”. Además tiene múltiples efectos medicinales comprobados.​
+            p Es un muy buen estimulante del apetito y reduce las náuseas y vómitos, por estos dos motivos es muy utilizado en pacientes con cáncer en tratamiento con quimioterapia. Además posee propiedades analgésicas moderadas que en sinergia con el CBD potencian su efecto contra el dolor, también es antiinflamatorio. Otros efectos incluyen relajación, alteración de los sentidos visuales, auditivos, y olfativos. También el THC, como otros cannabinoides que contienen un grupo fenol poseen una actividad antioxidante leve suficiente para proteger a las neuronas contra el estrés oxidativo, por tanto es neuroprotector, incluso se ha demostrado que estimula la neurogénesis, es decir la creación de nuevas neuronas. En ensayos también se ha probado su utilidad en mitigar espasmos y temblores. Además está comprobado que posee un fuerte efecto broncodiladador.
+            p
+              strong IMAGEN THC
+            p El THC es un agonista (es decir, un activador) de los receptores cannabinoides CB1, presentes principalmente en el cerebro por lo que sus mayores efectos son sobre las funciones que desarrolla este órgano. Su efecto es marcadamente cerebral/mental aumentando las funciones sensoriales como la visión, el oído, la sensibilidad a los colores, también aumenta la excitación sexual de hombres y mujeres, asimismo modifica la percepción espacio/tiempo. Produce un sentimiento de euforia potente, un bienestar mental y afina la mente favoreciendo la curiosidad y la creatividad.
+            p En general, se tiene la convicción de que la intoxicación aguda de cannabis o su uso crónico produce alteraciones de la memoria episódica a corto plazo . Además niveles demasiados elevados de THC pueden provocar los siguientes efectos secundarios: desorientación espacio-temporal, taquicardia, nervosidad, ansiedad, paranoia. Por esta razón, las personas con predisposiciones a la esquizofrenia, a la bipolaridad o a la ansiedad deberían evitar consumir variedades de marihuana con niveles elevados de THC. Estos efectos secundarios son, en general, limitados por la presencia de otros cannabinoides como el CBD o el CBN.
+            br
+
+            h4.text-center CBD
+            p El Cannabidiol es otro de los cannabinoides importantes presentes en la planta cannabis sativa, ha ganado importancia en los últimos años debido a que no produce efecto psicoactivo y tiene múltiples beneficios medicinales.
+            p El CBD se encuentra en menor proporción que el THC en la mayoría de las cepas de cannabis. El CBD y el THC actúan simbióticamente, potenciando sus propiedades medicinales y disminuyendo los efectos psicoactivos del THC.
+            p Entre los efectos medicinales del CBD el más importante a destacar es la capacidad de inducir la muerte de células cancerígenas, por medio de vías proteicas. Sin afectar a las células sanas de nuestro cuerpo. Actualmente muchos investigadores se encuentran estudiando el CBD como anticancerígeno y se ha descubierto que es muy efectivo en cáncer de mama, colon y algunos tipo de cáncer de cerebro. Además está muy comprobado que reduce las convulsiones en personas afectadas por epilepsia. También ayuda a controlar los desórdenes psicóticos, depresión y ansiedad, además de proporcionar efectos neuroprotectores, tiene efecto antiinflamatorio, analgésico y ayuda a controlar náuseas y vómitos.
+            p El cannabidiol tiene una gran afinidad por el receptor de CB2, por el contrario por el CB1 no tanta.
+            br
+
+            h4.text-center CBN
+            p El cannabinol, podría ser denominado como el tercer cannabinoide más conocido de la marihuana, es psicoactivo al igual que el THC, y contribuye con aproximadamente el  10% de las propiedades psicoactivas de la planta. Cuando el THC y CBN están presentes en niveles altos, el CBN parece reducir  la paranoia y la ansiedad asociada a menudo con el consumo de cannabis.
+            p En cuanto a sus propiedades medicinales se ha demostrado que el CBN ayuda a la función inmunológica celular, además de mostrar algún efecto antiemético y anticonvulsivo, aunque las dos últimas propiedades son mucho más débiles que las que se encuentran en el THC y CBD. Se ha demostrado que mejora los síntomas de la fibromialgia, el dolor crónico, la enfermedad de Parkinson y la esclerosis múltiple, entre muchos otros. También es eficaz contra las enfermedades inflamatorias del intestino, en particular contra la colitis ulcerosa.
+            p El THC se transforma en CBN, por acción del aire, tiempo y rayos UV, es decir, es un producto de degradación del THC. Esperar un poco más de tiempo cuando se cosechen las plantas producirá entonces cogollos con un mayor contenido de CBN, cuando los tricomas se han vuelto de un color más ámbar en lugar del habitual blanco/claro. También se sabe que las flores o cogollos que están expuestas a más aire durante el proceso de secado/curado tienen niveles más altos de CBN.
+            p La afinidad es superior en el caso del receptor CB2 y baja en el CB1.
+            p
+              br
+            h4.text-center ENDOCANNABINOIDES
+            p Los endocannabinoides son ácidos grasos poliinsaturados derivados de fosfolípidos de membrana, específicamente del ácido araquidónico. Los dos endocannabinoides principales son la anandamida (AEA) y el 2-araquinodilglicerol (2-AG).
+            br
+
+            h4.text-center AEA
+            p La anandamida también es conocida como araquidonoiletanolamida o AEA, es un análogo endógeno del THC. La anandamida afecta tanto a los receptores CB1 como CB2.
+            p Forma parte de la clase de los eicosanoides, un grupo de lípidos derivados del ácido araquidónico y de otros ácidos grasos esenciales (AGE).
+            p Debido a su vida media relativamente corta y a su alta solubilidad en lípidos, la anandamida se considera una molécula “frágil” y sus efectos son pasajeros (a diferencia del THC, que puede permanecer en los tejidos grasos varias semanas).
+            p Tiene un papel importante en la regulación del apetito, el placer y la recompensa, y unos niveles elevados de ésta pueden aumentar el placer experimentado al consumir alimentos. La anandamida también puede influir en parte en el tratamiento del dolor y los patrones de sueño.
+            br
+            
+            h4.text-center 2-AG
+            p Es el endocannabinoide más abundante en el cuerpo y, igual que la anandamida, se cree que tiene un papel importante en la regulación del apetito, las funciones del sistema inmunológico y el tratamiento del dolor. También se cree que el 2-AG podría influir en la inhibición de la proliferación de células cancerosas.
+            br
+
+    // jQuery
+    script(src='vendor/jquery/jquery.min.js')
+    // Bootstrap Core JavaScript
+    script(src='vendor/bootstrap/js/bootstrap.min.js')
+    // Plugin JavaScript
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js', integrity='sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb', crossorigin='anonymous')
+    // Contact Form JavaScript
+    script(src='javascripts/jqBootstrapValidation.js')
+    script(src='javascripts/contact_me.js')
+    // Theme JavaScript
+    script(src='javascripts/agency.min.js')

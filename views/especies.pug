@@ -1,23 +1,6 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    title DM-FASIMC, Dispensario Medicinal de Cannabis
-    // Bootstrap Core CSS
-    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
-    // Custom Fonts
-    link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Kaushan+Script', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700', rel='stylesheet', type='text/css')
-    // Theme CSS
-    link(href='stylesheets/agency.css', rel='stylesheet')
+extends layout
 
+block content
     body#page-top.index
     //Navbar theme
 
@@ -50,15 +33,15 @@ html(lang='en')
                 span.caret
                   ul.dropdown-menu
                     li
-                      a(href='#') Descripción
+                      a(href='/descripcion') DESCRIPCIÓN
                     li
                       a(href='#') ESPECIES
                     li
-                      a(href='#') TERPENOS
+                      a(href='/terpenos') TERPENOS
                     li
-                      a(href='#') CANNABINOIDES
+                      a(href='/cannabinoides') CANNABINOIDES
             li
-              a.page-scroll(href='#') TRATAMIENTOS
+              a.page-scroll(href='/tratamientos') TRATAMIENTOS
             li
               a(href='#')
                 span.glyphicon.glyphicon-user
@@ -75,6 +58,7 @@ html(lang='en')
         .row
           .col-lg-12.text-center
             h2.section-heading Especies
+            br
         .row
           .col-lg-6.col-md-4.col-sm-6.portfolio-item
             a.portfolio-link(href='#portfolioModal1', data-toggle='modal')
