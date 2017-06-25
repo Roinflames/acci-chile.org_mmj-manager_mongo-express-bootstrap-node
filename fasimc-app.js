@@ -5,10 +5,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // Rutas
 var routes = require('./routes/index');
-var especies = require('./routes/especies');
 var descripcion = require('./routes/descripcion');
-var cannabinoides = require('./routes/cannabinoides');
+var especies = require('./routes/especies');
 var terpenos = require('./routes/terpenos');
+var cannabinoides = require('./routes/cannabinoides');
+var tratamiento = require('./routes/tratamiento');
 //End Rutas
 var port = 3000;
 var app = express();
@@ -23,10 +24,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Uso de Rutas
 app.use('/', routes);
-app.use('/', especies);
 app.use('/', descripcion);
+app.use('/', especies);
 app.use('/', terpenos);
 app.use('/', cannabinoides);
+app.use('/', tratamiento);
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
