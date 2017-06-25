@@ -4,7 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // Rutas
-var routes = require('./routes/index');
+var index = require('./routes/index');
 var descripcion = require('./routes/descripcion');
 var especies = require('./routes/especies');
 var terpenos = require('./routes/terpenos');
@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Uso de Rutas
-app.use('/', routes);
+app.use('/', index);
 app.use('/', descripcion);
 app.use('/', especies);
 app.use('/', terpenos);
