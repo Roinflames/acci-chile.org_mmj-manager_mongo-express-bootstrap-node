@@ -63,6 +63,9 @@ h6 {
   text-transform: uppercase;
   font-weight: 700;
 }
+.dropdown-menu {
+  background-color: #000000;
+}
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,

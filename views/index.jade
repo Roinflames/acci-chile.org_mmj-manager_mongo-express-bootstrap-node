@@ -18,10 +18,11 @@ html(lang='en')
     // Theme CSS
     link(href='stylesheets/agency.css', rel='stylesheet')
 
-  body#page-top.index
-    // Navigation
+    body#page-top.index
+    //Navbar theme
+
     nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-      .container
+      .container-fluid
         // Brand and toggle get grouped for better mobile display
         .navbar-header.page-scroll
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
@@ -31,16 +32,39 @@ html(lang='en')
           a.navbar-brand.page-scroll(href='#page-top') DM-FASIMC
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
+          ul.nav.navbar-nav
             li.hidden
               a(href='#page-top')
             li
-              a.page-scroll(href='#services') BENEFICIOS
-            
+              a.page-scroll(href='#benefits') BENEFICIOS
+
             li
-              a.page-scroll(href='#team') TESTIMONIOS
+              a.page-scroll(href='#testimonies') TESTIMONIOS
             li
               a.page-scroll(href='#contact') CONTACTO
+
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                | CANNABIS
+                span.caret
+                  ul.dropdown-menu
+                    li
+                      a(href='#') ESPECIES
+                    li
+                      a(href='#') TERPENOS
+                    li
+                      a(href='#') CANNABINOIDES
+            li
+              a.page-scroll(href='#') TRATAMIENTOS
+            li
+              a(href='#')
+                span.glyphicon.glyphicon-user
+                |  REGISTRO
+            li
+              a(href='#')
+                span.glyphicon.glyphicon-log-in
+                |  INGRESA
         // /.navbar-collapse
       // /.container-fluid
     // Header
@@ -52,7 +76,7 @@ html(lang='en')
             | Proveemos acceso de primera calidad a Cannabis Medicinal y asistencia a pacientes en todo Chile!
           a.page-scroll.btn.btn-xl(href='#services') Conocer más!
     // Services Section
-    section#services
+    section#benefits
       .container
         .row
           .col-lg-12.text-center
@@ -79,6 +103,8 @@ html(lang='en')
               i.fa.fa-lock.fa-stack-1x.fa-inverse
             h4.service-heading Ambiente Amigable y Seguro
             p.text-muted lorem ipsum dolor sit amet.
+    //End navbar theme
+
     // Portfolio Grid Section
     //section#portfolio.bg-light-gray
       .container
@@ -192,7 +218,7 @@ html(lang='en')
                     br
                     | NOSOTROS!
     // Team Section
-    section#team.bg-light-gray
+    section#testimonies.bg-light-gray
       .container
         .row
           .col-lg-12.text-center
