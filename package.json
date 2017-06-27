@@ -7,12 +7,18 @@
     "server": "nodemon fasimc-app.js"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.0.0",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
     "express": "~4.0.0",
+    "express-session": "^1.15.3",
     "jade": "^1.11.0",
+    "mongoose": "^4.11.0",
     "morgan": "~1.0.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "static-favicon": "~1.0.0"
   }
 }

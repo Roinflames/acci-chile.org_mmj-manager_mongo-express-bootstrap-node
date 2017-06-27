@@ -9,14 +9,32 @@ var descripcion = require('./routes/descripcion');
 var especies = require('./routes/especies');
 var terpenos = require('./routes/terpenos');
 var cannabinoides = require('./routes/cannabinoides');
-var tratamiento = require('./routes/tratamiento');
 //End Rutas
 var port = 3000;
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
+//Database
+var dbConfig = require('./config/db');
+var main = require('./config/main')
+var mongoose = require('mongoose');
+mongoose.connect(dbConfig.url);
+//passport
+var passport = require('passport');
+var expressSession = require('express-session');
+app.use(expressSession({secret: main.secret}));
+app.use(passport.initialize());
+app.use(passport.session());
+var initPassport = require('./passport/init');
+initPassport(passport);
+var auth = require('./routes/auth')(passport);
+var tratamiento = require('./routes/tratamiento')(passport);
+app.use('/', auth);
+//flash
+var flash = require('connect-flash');
+app.use(flash());
+//Middlewares
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
