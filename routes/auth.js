@@ -20,7 +20,7 @@ module.exports = function(passport){
 	router.post('/login', passport.authenticate('login', {
 		successRedirect: '/descripcion',
 		failureRedirect: '/',
-		failureFlash : true
+		failureFlash : true,
 	}));
   //End Logueo User
 
