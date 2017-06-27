@@ -1,6 +1,7 @@
 extends layout
 
 block content
+<<<<<<< HEAD
     .section
     main
       center
@@ -27,3 +28,23 @@ block content
 
         // jQuery
         script(src='vendor/jquery/jquery.min.js')
+=======
+    div.container
+      div.row
+        div.col-sm-6.col-md-4
+            div.signup-wall.center-align
+              h5.orange-text Autenticación de Usuario
+              form(class='form-signin', action='/login', method='post')
+                input#email.validate(type='text', name='username', class='form-control', placeholder='Email Usuario',required)
+                input#password.validate(type='password', name='password', class='form-control', placeholder='Contraseña',required)
+                button(class='btn btn-lg btn-primary btn-block', type='submit', name='btn_login') Ingresar
+                p
+                a(href='/', class='text-center') Volver
+                span.clearfix
+              #message
+                if message
+                  h1.text-center.error-message #{message}
+    // Import jQuery before materialize.js
+    script(type='text/javascript', src='https://code.jquery.com/jquery-2.1.1.min.js')
+    script(type='text/javascript', src='js/materialize.min.js')
+>>>>>>> feature-login
