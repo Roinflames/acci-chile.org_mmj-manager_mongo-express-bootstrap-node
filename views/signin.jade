@@ -1,34 +1,21 @@
 extends layout
 
 block content
-    .section
-    main
-      center
-        .section
-        .container
-          .z-depth-1.grey.lighten-4.row(style='display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;')
-            form.col.s12(method='post', action='/login')
-              .row
-                .col.s12
-              .row
-                .input-field.col.s12
-                  input#email.validate(type='text', name='username')
-                  label(for='email') Usuario
-              .row
-                .input-field.col.s12
-                  input#password.validate(type='password', name='password')
-                  label(for='password') Contraseña
-                label(style='float: right;')
-                  a.light-blue-text(href='#!')
-                    b Recuperar contraseña
-              br
-              center
-                .row
-                  button.col.s12.btn.btn-large.waves-effect.orange.lighten-1(type='submit', name='btn_login') Ingresar
-
-        #message
-        if message
-        h1.text-center.error-message #{message}
-
-        // jQuery
-        script(src='vendor/jquery/jquery.min.js')
+    div.container
+      div.row
+        div.col-sm-6.col-md-4
+            div.signup-wall.center-align
+              h5.orange-text Autenticación de Usuario
+              form(class='form-signin', action='/login', method='post')
+                input#email.validate(type='text', name='username', class='form-control', placeholder='Email Usuario',required)
+                input#password.validate(type='password', name='password', class='form-control', placeholder='Contraseña',required)
+                button(class='btn btn-lg btn-primary btn-block', type='submit', name='btn_login') Ingresar
+                p
+                a(href='/', class='text-center') Volver
+                span.clearfix
+              #message
+                if message
+                  h1.text-center.error-message #{message}
+    // Import jQuery before materialize.js
+    script(type='text/javascript', src='https://code.jquery.com/jquery-2.1.1.min.js')
+    script(type='text/javascript', src='js/materialize.min.js')

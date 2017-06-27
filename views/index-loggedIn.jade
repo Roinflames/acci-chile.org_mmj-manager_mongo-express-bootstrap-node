@@ -26,6 +26,21 @@ block content
               a.page-scroll(href='#contact') CONTACTO
 
           ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                | CANNABIS
+                span.caret
+                  ul.dropdown-menu
+                    li
+                      a.page-scroll(href='/descripcion') DESCRIPCIÓN
+                    li
+                      a(href='/especies') ESPECIES
+                    li
+                      a(href='/terpenos') TERPENOS
+                    li
+                      a(href='/cannabinoides') CANNABINOIDES
+            li
+              a.page-scroll(href='/tratamiento') TRATAMIENTO
             li
               a(href='/signup')
                 span.glyphicon.glyphicon-user
