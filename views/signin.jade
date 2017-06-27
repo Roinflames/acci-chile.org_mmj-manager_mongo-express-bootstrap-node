@@ -7,24 +7,19 @@ block content
         .section
         .container
           .z-depth-1.grey.lighten-4.row(style='display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;')
-            form.col.s12(method='post', action='/login')
-              .row
-                .col.s12
-              .row
-                .input-field.col.s12
-                  input#email.validate(type='text', name='username')
-                  label(for='email') Usuario
-              .row
-                .input-field.col.s12
-                  input#password.validate(type='password', name='password')
-                  label(for='password') Contraseña
+            h5.orange-text Autenticación de Usuario
+            form(class='form-signin', action='/login', method='post')
+                input#email.validate(type='text', name='username', class='form-control', placeholder='Email Usuario',required)
+                input#password.validate(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
+                br
+                button(class='btn btn-lg btn-primary btn-block', type='submit', name='btn_login') Ingresar
                 label(style='float: right;')
-                  a.light-blue-text(href='#!')
-                    b Recuperar contraseña
-              br
-              center
-                .row
-                  button.col.s12.btn.btn-large.waves-effect.orange.lighten-1(type='submit', name='btn_login') Ingresar
+                a.light-blue-text(href='#!')
+                  b Recuperar contraseña
+                span.clearfix
+                br
+        .container
+          a(href='/', class='text-center') Volver                
 
         #message
         if message

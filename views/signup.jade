@@ -1,22 +1,25 @@
 extends layout
 
 block content
-    div.container
-      div.row
-        div.col-sm-6.col-md-4
-            div.signup-wall.center-align
-              h5.orange-text Registro de Usuario
-              form(class='form-signin', action='/signup', method='POST')
-                input(type='text', name='username', class='form-control', placeholder='Nombre',required, autofocus)
-                input(type='email', name='email', class='form-control', placeholder='Email',required)
-                input(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
-                button(class='btn btn-lg btn-primary btn-block', type='submit') Registrar
-                p
-                a(href='/', class='text-center') Volver
+  .section
+  main
+    center
+      .section
+      .container
+        .z-depth-1.grey.lighten-4.row(style='display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;')
+          h5.orange-text Registro de Usuario
+          form(class='form-signin', action='/signup', method='post')
+            input(type='text', name='username', class='form-control', placeholder='Nombre',required, autofocus)
+            input(type='email', name='email', class='form-control', placeholder='Email',required)
+            input(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
+            br
+            button(class='btn btn-lg btn-primary btn-block', type='submit') Registrar
+            p
+              a(href='/', class='text-center') Volver
                 span.clearfix
-            #message
-              if message
-                h1.text-center.error-message #{message}
+          #message
+            if message
+              h1.text-center.error-message #{message}
     // Import jQuery before materialize.js
     script(type='text/javascript', src='https://code.jquery.com/jquery-2.1.1.min.js')
     script(type='text/javascript', src='js/materialize.min.js')

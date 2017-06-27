@@ -12,7 +12,7 @@ block content
             span.sr-only Toggle navigation
             |  Menu
             i.fa.fa-bars
-          a.navbar-brand.page-scroll(href='#page-top') DM-FASIMC
+          a.navbar-brand.page-scroll(href='#page-top') #{title}
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav
@@ -59,7 +59,7 @@ block content
     header
       .container
         .intro-text
-          .intro-heading FASIMC
+          .intro-heading #{title}
           .intro-lead-in
             | Proveemos acceso de primera calidad a Cannabis Medicinal y asistencia a pacientes en todo Chile!
           a.page-scroll.btn.btn-xl(href='#benefits') Conocer más!
@@ -226,7 +226,7 @@ block content
         .row
           .col-md-4
             p.copyright
-              | DM FASIMC - © 2017 Copy Left. Debes tener al menos 18 años para usar este sitio.
+              | #{title} - © 2017 Copy Left. Debes tener al menos 18 años para usar este sitio.
           .col-md-4
             ul.list-inline.social-buttons
               li

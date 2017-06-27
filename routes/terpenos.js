@@ -19,5 +19,3 @@ module.exports = function(passport){
 
 	return router;
 }
-
-module.exports = router;

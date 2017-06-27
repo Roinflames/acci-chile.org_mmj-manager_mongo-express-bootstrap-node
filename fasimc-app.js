@@ -31,21 +31,15 @@ initPassport(passport);
 //flash
 var flash = require('connect-flash');
 app.use(flash());
-//
-var auth = require('./routes/auth')(passport);
+//rutas
 var index = require('./routes/index');
-var descripcion = require('./routes/descripcion');
-var especies = require('./routes/especies');
-var terpenos = require('./routes/terpenos');
-var cannabinoides = require('./routes/cannabinoides');
+var auth = require('./routes/auth')(passport);
+var cannabis = require('./routes/cannabis')(passport);
 var tratamiento = require('./routes/tratamiento')(passport);
 // Uso de Rutas
-app.use('/', auth);
 app.use('/', index);
-app.use('/', descripcion);
-app.use('/', especies);
-app.use('/', terpenos);
-app.use('/', cannabinoides);
+app.use('/', auth);
+app.use('/', cannabis);
 app.use('/', tratamiento);
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -74,7 +68,7 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
+//app listen
 app.listen(port, function() {
   console.log("Ejecución: Puerto", port)
 })

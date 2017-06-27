@@ -21,14 +21,8 @@ var isAuthenticated = function (req, res, next) {
 	res.redirect('/');
 }
 
-module.exports = function(passport){
-
-	/* GET home page. */
-	router.get('/cannabinoides', isAuthenticated, function(req, res) {
-	  res.render('cannabinoides', { title: 'CANNABINOIDES' });
-	});
-
-	return router;
-}
+router.get('/cannabinoides', isAuthenticated, function(req, res) {
+  res.render('cannabinoides', { title: 'CANNABINOIDES' });
+});
 
 module.exports = router;

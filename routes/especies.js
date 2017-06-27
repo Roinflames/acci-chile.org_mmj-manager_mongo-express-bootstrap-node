@@ -12,13 +12,10 @@ var isAuthenticated = function (req, res, next) {
 }
 
 module.exports = function(passport){
-	
+
 	router.get('/especies', isAuthenticated, function(req, res) {
 	  res.render('especies', { title: 'ESPECIES' });
 	});
 
 	return router;
 }
-
-
-module.exports = router;
