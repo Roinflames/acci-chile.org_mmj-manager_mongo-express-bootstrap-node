@@ -3,23 +3,23 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// Rutas
-var index = require('./routes/index');
-var descripcion = require('./routes/descripcion');
-var especies = require('./routes/especies');
-var terpenos = require('./routes/terpenos');
-var cannabinoides = require('./routes/cannabinoides');
-//End Rutas
-var port = 3000;
-var app = express();
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 //Database
 var dbConfig = require('./config/db');
 var main = require('./config/main')
 var mongoose = require('mongoose');
 mongoose.connect(dbConfig.url);
+//express
+var port = 3000;
+var app = express();
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+//Middlewares
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 //passport
 var passport = require('passport');
 var expressSession = require('express-session');
@@ -28,19 +28,19 @@ app.use(passport.initialize());
 app.use(passport.session());
 var initPassport = require('./passport/init');
 initPassport(passport);
-var auth = require('./routes/auth')(passport);
-var tratamiento = require('./routes/tratamiento')(passport);
-app.use('/', auth);
 //flash
 var flash = require('connect-flash');
 app.use(flash());
-//Middlewares
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//
+var auth = require('./routes/auth')(passport);
+var index = require('./routes/index');
+var descripcion = require('./routes/descripcion');
+var especies = require('./routes/especies');
+var terpenos = require('./routes/terpenos');
+var cannabinoides = require('./routes/cannabinoides');
+var tratamiento = require('./routes/tratamiento')(passport);
 // Uso de Rutas
+app.use('/', auth);
 app.use('/', index);
 app.use('/', descripcion);
 app.use('/', especies);
