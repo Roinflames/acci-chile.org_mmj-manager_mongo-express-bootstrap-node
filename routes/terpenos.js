@@ -10,9 +10,14 @@ var isAuthenticated = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/');
 }
-/* GET home page. */
-router.get('/terpenos', isAuthenticated, function(req, res) {
-  res.render('terpenos', { title: 'TERPENOS' });
-});
+
+module.exports = function(passport){
+
+	router.get('/terpenos', isAuthenticated, function(req, res) {
+	  res.render('terpenos', { title: 'TERPENOS' });
+	});
+
+	return router;
+}
 
 module.exports = router;

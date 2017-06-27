@@ -11,9 +11,13 @@ var isAuthenticated = function (req, res, next) {
 	res.redirect('/');
 }
 
-/* GET home page. */
-router.get('/descripcion', isAuthenticated, function(req, res) {
-  res.render('descripcion', { title: 'DESCRIPCION' });
-});
+module.exports = function(passport){
+
+	router.get('/descripcion', isAuthenticated, function(req, res) {
+	  res.render('descripcion', { title: 'DESCRIPCION' });
+	});
+
+	return router;
+}
 
 module.exports = router;
