@@ -13,8 +13,8 @@ var isAuthenticated = function (req, res, next) {
 
 module.exports = function(passport){
 
-  router.get('/tratamiento', isAuthenticated, function(req, res) {
-    res.render('tratamiento', { title: 'DM-FASIMC' });
+  router.get('/index-loggedin', function(req, res){
+    res.render('index-loggedin');
   });
 
 	return router;

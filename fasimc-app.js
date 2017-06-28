@@ -33,11 +33,13 @@ var flash = require('connect-flash');
 app.use(flash());
 //rutas
 var index = require('./routes/index');
+var indexlog = require('./routes/index-loggedin')(passport);
 var auth = require('./routes/auth')(passport);
 var cannabis = require('./routes/cannabis')(passport);
 var tratamiento = require('./routes/tratamiento')(passport);
 // Uso de Rutas
 app.use('/', index);
+app.use('/', indexlog)
 app.use('/', auth);
 app.use('/', cannabis);
 app.use('/', tratamiento);
@@ -68,9 +70,9 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-//app listen
-app.listen(port, function() {
-  console.log("Ejecución: Puerto", port)
+
+app.listen(port, function(){
+  console.log(port);
 })
 
 module.exports = app;
