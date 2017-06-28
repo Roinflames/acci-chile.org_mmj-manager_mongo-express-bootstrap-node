@@ -20,8 +20,8 @@ module.exports = function(passport){
 	});
 
 	router.post('/signup', passport.authenticate('signup', {
-		successRedirect: '/',
-		failureRedirect: '/descripcion',
+		successRedirect: '/index-loggedin',
+		failureRedirect: '/fasimc',
 		failureFlash : true
 	}));
   //End Register User
@@ -29,7 +29,7 @@ module.exports = function(passport){
 	//Logout user
 	router.get('/signout', function(req, res) {
 		req.logout();
-		res.redirect('/');
+		res.redirect('/fasimc');
 	});
 
 	return router;
