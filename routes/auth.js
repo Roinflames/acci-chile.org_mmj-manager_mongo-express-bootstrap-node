@@ -9,7 +9,7 @@ module.exports = function(passport){
 
 	router.post('/login', passport.authenticate('login', {
 		successRedirect: '/index-loggedin',
-		failureRedirect: '/',
+		failureRedirect: '/fasimc',
 		failureFlash : true,
 	}));
   //End Logueo User
