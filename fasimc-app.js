@@ -29,25 +29,25 @@ app.use(passport.session());
 var initPassport = require('./passport/init');
 initPassport(passport);
 //flash
-var flash = require('connect-flash');
+var flash = require('connect-flash')
 app.use(flash());
 //rutas
-var index = require('./routes/index');
-var indexlog = require('./routes/index-loggedin')(passport);
-var auth = require('./routes/auth')(passport);
-var cannabis = require('./routes/cannabis')(passport);
-var tratamiento = require('./routes/tratamiento')(passport);
+var index = require('./routes/index')
+var indexlog = require('./routes/index-loggedin')
+var auth = require('./routes/auth')(passport)
+var cannabis = require('./routes/cannabis')
+var tratamiento = require('./routes/tratamiento')
 // Uso de Rutas
-app.use('/', index);
+app.use('/', index)
 app.use('/', indexlog)
-app.use('/', auth);
-app.use('/', cannabis);
-app.use('/', tratamiento);
+app.use('/', auth)
+app.use('/', cannabis)
+app.use('/', tratamiento)
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+    var err = new Error('Not Found')
+    err.status = 404
+    next(err)
 });
 /// error handlers
 // development error handler
