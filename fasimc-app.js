@@ -33,10 +33,10 @@ var flash = require('connect-flash')
 app.use(flash());
 //rutas
 var index = require('./routes/index')
-var indexlog = require('./routes/index-loggedin')
+var indexlog = require('./routes/index-loggedin')(passport)
 var auth = require('./routes/auth')(passport)
-var cannabis = require('./routes/cannabis')
-var tratamiento = require('./routes/tratamiento')
+var cannabis = require('./routes/cannabis')(passport)
+var tratamiento = require('./routes/tratamiento')(passport)
 // Uso de Rutas
 app.use('/', index)
 app.use('/', indexlog)
