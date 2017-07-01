@@ -8,10 +8,10 @@ var isAuthenticated = function (req, res, next) {
 	if (req.isAuthenticated())
 		return next();
 	// if the user is not authenticated then redirect him to the login page
-	res.redirect('/fasimc');
+	res.redirect('/index');
 }
 
-module.exports = function(passport){
+module.exports = function(){
   //descripcion
 	//router.get('/descripcion', isAuthenticated, function(req, res) {
 	router.get('/descripcion', function(req, res) {
