@@ -1,13 +1,50 @@
 extends layout
 
+<<<<<<< HEAD
 block content  
+=======
+block content
+    body#page-top.index
+    //Navbar theme
+
+    nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+      .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            |  Menu
+            i.fa.fa-bars
+          a.navbar-brand.page-scroll(href='#page-top') #{title}
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.hidden
+              a(href='#page-top')
+            li
+              a.page-scroll(href='#benefits') BENEFICIOS
+            li
+              a.page-scroll(href='#testimonies') TESTIMONIOS
+            li
+              a.page-scroll(href='#asociates') ASOCIADOS
+            li
+              a.page-scroll(href='#contact') CONTACTO
+
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/signin')
+                span.glyphicon.glyphicon-log-in
+                |  INGRESA
+        // /.navbar-collapse
+      // /.container-fluid
+>>>>>>> 8e84c4b
     // Header
     header
       .container
         .intro-text
           .intro-heading #{title}
-          .intro-lead-in
-            | Proveemos acceso de primera calidad a Cannabis Medicinal y asistencia a pacientes en todo Chile!
+          .intro-lead-in.centrado#rcorners
+            | Proveemos acceso de primera calidad al Cannabis Medicinal y asistencia a pacientes de todo Chile!
           a.page-scroll.btn.btn-xl(href='#benefits') Conocer más!
     // Services Section
     section#benefits
@@ -44,8 +81,7 @@ block content
       .container
         .row
           .col-lg-12.text-center
-            h2.section-heading TESTIMONIOS
-            h3.section-subheading.text-muted Relatos de socios respecto a su experiencia junto a FASIMC.
+            h2.section-heading TESTIMONIOS            
         .row
           .col-sm-4
             .team-member
@@ -67,7 +103,7 @@ block content
             p.large.text-muted
               | Cumplimos un rol social integral, medicinal, revolucionario, espiritual, terapeutico y recreacional para todos los usuarios de Cannabis.
     // Asociados
-    aside.clients
+    section#asociates
       .container
         .row
           .col-md-3.col-sm-6
@@ -87,9 +123,7 @@ block content
       .container
         .row
           .col-lg-12.text-center
-            h2.section-heading Contacto
-            h3.section-subheading.text-muted
-              | Fono, Email, Whatsapp, Telegram, Señales de humo :D, Emotíconos, envíanos tus dudas que pronto las resolveremos!
+            h2.section-heading Contacto            
         .row
           .col-lg-12
             form#contactForm(name='sentMessage', novalidate='')

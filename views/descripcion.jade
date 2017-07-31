@@ -1,18 +1,60 @@
-extends layout-loggedin
+extends layout
 
 block content
+    //Navbar theme
+
+    nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+      .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            |  Menu
+            i.fa.fa-bars
+          a.navbar-brand.page-scroll(href='/index-loggedin') #{title}
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.hidden
+              a(href='#page-top')            
+            li
+              a.page-scroll(href='#') STOCK
+            li
+              a.page-scroll(href='#') RESERVA TU HORA
+
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                | CANNABIS
+                span.caret
+                  ul.dropdown-menu
+                    li
+                      a.page-scroll(href='/descripcion') DESCRIPCIÓN
+                    li
+                      a(href='/especies') ESPECIES
+                    li
+                      a(href='/terpenos') TERPENOS
+                    li
+                      a(href='/cannabinoides') CANNABINOIDES
+            li
+              a.page-scroll(href='/tratamiento') TRATAMIENTO
+            li
+              a(href='/signout')
+                span.glyphicon.glyphicon-log-in
+                |  DESCONÉCTATE
     // Portfolio Grid Section
     section#testimonies.bg-light-gray
       .container
         .row
-          .col-lg-12.text-justify
-            h2.section-heading.text-center DESCRIPCIÓN
-            br
+          .col-lg-12.text-justify            
             p La planta del Cannabis (Cannabis sativa), popularmente conocida como Marihuana, es un vegetal perteneciente a la familia de las Cannabaceae con propiedades medicinales y psicoactivas.
             p Es una planta proveniente de Asia que ha sido utilizada históricamente por los seres humanos como medicamento, fuente de alimento, hierba espiritual y para manufactura de productos como textiles, combustible, papel, etc. Los primeros registros escritos que se tienen sobre su uso medicinal datan del año 2737 A.C.
             p El cannabis es una planta dioica, es decir, existen individuos macho con órganos reproductivos masculinos (flores masculinas), y por otro lado, individuos hembra órganos reproductivos femeninos (Flores femeninas).
             p Los cogollos o flores de la planta femenina, que son utilizados por su gran cantidad de componentes psicoactivos y medicinales, denominados cannabinoides, estos son producidos de manera natural por la planta, principalmente por las hembras, en los tricomas glandulares de la planta, los cuales son los encargados de sintetizar y acumular estos químicos.
             p Las hojas y flores de las plantas de cannabis contienen al menos 489 compuestos distintos, distribuidos en 18 clases químicas diferentes, y albergan más de 70 fitocannabinoides diferentes. Los principales cannabinoides parecen ser delta-9-tetrahidrocannabinol (Δ9-THC o simplemente THC), cannabinol (CBN), y cannabidiol (CBD), aunque la abundancia relativa de estos y otros cannabinoides puede variar dependiendo de una serie de factores tales como la variedad de cannabis, las condiciones de suelo y clima, y las técnicas de cultivo. Otros cannabinoides que se encuentran en el cannabis incluyen cannabigerol (CBG), cannabicromeno (CBC), tetrahidrocannabivarina (THCV), entre otros. En la planta viva, estos fitocannabinoides existen en forma de ácidos monocarboxílicos inactivos (ej: THCA) y formas descarboxiladas activas (ej: THC); Sin embargo, la aplicación de calor, promueve la descarboxilación (ej: THCA pasa a THC) lo que resulta en la activación biológica.
+            br
+            img.img-responsive.img-rcorners(src='img/descripcion.jpg', alt='')
+            p.text-center Tricomas glandulares de la planta
 
     // jQuery
     script(src='vendor/jquery/jquery.min.js')

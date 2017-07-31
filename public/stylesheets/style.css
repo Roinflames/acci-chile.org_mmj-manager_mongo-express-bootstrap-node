@@ -1,8 +1,21 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#rcorners {
+   border-radius: 25px;
+   background:#FFFFFF;
+   opacity: 0.5;
+   position:relative;
+   width: 800px;
 }
-
-a {
-  color: #00B7FF;
+.centrado {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+.img-rcorners {
+   border-radius: 25px;
+   position:relative;
+   margin: auto;
+}
+.text-center {
+    margin: auto;
 }

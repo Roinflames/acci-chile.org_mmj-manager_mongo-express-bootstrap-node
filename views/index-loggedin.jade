@@ -1,6 +1,7 @@
 extends layout-loggedin
 
 block content    
+<<<<<<< HEAD
     // Header
     header
       .container
@@ -11,162 +12,34 @@ block content
           a.page-scroll.btn.btn-xl(href='#benefits') Conocer más!
     // Services Section
     section#benefits
+=======
+    // Header  
+    section#home.bg-light-gray
+>>>>>>> 8e84c4b
       .container
         .row
           .col-lg-12.text-center
-            h2.section-heading Beneficios
-            h3.section-subheading.text-muted Breve descripción de los beneficios de ser miembro/socio de FASIMC.
+            h2.section-heading ¿En que podemos Ayudarte?            
         .row.text-center
           .col-md-4
             span.fa-stack.fa-4x
               i.fa.fa-circle.fa-stack-2x.text-primary
               i.fa.fa-shopping-cart.fa-stack-1x.fa-inverse
-            h4.service-heading Derechos Humanos
-            p.text-muted Marihuana medicinal, recreativa y de investigación + desarrollo + Innovación
+            h4.service-heading
+              | Consulta el Stock de flores.            
           .col-md-4
             span.fa-stack.fa-4x
               i.fa.fa-circle.fa-stack-2x.text-primary
               i.fa.fa-laptop.fa-stack-1x.fa-inverse
             h4.service-heading
-              | Discresión
-              label(for='')
-            p.text-muted Lorem ipsum dolor sit amet.
+              | Agenda tu hora para retiro.                          
           .col-md-4
             span.fa-stack.fa-4x
               i.fa.fa-circle.fa-stack-2x.text-primary
               i.fa.fa-lock.fa-stack-1x.fa-inverse
-            h4.service-heading Ambiente Amigable y Seguro
-            p.text-muted lorem ipsum dolor sit amet.
+            h4.service-heading
+              | Otro Servicio            
     //End navbar theme
-
-    // About Section
-    //section#about
-      .container
-        .row
-          .col-lg-12.text-center
-            h2.section-heading COMUNIDAD
-            h3.section-subheading.text-muted Membresía.
-        .row
-          .col-lg-12
-            ul.timeline
-              li
-                .timeline-image
-                  img.img-circle.img-responsive(src='img/about/1.jpg', alt='')
-                .timeline-panel
-                  .timeline-heading
-                    h4 PASO 1
-                  .timeline-body
-                    p.text-muted
-                      | En
-                      a(href='http://www.latinoamericareforma.cl/contactanos.php') Latinoamérica reforma!
-                      |  consigue la información sobre los requerimientos para obtener una receta médica para tu tratamiento.
-              li.timeline-inverted
-                .timeline-image
-                  img.img-circle.img-responsive(src='img/about/2.jpg', alt='')
-                .timeline-panel
-                  .timeline-heading
-                    h4 PASO 2
-                  .timeline-body
-                    p.text-muted
-                      | Agenda tu hora con FASIMC en nuestra WEB, te esperaremos en nuestra oficina para completar tu inscripción.
-              li
-                .timeline-image
-                  img.img-circle.img-responsive(src='img/about/3.jpg', alt='')
-                .timeline-panel
-                  .timeline-heading
-                    h4 Paso 3
-                  .timeline-body
-                    p.text-muted
-                      | Dirígete a nuestra oficina ubicada a pasos de metro Plaza de Armas para entregar tus documentos y completar formalidades, te recibiremos con un rico café!
-              li.timeline-inverted
-                .timeline-image
-                  img.img-circle.img-responsive(src='img/about/4.jpg', alt='')
-                .timeline-panel
-                  .timeline-heading
-                    h4 PASO 4
-                  .timeline-body
-                    p.text-muted Listo! Ya eres socio de FASIMC, pronto recibirás todos nuestros beneficios!
-              li.timeline-inverted
-                .timeline-image
-                  h4
-                    | ÚNETE
-                    br
-                    | A
-                    br
-                    | NOSOTROS!
-    // Team Section
-    section#testimonies.bg-light-gray
-      .container
-        .row
-          .col-lg-12.text-center
-            h2.section-heading TESTIMONIOS
-            h3.section-subheading.text-muted Relatos de socios respecto a su experiencia junto a FASIMC.
-        .row
-          .col-sm-4
-            .team-member
-              img.img-responsive.img-circle(src='img/team/1.jpg', alt='')
-              h4 Kay Garland
-              p.text-muted Artritis
-          .col-sm-4
-            .team-member
-              img.img-responsive.img-circle(src='img/team/2.jpg', alt='')
-              h4 Larry Parker
-              p.text-muted Fibromialgia
-          .col-sm-4
-            .team-member
-              img.img-responsive.img-circle(src='img/team/3.jpg', alt='')
-              h4 Diana Pertersen
-              p.text-muted Epilepsia
-        .row
-          .col-lg-8.col-lg-offset-2.text-center
-            p.large.text-muted
-              | Cumplimos un rol social integral, medicinal, revolucionario, espiritual, terapeutico y recreacional para todos los usuarios de Cannabis.
-    // Asociados
-    aside.clients
-      .container
-        .row
-          .col-md-3.col-sm-6
-            a(href='http://www.latinoamericareforma.cl/')
-              img.img-responsive.img-centered(src='img/logos/envato.jpg', alt='')
-          .col-md-3.col-sm-6
-            a(href='http://dispensarionacional.cl/')
-              img.img-responsive.img-centered(src='img/logos/designmodo.jpg', alt='')
-          .col-md-3.col-sm-6
-            a(href='https://www.facebook.com/greenlifeasociacion/')
-              img.img-responsive.img-centered(src='img/logos/themeforest.jpg', alt='')
-          .col-md-3.col-sm-6
-            a(href='https://www.facebook.com/B1O2C3I4/')
-              img.img-responsive.img-centered(src='img/logos/creative-market.jpg', alt='')
-    // Contact Section
-    section#contact
-      .container
-        .row
-          .col-lg-12.text-center
-            h2.section-heading Contacto
-            h3.section-subheading.text-muted
-              | Fono, Email, Whatsapp, Telegram, Señales de humo :D, Emotíconos, envíanos tus dudas que pronto las resolveremos!
-        .row
-          .col-lg-12
-            form#contactForm(name='sentMessage', novalidate='')
-              .row
-                .col-md-6
-                  .form-group
-                    input#name.form-control(type='text', placeholder='Nombre *', required='', data-validation-required-message='Por favor indique su nombre.')
-                    p.help-block.text-danger
-                  .form-group
-                    input#email.form-control(type='email', placeholder='Email *', required='', data-validation-required-message='Por favor indique dirección de correo electrónico.')
-                    p.help-block.text-danger
-                  .form-group
-                    input#phone.form-control(type='tel', placeholder='Teléfono *', required='', data-validation-required-message='Porfavor indique número de contacto.')
-                    p.help-block.text-danger
-                .col-md-6
-                  .form-group
-                    textarea#message.form-control(placeholder='Mensaje *', required='', data-validation-required-message='Por favor indique su requerimiento.')
-                    p.help-block.text-danger
-                .clearfix
-                .col-lg-12.text-center
-                  #success
-                  button.btn.btn-xl(type='submit') Enviar mensaje
     footer
       .container
         .row
