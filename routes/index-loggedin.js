@@ -13,8 +13,12 @@ var isAuthenticated = function (req, res, next) {
 
 module.exports = function(passport){
 
-  router.get('/index-loggedin', function(req, res){
+  router.get('/index-loggedin', isAuthenticated, function(req, res){
     res.render('index-loggedin', {title:'DM-ACCI'});
+  });
+
+	router.get('/stock', isAuthenticated, function(req, res){
+    res.render('stock', {title:'DM-ACCI'});
   });
 
 	return router;

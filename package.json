@@ -11,6 +11,7 @@
     "body-parser": "~1.0.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.0.1",
+    "datatables.net-bs": "^1.10.15",
     "debug": "~0.7.4",
     "express": "~4.0.0",
     "express-session": "^1.15.3",

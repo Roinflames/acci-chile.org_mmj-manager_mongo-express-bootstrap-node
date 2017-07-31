@@ -13,11 +13,19 @@ html(lang='en')
     link(href='stylesheets/agency.css', rel='stylesheet')
     link(href='stylesheets/style.css', rel='stylesheet')
     // Custom Fonts
-    link(href='vendor/font-awesome/css/font-awesome.css', rel='stylesheet', type='text/css')
+    link(href='vendor/font-awesome/css/font-awesome.css', rel='stylesheet', type='text/css')  
     link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Kaushan+Script', rel='stylesheet', type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700', rel='stylesheet', type='text/css')    
+    //Datatables    
+    link(href='https://code.jquery.com/jquery-1.12.4.js', rel='stylesheet', type='text/css')
+    link(href='https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css', rel='stylesheet', type='text/css')
+    script(type='text/javascript')
+      $(document).ready(function(){
+        $('#flowers').DataTable();
+      });
+    script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js') 
     block content
     body#page-top.index
     //Navbar theme
@@ -36,7 +44,7 @@ html(lang='en')
             li.hidden
               a(href='#page-top')            
             li
-              a.page-scroll(href='#') STOCK
+              a.page-scroll(href='/stock') STOCK
             li
               a.page-scroll(href='#') RESERVA TU HORA
             li
@@ -48,3 +56,5 @@ html(lang='en')
                 span.glyphicon.glyphicon-log-in
                 |  DESCONÉCTATE
         // /.navbar-collapse
+        
+     
