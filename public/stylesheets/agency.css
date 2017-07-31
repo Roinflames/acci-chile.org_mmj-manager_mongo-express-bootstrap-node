@@ -212,10 +212,11 @@ fieldset[disabled] .btn-xl.active {
   background-color: #39ac73;
 }
 /* End Navbar activo*/
+/*Fixed es la propiedad contraria a scroll*/
 header {
   background-image: url('../img/header-bg.jpg');
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -253,7 +254,7 @@ header .intro-text .intro-heading {
     font-size: 30px;
     line-height: 40px;
     margin-bottom: 25px;
-    color: green;
+    color: #003300;
   }
   header .intro-text .intro-heading {
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
