@@ -21,11 +21,13 @@ html(lang='en')
     //Datatables    
     link(href='https://code.jquery.com/jquery-1.12.4.js', rel='stylesheet', type='text/css')
     link(href='https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css', rel='stylesheet', type='text/css')
-    script(type='text/javascript')
-    $(document).ready(function(){
-    $('#flowers').DataTable();
-    });
     script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js') 
+    script.init(type='text/javascript').
+      $(document).ready(function() {
+      $('#flowers').DataTable( {
+      "order": [[ 3, "desc" ]]
+      } );
+      } );
     block content
     body#page-top.index
     //Navbar theme
@@ -46,9 +48,9 @@ html(lang='en')
             li
               a.page-scroll(href='/stock') STOCK
             li
-              a.page-scroll(href='#') RESERVA TU HORA
+              a.page-scroll(href='https://reservahora.setmore.com/resourcebookingpage/rd372442c0a868201e64facecbe1f31a19f94755a' target="_blank") RESERVA TU HORA
             li
-              a.page-scroll(href='#') DECLARACIONES PÚBLICAS
+              a.page-scroll(href='/declaraciones') DECLARACIONES PÚBLICAS
 
           ul.nav.navbar-nav.navbar-right            
             li

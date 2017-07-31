@@ -21,5 +21,9 @@ module.exports = function(passport){
     res.render('stock', {title:'DM-ACCI'});
   });
 
+	router.get('/declaraciones', isAuthenticated, function(req, res){
+    res.render('declaraciones', {title:'DM-ACCI'});
+  });
+
 	return router;
 }
