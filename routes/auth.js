@@ -4,7 +4,7 @@ var router = express.Router();
 module.exports = function(passport){
   //Logueo User
   router.get('/signin', function(req, res){
-    res.render('signin');
+    res.render('signin', {title: 'DM-ACCI'});
   });
 
 	router.post('/login', passport.authenticate('login', {
@@ -16,7 +16,7 @@ module.exports = function(passport){
 
   //Register User
 	router.get('/signup', function(req, res){
-		res.render('signup',{message: req.flash('message')});
+		res.render('signup',{message: req.flash('message'), title: 'DM-ACCI'});
 	});
 
 	router.post('/signup', passport.authenticate('signup', {
@@ -29,7 +29,7 @@ module.exports = function(passport){
 	//Logout user
 	router.get('/signout', function(req, res) {
 		req.logout();
-		res.redirect('/fasimc');
+		res.redirect('/');
 	});
 
 	return router;

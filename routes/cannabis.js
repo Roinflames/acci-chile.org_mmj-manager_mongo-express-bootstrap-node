@@ -14,19 +14,19 @@ var isAuthenticated = function (req, res, next) {
 module.exports = function(passport){
   //descripcion
 	router.get('/descripcion', isAuthenticated, function(req, res) {
-	  res.render('descripcion', { title: 'DESCRIPCION' });
+	  res.render('descripcion', { title: 'DM-ACCI' });
 	});
   //especies
   router.get('/especies', isAuthenticated, function(req, res) {
-	  res.render('especies', { title: 'ESPECIES' });
+	  res.render('especies', { title: 'DM-ACCI' });
 	});
   //terpenos
   router.get('/terpenos', isAuthenticated, function(req, res) {
-	  res.render('terpenos', { title: 'TERPENOS' });
+	  res.render('terpenos', { title: 'DM-ACCI' });
 	});
   //cannabinoides
   router.get('/cannabinoides', isAuthenticated, function(req, res) {
-    res.render('cannabinoides', { title: 'CANNABINOIDES' });
+    res.render('cannabinoides', { title: 'DM-ACCI' });
   });
 
 	return router;

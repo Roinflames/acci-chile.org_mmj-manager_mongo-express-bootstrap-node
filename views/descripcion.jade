@@ -1,6 +1,47 @@
-extends layout-loggedin
+extends layout
 
 block content
+    //Navbar theme
+
+    nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+      .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header.page-scroll
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            |  Menu
+            i.fa.fa-bars
+          a.navbar-brand.page-scroll(href='#page-top') #{title}
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.hidden
+              a(href='#page-top')            
+            li
+              a.page-scroll(href='#') STOCK
+            li
+              a.page-scroll(href='#') RESERVA TU HORA
+
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                | CANNABIS
+                span.caret
+                  ul.dropdown-menu
+                    li
+                      a.page-scroll(href='/descripcion') DESCRIPCIÓN
+                    li
+                      a(href='/especies') ESPECIES
+                    li
+                      a(href='/terpenos') TERPENOS
+                    li
+                      a(href='/cannabinoides') CANNABINOIDES
+            li
+              a.page-scroll(href='/tratamiento') TRATAMIENTO
+            li
+              a(href='/signout')
+                span.glyphicon.glyphicon-log-in
+                |  DESCONÉCTATE
     // Portfolio Grid Section
     section#testimonies.bg-light-gray
       .container
