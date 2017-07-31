@@ -1,23 +1,6 @@
-extends layout
+extends layout-auth
 
 block content
-  //Navbar theme
-  nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-    .container-fluid
-      // Brand and toggle get grouped for better mobile display
-      .navbar-header.page-scroll
-        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-          span.sr-only Toggle navigation
-          |  Menu
-          i.fa.fa-bars
-        a.navbar-brand.page-scroll(href='/') #{title}
-      // Collect the nav links, forms, and other content for toggling
-      ul.nav.navbar-nav.navbar-right
-        li
-          a(href='/')
-            span.glyphicon.glyphicon-log-in
-            |  VOLVER
-      // /.navbar-collapse
   .section
   main
     center
@@ -35,7 +18,7 @@ block content
             br
             button(class='btn btn-lg btn-primary btn-block', type='submit') Registrar
             p
-              a(href='/index', class='text-center') Volver
+              a(href='/', class='text-center') Volver
                 span.clearfix
           #message
             if message

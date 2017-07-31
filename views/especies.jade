@@ -1,52 +1,13 @@
-extends layout
+extends layout-loggedin
 
 block content
-    //Navbar theme
-
-    nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-      .container-fluid
-        // Brand and toggle get grouped for better mobile display
-        .navbar-header.page-scroll
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-            span.sr-only Toggle navigation
-            |  Menu
-            i.fa.fa-bars
-          a.navbar-brand.page-scroll(href='/index-loggedin') #{title}
-        // Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li.hidden
-              a(href='/index-loggedin')            
-            li
-              a.page-scroll(href='#') STOCK
-            li
-              a.page-scroll(href='#') RESERVA TU HORA
-
-          ul.nav.navbar-nav.navbar-right
-            li.dropdown
-              a.dropdown-toggle(data-toggle='dropdown', href='#')
-                | CANNABIS
-                span.caret
-                  ul.dropdown-menu
-                    li
-                      a.page-scroll(href='/descripcion') DESCRIPCIÓN
-                    li
-                      a(href='/especies') ESPECIES
-                    li
-                      a(href='/terpenos') TERPENOS
-                    li
-                      a(href='/cannabinoides') CANNABINOIDES
-            li
-              a.page-scroll(href='/tratamiento') TRATAMIENTO
-            li
-              a(href='/signout')
-                span.glyphicon.glyphicon-log-in
-                |  DESCONÉCTATE
     // Portfolio Grid Section
     section#portfolio.bg-light-gray
       .container
         .row
           .col-lg-12.text-justify
+            h2.section-heading.text-center ¿Qué especies de cannabis existen?
+            br
             p Las hojas y flores de las plantas de cannabis contienen al menos 489 compuestos distintos, distribuidos en 18 clases químicas diferentes, y albergan más de 70 fitocannabinoides diferentes. Los principales cannabinoides parecen ser delta-9-tetrahidrocannabinol (Δ9-THC o simplemente THC), cannabinol (CBN), y cannabidiol (CBD), aunque la abundancia relativa de estos y otros cannabinoides puede variar dependiendo de una serie de factores tales como la variedad de cannabis, las condiciones de suelo y clima, y las técnicas de cultivo. Otros cannabinoides que se encuentran en el cannabis incluyen cannabigerol (CBG), cannabicromeno (CBC), tetrahidrocannabivarina (THCV), entre otros. En la planta viva, estos fitocannabinoides existen en forma de ácidos monocarboxílicos inactivos (ej: THCA) y formas descarboxiladas activas (ej: THC); Sin embargo, la aplicación de calor, promueve la descarboxilación (ej: THCA pasa a THC) lo que resulta en la activación biológica. 
             p El cannabis presenta tres subespecies o variedades principales. Cada una con características morfológicas y psicoactivas diferentes.
             br
@@ -99,7 +60,7 @@ block content
           .container
             .row
               .col-lg-8.col-lg-offset-2
-                .modal-body
+                .modal-body.text-justify.text-justify
                   // Project Details Go Here
                   h2 Cannabis Sativa SSP. Sativa
                   p
@@ -124,7 +85,7 @@ block content
           .container
             .row
               .col-lg-8.col-lg-offset-2
-                .modal-body
+                .modal-body.text-justify
                   h2 Cannabis Sativa SSP. Índica
                   p
                     | Esta subespecie proviene principalmente del sur de Asia y del sub-continente Indio .De ahí su nombre.  A diferencia de la variedad Sativa, estas son plantas compactas con mucho follaje, no ganan mucha altura en el crecimiento y el periodo de floración suele ser corto. Además de producir mayor cantidad de CBD.
@@ -148,7 +109,7 @@ block content
           .container
             .row
               .col-lg-8.col-lg-offset-2
-                .modal-body
+                .modal-body.text-justify
                   // Project Details Go Here
                   h2 Cannabis Sativa SSP. Rudelaris
                   p
@@ -173,7 +134,7 @@ block content
           .container
             .row
               .col-lg-8.col-lg-offset-2
-                .modal-body
+                .modal-body.text-justify
                   // Project Details Go Here
                   h2 Híbridos
                   p

@@ -13,7 +13,7 @@ var isAuthenticated = function (req, res, next) {
 
 module.exports = function(passport){
 
-  router.get('/tratamiento', isAuthenticated, function(req, res) {
+  router.get('/tratamiento', function(req, res) {
     res.render('tratamiento', { title: 'DM-FASIMC' });
   });
 

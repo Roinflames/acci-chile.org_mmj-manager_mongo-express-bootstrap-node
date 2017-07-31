@@ -30,7 +30,7 @@ html(lang='en')
             span.sr-only Toggle navigation
             |  Menu
             i.fa.fa-bars
-          a.navbar-brand.page-scroll(href='#page-top') DM-FASIMC
+          a.navbar-brand.page-scroll(href='/index-loggedin') DM-FASIMC
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav
@@ -40,6 +40,8 @@ html(lang='en')
               a.page-scroll(href='#') STOCK
             li
               a.page-scroll(href='#') RESERVA TU HORA
+            li
+              a.page-scroll(href='#') DECLARACIONES PÚBLICAS
 
           ul.nav.navbar-nav.navbar-right
             li.dropdown
@@ -48,13 +50,19 @@ html(lang='en')
                 span.caret
                   ul.dropdown-menu
                     li
-                      a.page-scroll(href='/descripcion') DESCRIPCIÓN
+                      a(href='/descripcion') DESCRIPCIÓN
                     li
                       a(href='/especies') ESPECIES
                     li
-                      a(href='/terpenos') TERPENOS
-                    li
                       a(href='/cannabinoides') CANNABINOIDES
+                    li
+                      a(href='/sist-endo') SISTEMA ENDOCANNABINOIDE
+                    li
+                      a(href='/terpenos') TERPENOS                    
+                    li
+                      a(href='/medicinal') CANNABIS MEDICINAL
+                    li
+                      a(href='/legal') CANNABIS LEGAL
             li
               a.page-scroll(href='/tratamiento') TRATAMIENTO
             li

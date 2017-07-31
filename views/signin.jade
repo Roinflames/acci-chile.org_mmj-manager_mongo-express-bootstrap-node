@@ -1,45 +1,7 @@
-extends layout
+extends layout-auth
 
 block content
-<<<<<<< HEAD
-  .section
-  main
-    center
-      .section
       .container
-        .z-depth-1.grey.lighten-4.row(style='display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;')
-          h5.orange-text Autenticación de Usuario
-          form(class='form-signin', action='/login', method='post')
-              input#email.validate(type='text', name='username', class='form-control', placeholder='Email Usuario',required)
-              input#password.validate(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
-              br
-              button(class='btn btn-lg btn-primary btn-block', type='submit', name='btn_login') Ingresar
-              label(style='float: right;')
-              a.light-blue-text(href='#!')
-                b Recuperar contraseña
-              span.clearfix
-              br
-      .container
-        a(href='/index', class='text-center') Volver
-=======
-    //Navbar theme
-    nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-      .container-fluid
-        // Brand and toggle get grouped for better mobile display
-        .navbar-header.page-scroll
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-            span.sr-only Toggle navigation
-            |  Menu
-            i.fa.fa-bars
-          a.navbar-brand.page-scroll(href='/') #{title}
-        // Collect the nav links, forms, and other content for toggling
-        ul.nav.navbar-nav.navbar-right
-          li
-            a(href='/')
-              span.glyphicon.glyphicon-log-in
-              |  VOLVER
-        // /.navbar-collapse
-    .container
       br
       br
       br
@@ -62,8 +24,6 @@ block content
                   br
           .container
             a(href='/', class='text-center') Volver
->>>>>>> 8e84c4b
-
       #message
       if message
       h1.text-center.error-message #{message}

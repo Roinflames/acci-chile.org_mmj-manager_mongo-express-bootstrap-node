@@ -9,7 +9,7 @@ module.exports = function(passport){
 
 	router.post('/login', passport.authenticate('login', {
 		successRedirect: '/index-loggedin',
-		failureRedirect: '/fasimc',
+		failureRedirect: '/',
 		failureFlash : true,
 	}));
   //End Logueo User
@@ -21,7 +21,7 @@ module.exports = function(passport){
 
 	router.post('/signup', passport.authenticate('signup', {
 		successRedirect: '/index-loggedin',
-		failureRedirect: '/fasimc',
+		failureRedirect: '/',
 		failureFlash : true
 	}));
   //End Register User

@@ -1,43 +1,6 @@
 extends layout
 
-<<<<<<< HEAD
-block content  
-=======
-block content
-    body#page-top.index
-    //Navbar theme
-
-    nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-      .container-fluid
-        // Brand and toggle get grouped for better mobile display
-        .navbar-header.page-scroll
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-            span.sr-only Toggle navigation
-            |  Menu
-            i.fa.fa-bars
-          a.navbar-brand.page-scroll(href='#page-top') #{title}
-        // Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li.hidden
-              a(href='#page-top')
-            li
-              a.page-scroll(href='#benefits') BENEFICIOS
-            li
-              a.page-scroll(href='#testimonies') TESTIMONIOS
-            li
-              a.page-scroll(href='#asociates') ASOCIADOS
-            li
-              a.page-scroll(href='#contact') CONTACTO
-
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href='/signin')
-                span.glyphicon.glyphicon-log-in
-                |  INGRESA
-        // /.navbar-collapse
-      // /.container-fluid
->>>>>>> 8e84c4b
+block content    
     // Header
     header
       .container
@@ -99,7 +62,7 @@ block content
               h4 Diana Pertersen
               p.text-muted Epilepsia
         .row
-          .col-lg-8.col-lg-offset-2.text-center
+          .col-lg-12.col-lg-offset-2.text-center
             p.large.text-muted
               | Cumplimos un rol social integral, medicinal, revolucionario, espiritual, terapeutico y recreacional para todos los usuarios de Cannabis.
     // Asociados
@@ -172,7 +135,6 @@ block content
               br
               |  Correo: DM@FASIMC.ORG
               |                       A PASOS DEL METRO PLAZA DE ARMAS
-
     // jQuery
     script(src='vendor/jquery/jquery.min.js')
     // Bootstrap Core JavaScript
