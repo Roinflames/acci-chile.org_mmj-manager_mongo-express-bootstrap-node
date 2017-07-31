@@ -1,17 +1,37 @@
 extends layout
 
 block content
+  //Navbar theme
+  nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+    .container-fluid
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header.page-scroll
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          |  Menu
+          i.fa.fa-bars
+        a.navbar-brand.page-scroll(href='/') #{title}
+      // Collect the nav links, forms, and other content for toggling
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href='/')
+            span.glyphicon.glyphicon-log-in
+            |  VOLVER
+      // /.navbar-collapse
   .section
   main
     center
+      br
+      br
+      br
       .section
       .container
         .z-depth-1.grey.lighten-4.row(style='display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;')
           h5.orange-text Registro de Usuario
           form(class='form-signin', action='/signup', method='post')
             input(type='text', name='username', class='form-control', placeholder='Nombre',required, autofocus)
-            input(type='email', name='email', class='form-control', placeholder='Email',required)
-            input(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
+            input(type='email', name='email', class='form-control', placeholder='Correo electrónico',required)
+            input(type='password', name='password', class='form-control nomargin', placeholder='Contraseña', required)
             br
             button(class='btn btn-lg btn-primary btn-block', type='submit') Registrar
             p
