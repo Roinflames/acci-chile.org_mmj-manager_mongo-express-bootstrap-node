@@ -22,3 +22,6 @@
 .transparent{
   background:rgba(255,255,255,0.5);
 }
+.onway{
+  color: red;
+}

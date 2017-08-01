@@ -28,8 +28,10 @@ a:active,
 a.active {
   outline: none;
 }
+/*Letra del navbar*/
 a {
   color: green;
+  font-size: 12px;
 }
 a:hover,
 a:focus,

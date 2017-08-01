@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'DM-ACCI' });
+  res.render('index', { title: 'ACCI' });
 });
 
 module.exports = router;
