@@ -3,11 +3,11 @@
    background:#FFFFFF;
    opacity: 0.5;
    position:relative;
-   width: 800px;
+   width: auto;
 }
 .centrado {
     margin: auto;
-    width: 60%;
+    width: auto;
     border: 3px solid #73AD21;
     padding: 10px;
 }

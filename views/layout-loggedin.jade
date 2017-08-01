@@ -6,7 +6,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content='')
     meta(name='author', content='roinflames & mvelilla')
-    title #{title}, Dispensario Medicinal de Cannabis
+    title #{title}
     // Bootstrap Core CSS
     link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     // Theme CSS
@@ -20,14 +20,7 @@ html(lang='en')
     link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700', rel='stylesheet', type='text/css')    
     //Datatables    
     link(href='https://code.jquery.com/jquery-1.12.4.js', rel='stylesheet', type='text/css')
-    link(href='https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css', rel='stylesheet', type='text/css')
-    script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js') 
-    script.init(type='text/javascript').
-      $(document).ready(function() {
-      $('#flowers').DataTable( {
-      "order": [[ 3, "desc" ]]
-      } );
-      } );
+    link(href='https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css', rel='stylesheet', type='text/css')    
     block content
     body#page-top.index
     //Navbar theme
@@ -46,11 +39,13 @@ html(lang='en')
             li.hidden
               a(href='#page-top')            
             li
-              a.page-scroll(href='/stock') STOCK
+              a.page-scroll(href='/stock') Catálogo
             li
               a.page-scroll(href='https://reservahora.setmore.com/resourcebookingpage/rd372442c0a868201e64facecbe1f31a19f94755a' target="_blank") RESERVA TU HORA
             li
               a.page-scroll(href='/declaraciones') DECLARACIONES PÚBLICAS
+            li
+              a.page-scroll(href='/galeria') GALERÍA FOTOGRÁFICA
 
           ul.nav.navbar-nav.navbar-right            
             li
@@ -58,5 +53,4 @@ html(lang='en')
                 span.glyphicon.glyphicon-log-in
                 |  DESCONÉCTATE
         // /.navbar-collapse
-        
-     
+   

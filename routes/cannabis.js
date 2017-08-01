@@ -14,28 +14,28 @@ var isAuthenticated = function (req, res, next) {
 module.exports = function(){
   // Descripción
 	router.get('/descripcion', function(req, res) {
-	  res.render('descripcion', { title: 'DM-ACCI' });
+	  res.render('descripcion', { title: 'ACCI' });
 	});
   //especies
   router.get('/especies', function(req, res) {
-	  res.render('especies', { title: 'DM-ACCI' });
+	  res.render('especies', { title: 'ACCI' });
 	});
   //terpenos
   router.get('/terpenos', function(req, res) {
-	  res.render('terpenos', { title: 'DM-ACCI' });
+	  res.render('terpenos', { title: 'ACCI' });
 	});
   //cannabinoides
   router.get('/cannabinoides', function(req, res) {
-    res.render('cannabinoides', { title: 'DM-ACCI' });
+    res.render('cannabinoides', { title: 'ACCI' });
   });
 	router.get('/sist-endo', function(req, res) {
-    res.render('sist-endo', { title: 'DM-ACCI' });
+    res.render('sist-endo', { title: 'ACCI' });
   });
 	router.get('/medicinal', function(req, res) {
-    res.render('medicinal', { title: 'DM-ACCI' });
+    res.render('medicinal', { title: 'ACCI' });
   });
 	router.get('/legal', function(req, res) {
-    res.render('legal', { title: 'DM-ACCI' });
+    res.render('legal', { title: 'ACCI' });
   });
 
 	return router;

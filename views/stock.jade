@@ -1,40 +1,298 @@
 extends layout-loggedin
 
-block content        
-    section.bg-light-gray
+block content
+    // Team Section
+    section#testimonies.bg-light-gray
       .container
         .row
-          .col-lg-12.text-center
-            table#flowers.display(width='100%', cellspacing='0')
-              thead
-                tr
-                  th Name
-                  th Position
-                  th Office
-                  th Age
-                  th Start date
-                  th Salary
-              tfoot
-                tr
-                  th Name
-                  th Position
-                  th Office
-                  th Age
-                  th Start date
-                  th Salary
-              tbody
-                tr
-                  td Tiger Nixon
-                  td System Architect
-                  td Edinburgh
-                  td 61
-                  td 2011/04/25
-                  td $320,800
-                tr
-                  td Garrett Winters
-                  td Accountant
-                  td Tokyo
-                  td 63
-                  td 2011/07/25
-                  td $170,750
-          
+          .col-sm-4
+            .container
+              h1 CATÁLOGO
+              table#catalogo.display(width='100%', cellspacing='0')
+                thead
+                  tr
+                    th NOMBRE
+                    th CLASIFICACIÓN
+                    th THC
+                    th CBD
+                    th CBN
+                    th CNC
+                    th STOCK
+                    th FICHA
+                tbody
+                  tr
+                    td #{nombre1}
+                    td #{clasificacion1}
+                    td #{thc1} %
+                    th #{cbd1} %
+                    th #{cbn1} %
+                    th #{cnc1} %
+                    td #{stock1} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre2}
+                    td #{clasificacion2}
+                    td #{thc2} %
+                    th #{cbd2} %
+                    th #{cbn2} %
+                    th #{cnc2} %
+                    td #{stock2} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre3}
+                    td #{clasificacion3}
+                    td #{thc3} %
+                    th #{cbd3} %
+                    th #{cbn3} %
+                    th #{cnc3} %
+                    td #{stock3} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre4}
+                    td #{clasificacion4}
+                    td #{thc4} %
+                    th #{cbd4} %
+                    th #{cbn4} %
+                    th #{cnc4} %
+                    td #{stock4} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre5}
+                    td #{clasificacion5}
+                    td #{thc5} %
+                    th #{cbd5} %
+                    th #{cbn5} %
+                    th #{cnc5} %
+                    td #{stock5} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre6}
+                    td #{clasificacion6}
+                    td #{thc6} %
+                    th #{cbd6} %
+                    th #{cbn6} %
+                    th #{cnc6} %
+                    td #{stock6} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre7}
+                    td #{clasificacion7}
+                    td #{thc7} %
+                    th #{cbd7} %
+                    th #{cbn7} %
+                    th #{cnc7} %
+                    td #{stock7} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre8}
+                    td #{clasificacion8}
+                    td #{thc8} %
+                    th #{cbd8} %
+                    th #{cbn8} %
+                    th #{cnc8} %
+                    td #{stock8} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre9}
+                    td #{clasificacion9}
+                    td #{thc9} %
+                    th #{cbd9} %
+                    th #{cbn9} %
+                    th #{cnc9} %
+                    td #{stock9} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre10}
+                    td #{clasificacion10}
+                    td #{thc10} %
+                    th #{cbd10} %
+                    th #{cbn10} %
+                    th #{cnc10} %
+                    td #{stock10} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre11}
+                    td #{clasificacion11}
+                    td #{thc11} %
+                    th #{cbd11} %
+                    th #{cbn11} %
+                    th #{cnc11} %
+                    td #{stock11} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre12}
+                    td #{clasificacion12}
+                    td #{thc12} %
+                    th #{cbd12} %
+                    th #{cbn12} %
+                    th #{cnc12} %
+                    td #{stock12} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre13}
+                    td #{clasificacion13}
+                    td #{thc13} %
+                    th #{cbd13} %
+                    th #{cbn13} %
+                    th #{cnc13} %
+                    td #{stock13} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre14}
+                    td #{clasificacion14}
+                    td #{thc14} %
+                    th #{cbd14} %
+                    th #{cbn14} %
+                    th #{cnc14} %
+                    td #{stock14} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre15}
+                    td #{clasificacion15}
+                    td #{thc15} %
+                    th #{cbd15} %
+                    th #{cbn15} %
+                    th #{cnc15} %
+                    td #{stock15} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre16}
+                    td #{clasificacion16}
+                    td #{thc16} %
+                    th #{cbd16} %
+                    th #{cbn16} %
+                    th #{cnc16} %
+                    td #{stock16} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre17}
+                    td #{clasificacion17}
+                    td #{thc17} %
+                    th #{cbd17} %
+                    th #{cbn17} %
+                    th #{cnc17} %
+                    td #{stock17} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre18}
+                    td #{clasificacion18}
+                    td #{thc18} %
+                    th #{cbd18} %
+                    th #{cbn18} %
+                    th #{cnc18} %
+                    td #{stock18} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre19}
+                    td #{clasificacion19}
+                    td #{thc19} %
+                    th #{cbd19} %
+                    th #{cbn19} %
+                    th #{cnc19} %
+                    td #{stock19} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre20}
+                    td #{clasificacion20}
+                    td #{thc20} %
+                    th #{cbd20} %
+                    th #{cbn20} %
+                    th #{cnc20} %
+                    td #{stock20} und
+                    td
+                      a(href='#') Mostrar
+                  tr
+                    td #{nombre21}
+                    td #{clasificacion21}
+                    td #{thc21} %
+                    th #{cbd21} %
+                    th #{cbn21} %
+                    th #{cnc21} %
+                    td #{stock21} und
+                    td
+                      a(href='#') Mostrar
+    footer
+      .container
+        .row
+          .col-md-4
+            p.copyright DM FASIMC - © 2017 Copy Left. Debes tener al menos 18 años para usar este sitio.
+          .col-md-4
+            ul.list-inline.social-buttons
+              li
+                a(href='#')
+                  i.fa.fa-twitter
+              li
+                a(href='https://www.facebook.com/FASIMC/?ref=br_rs')
+                  i.fa.fa-facebook
+              li
+                a(href='#')
+                  i.fa.fa-linkedin
+          .col-md-4
+            span
+              | DIRECCION: CATEDRAL 1009 OF 601
+              br
+              |  ATENCION: 10:00 A 18:00 HRS
+              |                                   TEL: +56999467416
+              br
+              |  Correo: DM@FASIMC.ORG
+              |                                   A PASOS DEL METRO PLAZA DE ARMAS
+    // Bootstrap Core JavaScript
+    script(src='vendor/bootstrap/js/bootstrap.min.js')
+    // jQuery
+    script(src='vendor/jquery/jquery.min.js')
+    // Plugin JavaScript
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js', integrity='sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb', crossorigin='anonymous')
+    // Contact Form JavaScript
+    script(src='javascripts/jqBootstrapValidation.js')
+    script(src='javascripts/contact_me.js')
+    // Theme JavaScript
+    script(src='javascripts/agency.js')
+    script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+      $('#catalogo').DataTable( {
+      "decimal":        "",
+      "emptyTable":     "Lo sentimos, no existen productos para cargar.",
+      "info":           "Mostrando _START_ a _END_ de _TOTAL_ productos",
+      "infoEmpty":      "Mostrando 0 a 0 de 0 productos",
+      "infoFiltered":   "(Filtrado desde _MAX_ total de productos)",
+      "language": {
+      "search":         "Buscar:"
+      },
+      "paginate": {
+      "first":      "Primero",
+      "last":       "Último",
+      "next":       "Siguiente",
+      "previous":   "Anterior"
+      },
+      columnDefs: [ {
+      targets: [ 0 ],
+      orderData: [ 0, 1 ]
+      }, {
+      targets: [ 1 ],
+      orderData: [ 1, 0 ]
+      }, {
+      targets: [ 4 ],
+      orderData: [ 4, 0 ]
+      } ]
+      } );
+      } );
