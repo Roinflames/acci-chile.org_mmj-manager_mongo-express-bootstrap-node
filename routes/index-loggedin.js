@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var menu = require('../services/menu')
+var request = require('request');
 
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler
@@ -12,39 +13,16 @@ var isAuthenticated = function (req, res, next) {
 	res.redirect('/');
 }
 //API CALLS
-var request = require('request');
 request('http://Api.fernandopiza.xyz/flores/', function (error, response, body) {
     if (!error && response.statusCode == 200) {
 				//console.log(body);
 				menu = JSON.parse(body);
+				//console.log(menu);
      }
 })
 // END API CALLS
-// Fylesystem
-fs = require('fs')
-fs.readFile('./public/json/stock.json', 'utf8', function (err,data) {
-  if (err) {
-    return console.log(err);
-  }
-  stock = JSON.parse(data);
-	//console.log(stock);
-});
-
 /// End Fylesystem
 module.exports = function(passport){
-	router.get('/endpoint', function(req, res){
-		var obj = {};
-		obj.title = 'title';
-		obj.data = 'data';
-
-		console.log('params: ' + JSON.stringify(req.params));
-		console.log('body: ' + JSON.stringify(req.body));
-		console.log('query: ' + JSON.stringify(req.query));
-
-		res.header('Content-type','application/json');
-		res.header('Charset','utf8');
-		res.send(req.query.callback + '('+ JSON.stringify(obj) + ');');
-	});
 
   router.get('/index-loggedin', isAuthenticated, function(req, res){
     res.render('index-loggedin', {title:'ACCI', usuario: req.user.username});
