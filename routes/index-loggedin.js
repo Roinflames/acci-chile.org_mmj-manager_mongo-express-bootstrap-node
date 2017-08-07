@@ -30,8 +30,7 @@ module.exports = function(passport){
 
 	//router.get('/stock', isAuthenticated, function(req, res){
 	router.get('/stock', function(req, res){
-		console.log(menu);
-		res.render('stock-editable', {title:'ACCI', nombre1: menu[0].nombre, nombre2:menu[1].nombre, nombre3:menu[2].nombre,
+		res.render('stock', {title:'ACCI', nombre1: menu[0].nombre, nombre2:menu[1].nombre, nombre3:menu[2].nombre,
 		nombre4: menu[3].nombre, nombre5: menu[4].nombre, nombre6:menu[5].nombre, nombre7:menu[6].nombre,
 		nombre8:menu[7].nombre, nombre9:menu[8].nombre, nombre10:menu[9].nombre, nombre11:menu[10].nombre,
 		nombre12:menu[11].nombre, nombre13:menu[12].nombre, nombre14:menu[13].nombre, nombre15:menu[14].nombre,
