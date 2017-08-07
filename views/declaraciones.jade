@@ -1,19 +1,55 @@
-extends layout-loggedin
-
-block content        
-    section#home.bg-light-gray
+//footer
+extends layout-loggedin    
+            
+block content
+    // Team Section
+    section#stock.bg-light-gray
       .container
         .row
-          .col-lg-12.text-center
-            h2.section-heading Declaraciones.        
-            h3.onway En construcción.    
-    //footer
+          .col-sm-4
+            .container.text-center
+              h2.section-heading Declaraciones.        
+              h3.onway En construcción.
+              table#declaraciones.display(width='100%', cellspacing='0')
+                thead
+                  tr
+                    th Título                    
+                tbody
+                  tr
+                    td 
+                      a(href='#').h4 Declaración (numero) - (titulo de la declatacion)              
+                  tr
+                    td  
+                      a(href='#').h4 Declaración (numero) - (titulo de la declatacion)                    
+                  tr
+                    td 
+                      a(href='#').h4 Declaración (numero) - (titulo de la declatacion)
+                  tr
+                    td 
+                      a(href='#').h4 Declaración (numero) - (titulo de la declatacion)
+                  tr
+                    td 
+                      a(href='#').h4 Declaración (numero) - (titulo de la declatacion)
+                  tr
+                    td 
+                      a(href='#').h4 Declaración (numero) - (titulo de la declatacion)
+                  tr
+                    td 
+                      a(href='#').h4 Declaración (numero) - (titulo de la declatacion)
+                  tr
+                    td 
+                      a(href='#').h4 Declaración (numero) - (titulo de la declatacion)
+                  tr
+                    td 
+                      a(href='#').h4 Declaración (numero) - (titulo de la declatacion)
+                  tr
+                    td 
+                      a(href='#').h4 Declaración (numero) - (titulo de la declatacion)                
     footer
       .container
         .row
           .col-md-4
-            p.copyright
-              | DM FASIMC - © 2017 Copy Left. Debes tener al menos 18 años para usar este sitio.
+            p.copyright DM FASIMC - © 2017 Copy Left. Debes tener al menos 18 años para usar este sitio.
           .col-md-4
             ul.list-inline.social-buttons
               li
@@ -30,9 +66,50 @@ block content
               | DIRECCION: CATEDRAL 1009 OF 601
               br
               |  ATENCION: 10:00 A 18:00 HRS
-              |                       TEL: +56999467416
+              |                                   TEL: +56999467416
               br
               |  Correo: DM@FASIMC.ORG
-              |                       A PASOS DEL METRO PLAZA DE ARMAS
-    //footer
+              |                                   A PASOS DEL METRO PLAZA DE ARMAS
+    // Bootstrap Core JavaScript
+    script(src='vendor/bootstrap/js/bootstrap.min.js')
+    // jQuery
+    script(src='vendor/jquery/jquery.min.js')
+    // Plugin JavaScript
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js', integrity='sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb', crossorigin='anonymous')
+    // Contact Form JavaScript
+    script(src='javascripts/jqBootstrapValidation.js')
+    script(src='javascripts/contact_me.js')
+    // Theme JavaScript
+    script(src='javascripts/agency.js')
+    script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+      $('#declaraciones').DataTable( {
+      "decimal":        "",
+      "emptyTable":     "Lo sentimos, no existen productos para cargar.",
+      "info":           "Mostrando _START_ a _END_ de _TOTAL_ productos",
+      "infoEmpty":      "Mostrando 0 a 0 de 0 productos",
+      "infoFiltered":   "(Filtrado desde _MAX_ total de productos)",
+      "language": {
+      "search":         "Buscar:"
+      },
+      "paginate": {
+      "first":      "Primero",
+      "last":       "Último",
+      "next":       "Siguiente",
+      "previous":   "Anterior"
+      },
+      columnDefs: [ {
+      targets: [ 0 ],
+      orderData: [ 0, 1 ]
+      }, {
+      targets: [ 1 ],
+      orderData: [ 1, 0 ]
+      }, {
+      targets: [ 4 ],
+      orderData: [ 4, 0 ]
+      } ]
+      } );
+      } );
+
         

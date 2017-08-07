@@ -21,6 +21,21 @@ html(lang='en')
     //Datatables    
     link(href='https://code.jquery.com/jquery-1.12.4.js', rel='stylesheet', type='text/css')
     link(href='https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css', rel='stylesheet', type='text/css')    
+    //Stock
+    script(type='text/javascript').
+      $.getJSON( "ajax/test.json", function( data ) {
+      var items = [];
+      $.each( data, function( key, val ) {
+      
+      });
+
+      $( "<ul/>", {
+      "class": "my-new-list",
+      html: items.join( "" )
+      }).appendTo( "body" );
+      });
+
+    
     block content
     body#page-top.index
     //Navbar theme
