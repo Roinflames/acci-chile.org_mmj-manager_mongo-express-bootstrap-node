@@ -27,6 +27,19 @@ module.exports = function(passport){
     res.render('index-loggedin', {title:'ACCI', usuario: req.user.username});
   });
 
+	router.get('/profile', isAuthenticated, function(req, res){
+    res.render('profile', {title:'ACCI', usuario: req.user.username, rut: req.user.rut, name: req.user.name,
+		age: req.user.age, phone: req.user.phone, email: req.user.email, address: req.user.address, region: req.user.region,
+		comuna: req.user.comuna,
+
+		sick: req.user.sick, operaciones: req.user.operaciones, alergias: req.user.alergias,
+		medicamentos: req.user.medicamentos, declaracion: req.user.declaracion,
+
+		sender: req.user.sender, dosis: req.user.dosis, product: req.user.product, diary: req.user.diary,
+		week: req.user.week, month: req.user.month, other: req.user.other, sign: req.user.sign
+	});
+  });
+
 	//router.get('/stock', isAuthenticated, function(req, res){
 	router.get('/stock', function(req, res){
 		res.render('stock', {title:'ACCI', nombre1: menu[0].nombre, nombre2:menu[1].nombre, nombre3:menu[2].nombre,

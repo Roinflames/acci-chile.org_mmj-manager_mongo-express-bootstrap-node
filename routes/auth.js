@@ -16,7 +16,7 @@ module.exports = function(passport){
 
   //Register User
 	router.get('/signup', function(req, res){
-		res.render('signup',{message: req.flash('message'), title: 'ACCI'});
+		res.render('ficha',{message: req.flash('message'), title: 'ACCI'});
 	});
 
 	router.post('/signup', passport.authenticate('signup', {

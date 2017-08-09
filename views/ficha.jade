@@ -1,0 +1,94 @@
+extends layout-auth
+
+block content
+      .container
+      br
+      br
+      br
+      .section
+      main
+        center
+          .section
+          .container
+            .row
+              .col-lg-12
+                h3.orange-text Ficha de registro de Socios
+                br
+              .col-lg-6
+                p Fecha
+                p Nombre de usuario (para acceder al sistema)
+                p Contraseña
+                hr
+                h4 Datos personales
+                p Nombre
+                p Rut
+                p Edad
+                p Teléfono
+                p Correo
+                p Dirección
+                p Región
+                p Comuna
+                hr
+                h4 Antecedentes Médicos
+                p Enfermedad o dolencia
+                p Operaciones
+                p Alergias
+                p Medicamentos habituales
+                p Declaración de aceptación uso Cannabis Medicinal
+                hr
+                h4 Observaciones
+                p Enviado por
+                p Dosis recomendada
+                p Producto recomendado
+                p Dosis diaria
+                p Dosis semanal
+                p Dosis menstruales
+                p Otros
+                p Firma              
+              .col-lg-6.text-center                            
+                form(class='form-signin', action='/signup', method='post')
+                  input(type='text', name='date', class='form-control', placeholder='Fecha', required)
+                  input(type='text', name='username', class='form-control', placeholder='Nombre de usuario',required, autofocus)                  
+                  input(type='password', name='password', class='form-control nomargin', placeholder='Contraseña', required)
+                  br
+                  br
+                  br
+                  input(type='text', name='name', class='form-control', placeholder='Nombre completo',required)
+                  input(type='text', name='rut', class='form-control', placeholder='Rut',required)
+                  input(type='text', name='age', class='form-control', placeholder='Edad',required)
+                  input(type='text', name='phone', class='form-control', placeholder='Teléfono',required)  
+                  input(type='text', name='email', class='form-control', placeholder='Correo electrónico',required)
+                  input(type='text', name='address', class='form-control', placeholder='Dirección',required)
+                  input(type='text', name='region', class='form-control', placeholder='Región',required)
+                  input(type='text', name='comuna', class='form-control', placeholder='Comuna',required)                                	
+                  br
+                  br
+                  br
+                  input(type='text', name='sick', class='form-control', placeholder='Enfermedad o dolencia',required)
+                  input(type='text', name='operaciones', class='form-control', placeholder='Operaciones',required)
+                  input(type='text', name='alergias', class='form-control', placeholder='Alergias',required)
+                  input(type='text', name='medicamentos', class='form-control', placeholder='Medicamentos habituales',required)
+                  input(type='text', name='declaracion', class='form-control', placeholder='Declaración de aceptación',required)                                      	
+                  br
+                  br
+                  br
+                  br
+                  input(type='text', name='sender', class='form-control', placeholder='Enviado por',required)
+                  input(type='text', name='dosis', class='form-control', placeholder='Dosis recomendada',required)
+                  input(type='text', name='product', class='form-control', placeholder='Producto recomendado',required)
+                  input(type='text', name='diary', class='form-control', placeholder='Dosis diaria',required)
+                  input(type='text', name='week', class='form-control', placeholder='Dosis semanal',required)                                      	
+                  input(type='text', name='month', class='form-control', placeholder='Dosis mensual',required)
+                  input(type='text', name='other', class='form-control', placeholder='Otros',required)
+                  input(type='text', name='sign', class='form-control', placeholder='Firma',required)
+                  
+                  br
+                  button(class='btn btn-lg btn-primary btn-block', type='submit') Registrar
+                  p
+                    a(href='/', class='text-center') Volver
+                      span.clearfix
+                #message
+                  if message
+                    h1.text-center.error-message #{message}
+      // jQuery
+      script(src='vendor/jquery/jquery.min.js')

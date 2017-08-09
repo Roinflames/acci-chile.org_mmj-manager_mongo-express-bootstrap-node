@@ -27,11 +27,33 @@ module.exports = function(passport){
                         var newUser = new User();
 
                         // set the user's local credentials
+												newUser.date = req.param('date');
                         newUser.username = username;
-                        newUser.password = createHash(password);
-                        newUser.email = req.param('email');
-                        //newUser.firstName = req.param('firstName');
-                        //newUser.lastName = req.param('lastName');
+												newUser.password = createHash(password);
+
+												newUser.name = req.param('name');
+												newUser.rut = req.param('rut');
+												newUser.age = req.param('age');
+												newUser.phone = req.param('phone');
+												newUser.email = req.param('email');
+												newUser.address = req.param('address');
+												newUser.region = req.param('region');
+												newUser.comuna = req.param('comuna');
+
+												newUser.sick = req.param('sick');
+												newUser.operaciones = req.param('operaciones');
+												newUser.alergias = req.param('alergias');
+												newUser.medicamentos = req.param('medicamentos');
+												newUser.declaracion = req.param('declaracion');
+
+												newUser.sender = req.param('sender');
+												newUser.dosis = req.param('dosis');
+												newUser.product = req.param('product');
+												newUser.diary = req.param('diary');
+												newUser.week = req.param('week');
+												newUser.month = req.param('month');
+												newUser.other = req.param('other');
+												newUser.sign = req.param('sign');                  
 
                         // save the user
                         newUser.save(function(err) {
