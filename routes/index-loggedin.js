@@ -2,6 +2,15 @@ var express = require('express')
 var request = require('request');
 var router = express.Router()
 
+//API CALLS
+request('http://Api.fernandopiza.xyz/flores/', function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+				//console.log(body);
+				menu = JSON.parse(body);
+				console.log(menu);
+		 }
+})
+// END API CALLS
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler
 	// Passport adds this method to request object. A middleware is allowed to add properties to
@@ -11,15 +20,7 @@ var isAuthenticated = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/');
 }
-//API CALLS
-request('http://Api.fernandopiza.xyz/flores/', function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-				//console.log(body);
-				menu = JSON.parse(body);
-				//console.log(menu);
-     }
-})
-// END API CALLS
+
 /// End Fylesystem
 module.exports = function(passport){
 
@@ -41,7 +42,8 @@ module.exports = function(passport){
   });
 
 	//router.get('/stock', isAuthenticated, function(req, res){
-	router.get('/stock', function(req, res){
+	router.get('/stock', function(req, res){		
+		// END API CALLS
 		res.render('stock', {title:'ACCI', nombre1: menu[0].nombre, nombre2:menu[1].nombre, nombre3:menu[2].nombre,
 		nombre4: menu[3].nombre, nombre5: menu[4].nombre, nombre6:menu[5].nombre, nombre7:menu[6].nombre,
 		nombre8:menu[7].nombre, nombre9:menu[8].nombre, nombre10:menu[9].nombre, nombre11:menu[10].nombre,
