@@ -109,8 +109,8 @@ fieldset[disabled] .btn-primary.active {
 /* Boton conoce mas*/
 .btn-xl {
   color: white;
-  background-color: #2d862d;
-  border-color: #2d862d;
+  background-color: #8B0000;
+  border-color: #8B0000;
   font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -118,14 +118,15 @@ fieldset[disabled] .btn-primary.active {
   font-size: 18px;
   padding: 20px 40px;
 }
+/* Selección Boton conoce mas*/
 .btn-xl:hover,
 .btn-xl:focus,
 .btn-xl:active,
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
   color: white;
-  background-color: #339933;
-  border-color: #339933;
+  background-color: #971919;
+  border-color: #971919;
 }
 .btn-xl:active,
 .btn-xl.active,

@@ -6,10 +6,11 @@
    width: auto;
 }
 .centrado {
-    margin: auto;
+    margin: 0px;
     width: auto;
     border: 3px solid #73AD21;
     padding: 10px;
+    color: #8B0000;
 }
 .img-rcorners {
    border-radius: 25px;
@@ -25,3 +26,19 @@
 .onway{
   color: red;
 }
+.half-size {
+  height: 400px;
+  weight: 400px;
+}
+.half-size-double {
+  height: 150px;
+  weight: 150px;
+}
+.image-rotation {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 10s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

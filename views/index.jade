@@ -3,12 +3,24 @@ extends layout
 block content    
     // Header
     header
+      br
+      br
+      br
+      br
+      br
+        
       .container
-        .intro-text
-          .intro-heading #{title}
-          .intro-lead-in.centrado#rcorners
-            | Asociación Cultural de Cannabis Integral
-          a.page-scroll.btn.btn-xl(href='#aboutus') Conocer más!
+        .row
+          .col-lg-12.text-center
+            img.img-responsive.img-rcorners.half-size.image-rotation(src='img/acci2.png', alt='tricomas')
+            img.img-responsive.img-rcorners.half-size-double(src='img/acci-text.png', alt='tricomas')    
+      
+        a.page-scroll.btn.btn-xl(href='#aboutus') Conocer más!
+        
+        br
+        br
+        br
+        br
     // Team Section
     section#aboutus.bg-light-gray
       .container
