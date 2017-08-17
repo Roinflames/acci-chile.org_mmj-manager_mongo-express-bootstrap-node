@@ -42,7 +42,7 @@ module.exports = function(passport){
   });
 
 	//router.get('/stock', isAuthenticated, function(req, res){
-	router.get('/stock', function(req, res){		
+	router.get('/stock', function(req, res){
 		// END API CALLS
 		res.render('stock', {title:'ACCI', nombre1: menu[0].nombre, nombre2:menu[1].nombre, nombre3:menu[2].nombre,
 		nombre4: menu[3].nombre, nombre5: menu[4].nombre, nombre6:menu[5].nombre, nombre7:menu[6].nombre,
@@ -95,7 +95,6 @@ module.exports = function(passport){
 
 	router.get('/galeria', isAuthenticated, function(req, res){
     res.render('galeria', {title:'ACCI'});
-  });
-
+  });	
 	return router;
 }

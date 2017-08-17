@@ -35,13 +35,13 @@ app.use(flash());
 var index = require('./routes/index')
 var indexlog = require('./routes/index-loggedin')(passport)
 var auth = require('./routes/auth')(passport)
-var cannabis = require('./routes/cannabis')(passport)
+var fichas = require('./routes/fichas')(passport)
 var tratamiento = require('./routes/tratamiento')(passport)
 // Uso de Rutas
 app.use('/', index)
 app.use('/', indexlog)
 app.use('/', auth)
-app.use('/', cannabis)
+app.use('/', fichas)
 app.use('/', tratamiento)
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

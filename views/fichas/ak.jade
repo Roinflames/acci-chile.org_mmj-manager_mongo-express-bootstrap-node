@@ -1,0 +1,103 @@
+extends layout-loggedin
+
+block content
+    // Team Section
+    section#aok.bg-light-gray
+      .container
+        .row
+          .col-sm-4
+            .container.text-center                
+              a.portfolio-link(href='/stock', data-toggle='modal').button.btn.btn-primary(type='submit') Volver al catálogo                                  
+              br
+              br
+              img.img-responsive.img-rcorners(src='img/fichas/ak.jpg', alt='sativa')
+          .col-lg-12.text-center
+              
+              
+    footer
+      .container
+        .row
+          .col-md-4
+            p.copyright DM FASIMC - © 2017 Copy Left. Debes tener al menos 18 años para usar este sitio.
+          .col-md-4
+            ul.list-inline.social-buttons
+              li
+                a(href='#')
+                  i.fa.fa-twitter
+              li
+                a(href='https://www.facebook.com/FASIMC/?ref=br_rs')
+                  i.fa.fa-facebook
+              li
+                a(href='#')
+                  i.fa.fa-linkedin
+          .col-md-4
+            span
+              | DIRECCION: CATEDRAL 1009 OF 601
+              br
+              |  ATENCION: 10:00 A 18:00 HRS
+              |                                   TEL: +56999467416
+              br
+              |  Correo: DM@FASIMC.ORG
+              |                                   A PASOS DEL METRO PLAZA DE ARMAS
+    #indexmodalAOK.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .close-modal(data-dismiss='modal')
+            .lr
+              .rl
+          .container
+            .row
+              .col-lg-8.col-lg-offset-2
+                .modal-body.text-justify.text-justify
+                  // Project Details Go Here
+                  h2 Cannabis Sativa SSP. Sativa
+                  p
+                    | Esta subespecie se originó en América, Asia y África, y en cada región presenta características diversas, pero se caracterizan en general por ser plantas muy altas, de hojas alargadas, con poco follaje y un periodo de floración mayor a la variedad Indica.  Además de producir mayor cantidad de THC.
+                  p
+                    strong Su efecto psicoactivo es principalmente cerebral, energético y potente.
+                  img.img-responsive.img-rcorners(src='img/descripcion.jpg', alt='sativa')
+                  button.btn.btn-primary(type='button', data-dismiss='modal')
+                    i.fa.fa-times
+                    |  Volver
+    // Bootstrap Core JavaScript
+    script(src='vendor/bootstrap/js/bootstrap.min.js')
+    // jQuery
+    script(src='vendor/jquery/jquery.min.js')
+    // Plugin JavaScript
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js', integrity='sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb', crossorigin='anonymous')
+    // Contact Form JavaScript
+    script(src='javascripts/jqBootstrapValidation.js')
+    script(src='javascripts/contact_me.js')
+    // Theme JavaScript
+    script(src='javascripts/agency.js')
+    script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+      $('#catalogo').DataTable( {
+      "decimal":        "",
+      "emptyTable":     "Lo sentimos, no existen productos para cargar.",
+      "info":           "Mostrando _START_ a _END_ de _TOTAL_ productos",
+      "infoEmpty":      "Mostrando 0 a 0 de 0 productos",
+      "infoFiltered":   "(Filtrado desde _MAX_ total de productos)",
+      "language": {
+      "search":         "Buscar:"
+      },
+      "paginate": {
+      "first":      "Primero",
+      "last":       "Último",
+      "next":       "Siguiente",
+      "previous":   "Anterior"
+      },
+      columnDefs: [ {
+      targets: [ 0 ],
+      orderData: [ 0, 1 ]
+      }, {
+      targets: [ 1 ],
+      orderData: [ 1, 0 ]
+      }, {
+      targets: [ 4 ],
+      orderData: [ 4, 0 ]
+      } ]
+      } );
+      } );
+      
