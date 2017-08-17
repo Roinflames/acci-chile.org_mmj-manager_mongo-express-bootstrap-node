@@ -1,15 +1,6 @@
 var express = require('express')
 var request = require('request');
 var router = express.Router()
-
-//API CALLS
-request('http://Api.fernandopiza.xyz/flores/', function (error, response, body) {
-		if (!error && response.statusCode == 200) {
-				//console.log(body);
-				menu = JSON.parse(body);
-				console.log(menu);
-		 }
-})
 // END API CALLS
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler
@@ -20,8 +11,16 @@ var isAuthenticated = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/');
 }
-
-/// End Fylesystem
+//API CALLS
+//Flores
+request('http://Api.fernandopiza.xyz/flores/', function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+				//console.log(body);
+				menu = JSON.parse(body);
+				console.log(menu);
+		 }
+})
+//passport
 module.exports = function(passport){
 
   router.get('/index-loggedin', isAuthenticated, function(req, res){
@@ -40,7 +39,22 @@ module.exports = function(passport){
 		week: req.user.week, month: req.user.month, other: req.user.other, sign: req.user.sign
 	});
   });
-
+	////////////////////////////////////////////// SCHEDULING ////////////////////////////////////////////////////////////////////
+	//get scheduling 'WORK'
+	router.get('/scheduling', function(req, res){
+		res.render('scheduling', {title: 'ACCI'})
+	})
+	//end get scheduling
+	//post scheduling
+	request.post('http://api.fernandopiza.xyz/agendamientos', {
+				form:{
+					hora_medica_id:'value',
+					usuario_id:'value',
+					fecha:'value',
+					membresia_id:'value',
+				}
+	})					
+	//end  post scheduling
 	//router.get('/stock', isAuthenticated, function(req, res){
 	router.get('/stock', function(req, res){
 		// END API CALLS
@@ -95,6 +109,6 @@ module.exports = function(passport){
 
 	router.get('/galeria', isAuthenticated, function(req, res){
     res.render('galeria', {title:'ACCI'});
-  });	
+  });
 	return router;
 }
