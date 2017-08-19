@@ -2,38 +2,18 @@ extends layout-loggedin
 
 block content
     // Team Section
-    section#testimonies.bg-light-gray
+    section#aok.bg-light-gray
       .container
         .row
           .col-sm-4
-            .container              
-              h1 CATÁLOGO
-              table#catalogo.display(width='100%', cellspacing='0')
-                thead
-                  tr
-                    th ID
-                    th NOMBRE
-                    th CLASIFICACIÓN                    
-                    th STOCK
-                    th FICHA
-                
-                tbody
-                  - var links = ['/1', '/2', '/3', '/4', '/5', '/6', '/7', '/8', '/9', '/10', '/11', '/12', '/13', '/14', '/15', '/16', '/17', '/18', '/19', '/20', '/21']
-                  - for (var y = 0; y < Object.keys(menu).length; y++)                      
-                    - console.log(menu[y]);
-                    tr
-                    - for (var x = 0; x < 1; x++)
-                        td= id[y]  
-                    - for (var x = 0; x < 1; x++)
-                      td= nombres[y]
-                    - for (var x = 0; x < 1; x++)
-                      td= clasificacion[y]
-                    - for (var x = 0; x < 1; x++)
-                      td= stock[y]
-                    - for (var x = 0; x < 1; x++)
-                      td
-                        a.portfolio-link(href=id[y], data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar                                             
-                        
+            .container.text-center                
+              a.portfolio-link(href='/stock', data-toggle='modal').button.btn.btn-primary(type='submit') Volver al catálogo                                  
+              br
+              br
+              img.img-responsive.img-rcorners(src='img/fichas/st.jpg', alt='Sour Tangie')
+          .col-lg-12.text-center
+              
+              
     footer
       .container
         .row

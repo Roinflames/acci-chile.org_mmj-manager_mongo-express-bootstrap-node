@@ -9,5 +9,5 @@
   "cbn":"0.08",
   "cnc":"0.0",
   "stock":1,
-  "ficha": "a.portfolio-link(href='/aok', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar "
+  "ficha": "/aok"
 }

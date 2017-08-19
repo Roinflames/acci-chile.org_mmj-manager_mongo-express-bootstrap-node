@@ -20,7 +20,7 @@ fs.readFile('public/json/links.json', handleFile)
 function handleFile(err, data) {
     if (err) throw err
     obj = JSON.parse(data)
-		console.log(obj);
+		//console.log(obj);
     // You can now play with your datas
 }
 //get Flores
@@ -29,6 +29,7 @@ request('http://Api.fernandopiza.xyz/flores/', function (error, response, body) 
 				//console.log(body);
 				menu = JSON.parse(body);
 				//console.log(menu);
+				id = []
 				nombres = []
 				clasificacion = []
 				thc = []
@@ -51,6 +52,7 @@ module.exports = function(passport){
 	//get stock
 	router.get('/stock', function(req, res){
 		menu.forEach(function(menu) {
+			id.push(menu.id)
 			nombres.push(menu.nombre)
 			clasificacion.push(menu.clasificacion.nombre)
 			if(menu.stock>0){

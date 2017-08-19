@@ -52,6 +52,12 @@ app.use(function(req, res, next) {
     next(err)
 });
 /// error handlers
+//404 handler
+app.use(function(req, res) {
+    res.status(404);
+    url = req.url;
+    res.render('404', {title: '404: File Not Found', url: url });
+});
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -67,7 +73,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('404', {
         message: err.message,
         error: {}
     });
