@@ -15,133 +15,18 @@ block content
                     th CLASIFICACIÓN                    
                     th STOCK
                     th FICHA
+                
                 tbody
-                  tr
-                    td #{nombre1}
-                    td #{clasificacion1}
-                    td #{stock1} und
-                    td
-                      a(href='#flor19') Mostrar
-                  tr
-                    td #{nombre2}
-                    td #{clasificacion2}
-                    td #{stock2} und
-                    td
-                      a(href='#flor20') Mostrar
-                  tr
-                    td #{nombre3}
-                    td #{clasificacion3}
-                    td #{stock3} und
-                    td
-                      a(href='#flor21') Mostrar
-                  tr
-                    td #{nombre4}
-                    td #{clasificacion4}
-                    td #{stock4} und
-                    td
-                      a(href='#flor22') Mostrar
-                  tr
-                    td #{nombre5}
-                    td #{clasificacion5}
-                    td #{stock5} und
-                    td
-                      a(href='#flor23') Mostrar
-                  tr
-                    td #{nombre6}
-                    td #{clasificacion6}
-                    td #{stock6} und
-                    td         
-                      a.portfolio-link(href='/aok', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar               
-                  tr
-                    td #{nombre7}
-                    td #{clasificacion7}
-                    td #{stock7} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar               
-                  tr
-                    td #{nombre8}
-                    td #{clasificacion8}
-                    td #{stock8} und
-                    td
-                      a(href='/bu', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre9}
-                    td #{clasificacion9}
-                    td #{stock9} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre10}
-                    td #{clasificacion10}
-                    td #{stock10} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre11}
-                    td #{clasificacion11}
-                    td #{stock11} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre12}
-                    td #{clasificacion12}
-                    td #{stock12} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre13}
-                    td #{clasificacion13}
-                    td #{stock13} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre14}
-                    td #{clasificacion14}
-                    td #{stock14} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre15}
-                    td #{clasificacion15}
-                    td #{stock15} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre16}
-                    td #{clasificacion16}
-                    td #{stock16} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre17}
-                    td #{clasificacion17}
-                    td #{stock17} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre18}
-                    td #{clasificacion18}
-                    td #{stock18} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre19}
-                    td #{clasificacion19}
-                    td #{stock19} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre20}
-                    td #{clasificacion20}
-                    td #{stock20} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar         
-                  tr
-                    td #{nombre21}
-                    td #{clasificacion21}
-                    td #{stock21} und
-                    td
-                      a(href='/ak', data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar              
+                  - for (var y = 0; y < 21; y++)                      
+                    tr
+                    - for (var x = 0; x < 1; x++)
+                      td= nombres[y]
+                    - for (var x = 0; x < 1; x++)
+                      td= clasificacion[y]
+                    - for (var x = 0; x < 1; x++)
+                      td= stock[y]
+                    - for (var x = 0; x < 1; x++)
+                      td= ficha[y]                                    
     footer
       .container
         .row

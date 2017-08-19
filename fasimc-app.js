@@ -33,6 +33,7 @@ var flash = require('connect-flash')
 app.use(flash());
 //rutas
 var index = require('./routes/index')
+var user = require('./routes/user')
 var indexlog = require('./routes/index-loggedin')(passport)
 var auth = require('./routes/auth')(passport)
 var fichas = require('./routes/fichas')(passport)
@@ -43,6 +44,7 @@ app.use('/', indexlog)
 app.use('/', auth)
 app.use('/', fichas)
 app.use('/', tratamiento)
+app.use('/', user)
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found')

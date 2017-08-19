@@ -9,6 +9,21 @@ block content
             .container
               h1 Agendamiento de horas
               h2.onway En construcción
+              
+              .section
+              .container
+                .z-depth-1.grey.lighten-4.row(style='display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;')
+                  h5.orange-text Registro de Usuario
+                  form(class='form-signin', action='/signup', method='post')
+                    input(type='text', name='hora_medica_id', class='form-control', placeholder='hora_medica_id',required, autofocus)
+                    input(type='text', name='usuario_id', class='form-control', placeholder='usuario_id',required)
+                    input(type='text', name='fecha', class='form-control', placeholder='fecha', required)
+                    input(type='text', name='membresia_id', class='form-control', placeholder='membresia_id', required)
+                    br
+                    button(class='btn btn-lg btn-primary btn-block', type='submit') Reservar hora
+                    p
+                      a(href='/', class='text-center') Volver
+                        span.clearfix
     footer
       .container
         .row
