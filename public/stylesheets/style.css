@@ -30,9 +30,9 @@
   height: 400px;
   weight: 400px;
 }
-.half-size-double {
-  height: 150px;
-  weight: 150px;
+.quarter-size {
+  height: 250px;
+  weight: 250px;
 }
 .image-rotation {
     -webkit-animation:spin 4s linear infinite;
