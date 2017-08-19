@@ -17,7 +17,7 @@ block content
                     th FICHA
                 
                 tbody
-                  - for (var y = 0; y < 21; y++)                      
+                  - for (var y = 0; y < Object.keys(menu).length; y++)                      
                     tr
                     - for (var x = 0; x < 1; x++)
                       td= nombres[y]
