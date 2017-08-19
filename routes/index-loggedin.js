@@ -11,6 +11,18 @@ var isAuthenticated = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/');
 }
+
+var fs = require('fs'), obj
+// Read the file and send to the callback
+fs.readFile('public/json/links.json', handleFile)
+
+// Write the callback function
+function handleFile(err, data) {
+    if (err) throw err
+    obj = JSON.parse(data)
+		console.log(obj);
+    // You can now play with your datas
+}
 //get Flores
 request('http://Api.fernandopiza.xyz/flores/', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
@@ -47,7 +59,7 @@ module.exports = function(passport){
 			else {
 					stock.push("No disponible")
 			}
-			ficha.push("ficha")
+			ficha.push(obj.ficha)
 		});
 		//console.log(nombres, clasificacion);
 		if (menu > 0) {

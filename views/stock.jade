@@ -6,7 +6,7 @@ block content
       .container
         .row
           .col-sm-4
-            .container
+            .container              
               h1 CATÁLOGO
               table#catalogo.display(width='100%', cellspacing='0')
                 thead
@@ -17,6 +17,7 @@ block content
                     th FICHA
                 
                 tbody
+                  - var links = ['/aok', '/ak', '/bu']
                   - for (var y = 0; y < Object.keys(menu).length; y++)                      
                     tr
                     - for (var x = 0; x < 1; x++)
@@ -26,7 +27,9 @@ block content
                     - for (var x = 0; x < 1; x++)
                       td= stock[y]
                     - for (var x = 0; x < 1; x++)
-                      td= ficha[y]                                    
+                      td
+                        a.portfolio-link(href=links[y], data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar                                             
+                        
     footer
       .container
         .row
