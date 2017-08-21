@@ -23,12 +23,12 @@ function handleFile(err, data) {
 		//console.log(obj);
     // You can now play with your datas
 }
-//get Flores
+//CALL variedades
 request('http://Api.fernandopiza.xyz/flores/', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 				//console.log(body);
 				menu = JSON.parse(body);
-				console.log(menu[0]);
+				//console.log(menu);
 				id = []
 				nombres = []
 				clasificacion = []
@@ -40,7 +40,24 @@ request('http://Api.fernandopiza.xyz/flores/', function (error, response, body) 
 				ficha = []
 		 }
 })
-//end get flores
+//end CALL variedades
+//CALL scheduling
+name = []
+request('http://api.fernandopiza.xyz/membresias/', function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+				//console.log(body);
+				membresias = JSON.parse(body);
+				//console.log(membresias);
+		 }
+})
+request('http://api.fernandopiza.xyz/horas/', function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+				//console.log(body);
+				horas = JSON.parse(body);
+				//console.log(horas);
+		 }
+})
+//end CALL scheduling
 //passport
 module.exports = function(passport){
 
@@ -50,7 +67,7 @@ module.exports = function(passport){
 
 ////////////////////// STOCK ////////////////////////////////
 	//get stock
-	router.get('/stock', function(req, res){
+	router.get('/stock', isAuthenticated, function(req, res){
 		menu.forEach(function(menu) {
 			id.push(menu.id)
 			nombres.push(menu.nombre)
@@ -76,9 +93,12 @@ module.exports = function(passport){
 
 	////////////////////// AGENDAMIENTOS //////////////////////
 	//get scheduling 'WORK'
+	/////////////////////// MEMBRESIAS /////////////////////////
+	//http://api.fernandopiza.xyz/membresias
 	router.get('/scheduling', function(req, res){
 			res.render('scheduling', {title: 'ACCI'})
 	})
+
 	//end get scheduling
 	//post scheduling
 	request.post('http://api.fernandopiza.xyz/agendamientos', {

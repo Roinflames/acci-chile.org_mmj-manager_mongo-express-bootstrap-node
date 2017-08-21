@@ -3,21 +3,22 @@ extends layout-loggedin
 block content
     // Team Section
     section#testimonies.bg-light-gray
-      .container
+      .container.text-center
         .row
           .col-sm-4
             .container              
-              h1 CATÁLOGO
-              table#catalogo.display(width='100%', cellspacing='0')
+              h1 VARIEDADES DE CANNABIS
+              p.onway Nota: Los análisis mostrados se realizaron con el equipo "Mydx", el cual entrega resultados cualitativos y semicuantitativos,  
+              table#catalogo.display.text-center(width='100%', cellspacing='0')
                 thead
                   tr
                     th ID
                     th NOMBRE
                     th CLASIFICACIÓN                    
-                    th STOCK
+                    th DISPONIBILIDAD
                     th FICHA
                 
-                tbody                  
+                tbody              
                   - for (var y = 0; y < Object.keys(menu).length; y++)                                          
                     tr
                     - for (var x = 0; x < 1; x++)
@@ -31,7 +32,20 @@ block content
                     - for (var x = 0; x < 1; x++)
                       td
                         a.portfolio-link(href=id[y], data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar                                             
-                        
+              br
+              .container
+                form(class='form-signin', action='/newFlower', method='post')
+                .col-lg-4
+                  input#variedad.validate(type='text', name='variedad', class='form-control', placeholder='Variedad',required)
+                .col-lg-4
+                  input#clasificacion.validate(type='text', name='clasificacion', class='form-control', placeholder='Clasificación', required)                
+                .col-lg-4
+                  input#stock.validate(type='text', name='stock', class='form-control', placeholder='Stock',required)
+                  br
+                .col-lg-4
+                .col-lg-4
+                  button(class='btn btn-lg btn-primary btn-block', type='submit', name='btn_login') Guardar flor
+                  label(style='float: right;')                      
     footer
       .container
         .row

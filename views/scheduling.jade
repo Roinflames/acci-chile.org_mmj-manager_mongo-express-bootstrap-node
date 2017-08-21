@@ -3,27 +3,45 @@ extends layout-loggedin
 block content
     // Team Section
     section#testimonies.bg-light-gray
-      .container
+      .container.text-center
         .row
-          .col-sm-4
-            .container
+          .col-lg-12        
               h1 Agendamiento de horas
-              h2.onway En construcción
-              
-              .section
-              .container
-                .z-depth-1.grey.lighten-4.row(style='display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;')
-                  h5.orange-text Registro de Usuario
-                  form(class='form-signin', action='/signup', method='post')
-                    input(type='text', name='hora_medica_id', class='form-control', placeholder='hora_medica_id',required, autofocus)
-                    input(type='text', name='usuario_id', class='form-control', placeholder='usuario_id',required)
-                    input(type='text', name='fecha', class='form-control', placeholder='fecha', required)
-                    input(type='text', name='membresia_id', class='form-control', placeholder='membresia_id', required)
-                    br
-                    button(class='btn btn-lg btn-primary btn-block', type='submit') Reservar hora
-                    p
-                      a(href='/', class='text-center') Volver
-                        span.clearfix
+              a.h4(href='https://reservahora.setmore.com/resourcebookingpage/rd372442c0a868201e64facecbe1f31a19f94755a', target='_blank') Realizar un agendamiento temporal >>
+              h2.onway En construcción                          
+              br
+              br
+        .row
+          .col-lg-2
+            strong Martes
+            - for (var y = 0; y < Object.keys(horas).length; y++)                                          
+              p= horas[y].hora
+          .col-lg-2
+            strong Jueves
+            - for (var y = 0; y < Object.keys(horas).length; y++)                                          
+              p= horas[y].hora
+          .col-lg-4
+              strong Membresias
+              - for (var y = 0; y < Object.keys(membresias).length; y++)                                          
+                p= membresias[y].nombre
+          .col-lg-4
+            p El agendamiento debe contener: 
+            strong 1 al 31
+            br
+            strong Mes
+            br
+            strong Año
+            br
+            strong Hora
+            br
+            strong Membresía
+            br
+            .z-depth-1.grey.lighten-4.row(style='display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;')
+              form(class='form-signin', action='/signup', method='post')                
+              button(class='btn btn-lg btn-primary btn-block', type='submit') Reserva tu hora
+              p
+                a(href='/', class='text-center') Volver
+                span.clearfix
     footer
       .container
         .row
