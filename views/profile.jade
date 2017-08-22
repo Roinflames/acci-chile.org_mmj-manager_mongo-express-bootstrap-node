@@ -4,35 +4,63 @@ block content
     section#home.bg-light-gray
       .container
         .row
-          .col-lg-12
-            h2.section-heading.text-center Ficha de socio
+          .col-lg-12.text-center
+            h2.section-heading Ficha de socio
           .col-lg-4
             h3.section-heading Antecedentes Generales
-            p Nombre : #{name}
-            p Rut : #{rut}
-            p Edad : #{age}
-            p Telefono : #{phone}
-            p Correo : #{email}
-            p Dirección : #{address}
-            p Región : #{region}
-            p Comuna : #{comuna}
+            .col-lg-5
+              p Nombre : 
+              p Rut : 
+              p Edad : 
+              p Telefono : 
+              p Correo : 
+              p Dirección : 
+              p Región : 
+              p Comuna : 
+            .col-lg-7
+              p #{name}
+              p #{rut}
+              p #{age}
+              p #{phone}
+              p #{email}
+              p #{address}
+              p #{region}
+              p #{comuna}
           .col-lg-4
-            h3.section-heading Antecedentes Médicos            
-            p Enfermedad o dolencia : #{sick}
-            p Operaciones : #{operaciones}
-            p Alergias : #{alergias}
-            p Medicamentos habituales : #{medicamentos}
-            p Declaración de aceptación MMJ : #{declaracion}         
+            h3.section-heading Antecedentes Médicos        
+            .col-lg-5    
+              p Diagnóstico : 
+              p Operaciones : 
+              p Alergias : 
+              p Medicamentos : 
+              p Declaración de aceptación MMJ :         
+            .col-lg-7
+              p #{sick}              
+              p #{operaciones}
+              p #{alergias}
+              p #{medicamentos}
+              br
+              p #{declaracion} 
           .col-lg-4
             h3.section-heading Observaciones
-            p Enviado por : #{sender}
-            p Dosis recomendada : #{dosis}
-            p Producto recomendado : #{product}
-            p Dosis diaria : #{diary}
-            p Dosis semanal : #{week}       
-            p Dosis mensual : #{month}
-            p Otros : #{other}
-            p Firma : #{sign}         
+            .col-lg-7
+              p Enviado por : 
+              p Dosis recomendada : 
+              p Producto recomendado : 
+              p Dosis diaria : 
+              p Dosis semanal :       
+              p Dosis mensual : 
+              p Otros : 
+              p Firma :         
+            .col-lg-5
+              p #{sender}
+              p #{dosis}
+              p #{product}
+              p #{diary}
+              p #{week} 
+              p #{month}
+              p #{other}
+              p #{sign} 
     //End navbar theme
     //footer
     footer

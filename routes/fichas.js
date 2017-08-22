@@ -1,4 +1,5 @@
 var express = require('express');
+var request = require('request');
 var router = express.Router();
 
 var isAuthenticated = function (req, res, next) {
@@ -13,11 +14,26 @@ var isAuthenticated = function (req, res, next) {
 
 module.exports = function(){
   // Descripción
+	// AFGHAN ORANGE MOUNT
 	router.get('/1', isAuthenticated, function(req, res){
+		request('http://Api.fernandopiza.xyz/flores/1', function (error, response, body) {
+				if (!error && response.statusCode == 200) {
+						//console.log(body);
+						cromatografia = JSON.parse(body);
+						console.log(cromatografia);
+				 }
+		})
     res.render('fichas/1', {title:'ACCI', id:0});
   });
-
+	//ALPINE KUSH
 	router.get('/2', isAuthenticated, function(req, res){
+		request('http://Api.fernandopiza.xyz/flores/2', function (error, response, body) {
+				if (!error && response.statusCode == 200) {
+						//console.log(body);
+						cromatografia = JSON.parse(body);
+						console.log(cromatografia);
+				 }
+		})
     res.render('fichas/2', {title:'ACCI', id:1});
   });
 
