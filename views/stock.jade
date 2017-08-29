@@ -22,7 +22,8 @@ block content
                   - for (var y = 0; y < Object.keys(menu).length; y++)                                          
                     tr
                     - for (var x = 0; x < 1; x++)
-                        td= id[y]  
+                        td= id[y] 
+                        - var callId = id[y] 
                     - for (var x = 0; x < 1; x++)
                       td= nombres[y]
                     - for (var x = 0; x < 1; x++)
@@ -31,7 +32,7 @@ block content
                       td= stock[y]
                     - for (var x = 0; x < 1; x++)
                       td
-                        a.portfolio-link(href=id[y], data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar                                             
+                        a.portfolio-link(href='flor'+id[y], data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar                                             
               br
               .container
                 form(class='form-signin', action='/newFlower', method='post')

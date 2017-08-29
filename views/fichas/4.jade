@@ -42,17 +42,12 @@ block content
               p THC 
               p CBD 
               p CBN 
-              p CNC 
-              p test
-              p test
-              p test
-              p test
-              p test
+              p CNC             
             .col-lg-6
-              p #{menu[id].thc}
-              p #{menu[id].cbd}
-              p #{menu[id].cbn}
-              p #{menu[id].cnc}
+              p #{cromatografia.thc}
+              p #{cromatografia.cbd}
+              p #{cromatografia.cbn}
+              p #{cromatografia.cnc}
           .col-lg-3.text-center            
             h3 Terpenos
             .col-lg-6
@@ -66,6 +61,15 @@ block content
               p Geraniol
               p beta-Cariofileno
             .col-lg-6
+              p #{cromatografia.humeleneo}
+              p #{cromatografia.terpileno}
+              p #{cromatografia.nerolidol1}
+              p #{cromatografia.limonene}
+              p #{cromatografia.myrcene}
+              p #{cromatografia.beta_pinene}
+              p #{cromatografia.alpha_pinene}
+              p #{cromatografia.geraniol}
+              p #{cromatografia.beta_caryophyllene}
       .container
         .row
           .col-lg-12
@@ -99,26 +103,6 @@ block content
               br
               |  Correo: DM@FASIMC.ORG
               |                                   A PASOS DEL METRO PLAZA DE ARMAS
-    #indexmodalAOK.portfolio-modal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
-      .modal-dialog
-        .modal-content
-          .close-modal(data-dismiss='modal')
-            .lr
-              .rl
-          .container
-            .row
-              .col-lg-8.col-lg-offset-2
-                .modal-body.text-justify.text-justify
-                  // Project Details Go Here
-                  h2 Cannabis Sativa SSP. Sativa
-                  p
-                    | Esta subespecie se originó en América, Asia y África, y en cada región presenta características diversas, pero se caracterizan en general por ser plantas muy altas, de hojas alargadas, con poco follaje y un periodo de floración mayor a la variedad Indica.  Además de producir mayor cantidad de THC.
-                  p
-                    strong Su efecto psicoactivo es principalmente cerebral, energético y potente.
-                  img.img-responsive.img-rcorners(src='img/descripcion.jpg', alt='sativa')
-                  button.btn.btn-primary(type='button', data-dismiss='modal')
-                    i.fa.fa-times
-                    |  Volver
     // Bootstrap Core JavaScript
     script(src='vendor/bootstrap/js/bootstrap.min.js')
     // jQuery
@@ -131,33 +115,5 @@ block content
     // Theme JavaScript
     script(src='javascripts/agency.js')
     script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
-    script(type='text/javascript').
-      $(document).ready(function() {
-      $('#catalogo').DataTable( {
-      "decimal":        "",
-      "emptyTable":     "Lo sentimos, no existen productos para cargar.",
-      "info":           "Mostrando _START_ a _END_ de _TOTAL_ productos",
-      "infoEmpty":      "Mostrando 0 a 0 de 0 productos",
-      "infoFiltered":   "(Filtrado desde _MAX_ total de productos)",
-      "language": {
-      "search":         "Buscar:"
-      },
-      "paginate": {
-      "first":      "Primero",
-      "last":       "Último",
-      "next":       "Siguiente",
-      "previous":   "Anterior"
-      },
-      columnDefs: [ {
-      targets: [ 0 ],
-      orderData: [ 0, 1 ]
-      }, {
-      targets: [ 1 ],
-      orderData: [ 1, 0 ]
-      }, {
-      targets: [ 4 ],
-      orderData: [ 4, 0 ]
-      } ]
-      } );
-      } );
+
       
