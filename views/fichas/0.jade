@@ -1,0 +1,82 @@
+extends layout-loggedin
+
+block content
+    // Team Section
+    section#aok.bg-light-gray
+      .container
+        .row
+          .col-lg-12.text-center
+            a.portfolio-link(href='/stock', data-toggle='modal').button.btn.btn-primary(type='submit') Volver al catálogo  
+            br                               
+            br
+            p.onway #{response}              
+          .col-lg-12            
+            form(action='http://localhost:3000/flores', method='post')              
+              br
+              input(type='text', name='nombre', placeholder='Nombre')
+              br              
+              br
+              input(type='radio', name='clasificacion_id', value='1', checked='')
+              |  Híbrido
+              br
+              input(type='radio', name='clasificacion_id', value='2')
+              |  Sativa
+              br
+              input(type='radio', name='clasificacion_id', value='3')
+              |  Other              
+              br
+              input(type='radio', name='clasificacion_id', value='4')
+              |  Automática
+              br              
+              br
+              input(type='text', name='thc', placeholder='%THC')
+              br
+              br
+              input(type='text', name='cbn', placeholder='%cbn')
+              br
+              br
+              input(type='text', name='cnc', placeholder='%cnc')
+              br
+              br
+              input(type='text', name='stock', placeholder='stock')
+              br
+              br
+              input(type='submit', value='Submit')               
+    footer
+      .container
+        .row
+          .col-md-4
+            p.copyright DM FASIMC - © 2017 Copy Left. Debes tener al menos 18 años para usar este sitio.
+          .col-md-4
+            ul.list-inline.social-buttons
+              li
+                a(href='#')
+                  i.fa.fa-twitter
+              li
+                a(href='https://www.facebook.com/FASIMC/?ref=br_rs')
+                  i.fa.fa-facebook
+              li
+                a(href='#')
+                  i.fa.fa-linkedin
+          .col-md-4
+            span
+              | DIRECCION: CATEDRAL 1009 OF 601
+              br
+              |  ATENCION: 10:00 A 18:00 HRS
+              |                                   TEL: +56999467416
+              br
+              |  Correo: DM@FASIMC.ORG
+              |                                   A PASOS DEL METRO PLAZA DE ARMAS
+    // Bootstrap Core JavaScript
+    script(src='vendor/bootstrap/js/bootstrap.min.js')
+    // jQuery
+    script(src='vendor/jquery/jquery.min.js')
+    // Plugin JavaScript
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js', integrity='sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb', crossorigin='anonymous')
+    // Contact Form JavaScript
+    script(src='javascripts/jqBootstrapValidation.js')
+    script(src='javascripts/contact_me.js')
+    // Theme JavaScript
+    script(src='javascripts/agency.js')
+    script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
+    
