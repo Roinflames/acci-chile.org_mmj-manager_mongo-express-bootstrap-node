@@ -2,13 +2,19 @@ extends layout-loggedin
 
 block content
     // Team Section
-    section#testimonies.bg-light-gray
+    section#testimonies.bg-light-gray      
       .container.text-center
         .row
           .col-sm-4
             .container              
               h1 VARIEDADES DE CANNABIS
-              p.onway Nota: Los análisis mostrados se realizaron con el equipo "Mydx", el cual entrega resultados cualitativos y semicuantitativos,  
+              p.onway Nota: Los análisis mostrados se realizaron con el equipo "Mydx", el cual entrega resultados cualitativos y semicuantitativos,                
+            .container                
+              .col-lg-4.col-lg-offset-4
+                - if(role=='admin')
+                  a.portfolio-link(href='flor0', data-toggle='modal').button.btn.btn-primary(type='submit') Crear nueva flor 
+              br
+              br
               table#catalogo.display.text-center(width='100%', cellspacing='0')
                 thead
                   tr
@@ -32,13 +38,9 @@ block content
                       td= stock[y]
                     - for (var x = 0; x < 1; x++)
                       td
-                        a.portfolio-link(href='flor'+id[y], data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar                                             
-              br
-              .container
-                .col-lg-4.col-lg-offset-4
-                  a.portfolio-link(href='flor0', data-toggle='modal').button.btn.btn-primary.hidden(type='submit') Crear nueva flor                                             
-                  
-                
+                        a.portfolio-link(href='flor'+id[y], data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar
+              
+                                                                                                     
     footer
       .container
         .row
@@ -63,7 +65,8 @@ block content
               |                                   TEL: +56999467416
               br
               |  Correo: DM@FASIMC.ORG
-              |                                   A PASOS DEL METRO PLAZA DE ARMAS    
+              |                                   A PASOS DEL METRO PLAZA DE ARMAS
+    
     // Bootstrap Core JavaScript
     script(src='vendor/bootstrap/js/bootstrap.min.js')
     // jQuery

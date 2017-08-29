@@ -12,7 +12,18 @@ var isAuthenticated = function (req, res, next) {
 	if (req.isAuthenticated())
 		return next();
 	// if the user is not authenticated then redirect him to the login page
-	res.redirect('/');
+	res.redirect('/index-loggedin');
+}
+
+var isAdmin = function (req, res, next) {
+	var florId = req.url
+	florId = florId.replace("/flor", "");
+	if (role == 'admin')
+		return next()
+	if (role != 'admin' && florId != '0')
+		return next()
+	// if the user is not authenticated then redirect him to the login page
+	res.redirect('/stock')
 }
 
 function getFlores(req, res){
@@ -122,7 +133,7 @@ function postFlores(req, res) {
 
 module.exports = function(){
   // Get by id
-	router.get('/flor*', function(req, res){
+	router.get('/flor*', isAdmin, function(req, res){
 	//router.get('/flor*', isAuthenticated, function(req, res){
 		florId = getFlores(req, res)
 		res.render('fichas/'+florId, {title:'ACCI'})
@@ -137,7 +148,7 @@ module.exports = function(){
 	// POST
 	router.post('/flores', function(req, res){
 		postFlores(req, res)
-		res.render('fichas/0', {response: "Registro creado exitosamente!"})
+		res.render('fichas/0', {response: "Operación realizada con éxito!"})
 	})
 	// delete by id
 	router.delete('/flor*', function(req, res){

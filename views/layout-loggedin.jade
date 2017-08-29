@@ -40,8 +40,14 @@ html(lang='en')
               a(href='#page-top')            
             li
               a.page-scroll(href='/stock') NUESTRAS VARIEDADES
-            li
-              a.page-scroll(href='/scheduling') RESERVA TU HORA
+            - if(role=='admin')
+              li
+                a.page-scroll.hidden(href='/scheduling') RESERVA TU HORA 
+              li
+                a.page-scroll(href='/history') HISTORIAL DE HORAS 
+            - if(role!='admin') 
+              li
+                a.page-scroll(href='/scheduling') RESERVA TU HORA 
             li
               a.page-scroll(href='/declaraciones') DECLARACIONES PÚBLICAS ACCI
             li
@@ -55,4 +61,6 @@ html(lang='en')
                 span.glyphicon.glyphicon-log-in
                 |  DESCONÉCTATE
         // /.navbar-collapse
+    
+      
    

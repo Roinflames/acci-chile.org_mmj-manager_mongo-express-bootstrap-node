@@ -30,6 +30,9 @@ module.exports = function(passport){
 	router.get('/scheduling', function(req, res){
 			res.render('scheduling', {title: 'ACCI'})
 	})
+	router.get('/history', function(req, res){
+			res.render('history', {title: 'ACCI'})
+	})
 ////////////////////// DECLARACIONES //////////////////////
 	//get declaraciones
 	router.get('/declaraciones', isAuthenticated, function(req, res){
