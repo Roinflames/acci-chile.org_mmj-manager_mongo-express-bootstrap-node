@@ -1,6 +1,43 @@
-.bg-descripcion {
-  background-image: url("https://notasdehumo.com/wp-content/uploads/tricomas-en-cannabis.jpg");
+p {
+  /*font-size: 250px;*/
+  font-size: 2rem;
+  font-weight: bold;
 }
+li {
+  /*font-size: 250px;*/
+  font-size: 2rem;
+  font-weight: bold;
+}
+/*imagenes backgroud*/
+.bg-aboutus {
+  background-image: url("http://bioweb.uwlax.edu/bio203/2011/williams_spen/images/tall%20plant.jpg");
+  background-attachment: fixed;
+}
+.bg-descripcion {
+  background-image: url("http://bioweb.uwlax.edu/bio203/2011/williams_spen/images/tall%20plant.jpg");
+  background-attachment: fixed;
+}
+.bg-cann {
+  background-image: url("http://cannabismedicinal.cl/wp-content/uploads/2014/04/terpenos.jpg");
+  background-attachment: fixed;
+}
+.bg-endo {
+  background-image: url("http://www.lamarihuana.com/wp-content/uploads/2016/03/Alzheimer.jpg");
+  background-attachment: fixed;
+}
+.bg-terp {
+  background-image: url("https://sensiseeds.com/blog/wp-content/uploads/2014/02/Citrus-1.jpg");
+  background-attachment: fixed;
+}
+.bg-medc {
+  background-image: url("https://www.cannabismedicinal.blog/wp-content/uploads/cannabismedicinal-blog-cabecera.jpg");
+  background-attachment: fixed;
+}
+.bg-law {
+  background-image: url("http://www.marihuana-medicinal.com/wp-content/uploads/2013/04/martillo-maria.jpg");
+  background-attachment: fixed;
+}
+/**/
 #rcorners {
    border-radius: 25px;
    background:#FFFFFF;
@@ -26,12 +63,18 @@
 .transparent{
   background:rgba(255,255,255,0.5);
 }
+/*colores*/
 .onway{
   color: red;
 }
 .info{
   color: #a56d5d;
 }
+.contrast{
+  color: white;
+}
+/**/
+/*tamaños imagen*/
 .half-size {
   height: 400px;
   weight: 400px;
@@ -44,6 +87,7 @@
   height: 150px;
   weight: 150px;
 }
+/**/
 .image-rotation {
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;

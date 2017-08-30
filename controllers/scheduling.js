@@ -20,7 +20,10 @@ request('http://api.fernandopiza.xyz/horas/', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 				//console.log(body);
 				horas = JSON.parse(body);
-				//console.log(horas);
+				for (var i = 0; i < 13; i++) {
+					//console.log(horas[i].id);
+				}
+
 		 }
 		 else {
 		 	console.log('error');
@@ -31,7 +34,7 @@ request('http://api.fernandopiza.xyz/usuario/'+'roro', function (error, response
 		if (!error && response.statusCode == 200) {
 				//console.log(body);
 				usuario_id = JSON.parse(body);
-				console.log(usuario_id);
+				//console.log(usuario_id);
 		 }
 		 else {
 		 	console.log('error');
@@ -45,7 +48,7 @@ request('http://api.fernandopiza.xyz/hora_usuarios', function (error, response, 
 				index = JSON.parse(body);
 				for (var i = 0; i < index.length; i++) {
 					// DPONG
-					console.log(index[i])
+					//console.log(index[i])
 				}
 
 		 }

@@ -40,7 +40,7 @@ request('http://api.fernandopiza.xyz/flores/', function (error, response, body) 
 //// POST
 function postHora(req, res) {
 	username = req.user.username
-	console.log(req.user.username);
+	console.log(req.body);
 	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios/'
 	console.log(uriCall);
 	request(
@@ -61,18 +61,17 @@ function postHora(req, res) {
 
           }
       }, function (error, response, body) {
-        if(!error && response.statusCode == 200){
+        if(!error && response.statusCode == 201){
           hora = JSON.parse(body);
           console.log(hora);
 					//console.log(uri)
-					return hora
+
         } else {
           console.log('error: '+ response.statusCode)
           console.log(body)
-					return body
+
         }
       })
-
 }
 //passport
 module.exports = function(passport){
