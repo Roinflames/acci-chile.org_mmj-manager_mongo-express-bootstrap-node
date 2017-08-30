@@ -6,42 +6,100 @@ block content
       .container.text-center
         .row
           .col-lg-12        
-              h1 Agendamiento de horas
-              a.h4(href='https://reservahora.setmore.com/resourcebookingpage/rd372442c0a868201e64facecbe1f31a19f94755a', target='_blank') Realizar un agendamiento temporal >>
-              h2.onway En construcción                          
+              h1.info Agendamiento de horas
+              h2.info Bienvenido #{index[0].usuario.nombre}!                       
+              //a.h4(href='https://reservahora.setmore.com/resourcebookingpage/rd372442c0a868201e64facecbe1f31a19f94755a', target='_blank') Realizar un agendamiento temporal >>
               br
               br
         .row
-          .col-lg-2
-            strong Martes
-            - for (var y = 0; y < Object.keys(horas).length; y++)                                          
-              p= horas[y].hora
-          .col-lg-2
-            strong Jueves
-            - for (var y = 0; y < Object.keys(horas).length; y++)                                          
-              p= horas[y].hora
-          .col-lg-4
-              strong Membresias
-              - for (var y = 0; y < Object.keys(membresias).length; y++)                                          
-                p= membresias[y].nombre
-          .col-lg-4
-            p El agendamiento debe contener: 
-            strong 1 al 31
-            br
-            strong Mes
-            br
-            strong Año
-            br
-            strong Hora
-            br
-            strong Membresía
-            br
-            .z-depth-1.grey.lighten-4.row(style='display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;')
-              form(class='form-signin', action='/signup', method='post')                
-              button(class='btn btn-lg btn-primary btn-block', type='submit') Reserva tu hora
+          .col-lg-offset-4.col-lg-4
+            h2 Tus agendamientos
+        .row
+          .col-lg-4.col-lg-offset-1
+            form(action='http://localhost:3000/scheduling', method='post')              
+              br            
+              h4 Agenda tu hora
+              strong Tipo de hora
+              br
+              br
+              select(type='text', name='tipo_atencion', placeholder='tipo_atencion', required='')
+                option(value='administrativa') Administrativa       
+                option(value='medica') Médica               
+              br 
+              br
+              strong Fecha
+              br
+              br
+              // fecha de atencion
+              input(type='text', name='fecha', placeholder='aaaa-mm-dd', required='')
+              br                                   
+              br              
+              strong Hora médica
+              br
+              br
+              br
+              br
+              // horas medicas
+              select(type='text', name='hora_medica_id', placeholder='hora_medica_id', required='')
+                - for (var i = 0; i < 13; i++) 
+                  option(value=horas[i].hora) #{horas[i].hora}                                                      
+              br
+              br
+              //id de usuario TODO
+              input.hidden(type='radio', name='usuario_id', value=usuario_id.id, checked='')              
+              br
+              br
+              // Tipo membresia
+              strong Solicite una membresía:
+              br
+              br
+              input(type='radio', name='membresia_id', value='1', checked='')
+              |  #{membresias[3].nombre}. #{membresias[3].monto}               
+              br
+              | #{membresias[3].descripcion}
+              br
+              br
+              input(type='radio', name='membresia_id', value='2')
+              |  #{membresias[0].nombre}. #{membresias[0].monto}
+              br
+              | #{membresias[0].descripcion}
+              br 
+              br
+              input(type='radio', name='membresia_id', value='3')
+              |  #{membresias[1].nombre}. #{membresias[1].monto} 
+              br
+              | #{membresias[1].descripcion}
+              br
+              br
+              input(type='radio', name='membresia_id', value='4')
+              |  #{membresias[2].nombre}. #{membresias[2].monto}
+              br
+              | #{membresias[2].descripcion}
+              br
+              br
+              // post agendar
+              input.btn.btn-primary(type='submit', value='Agendar hora')
               p
                 a(href='/', class='text-center') Volver
-                span.clearfix
+                span.clearfix              
+              p.onway #{estado}
+          .col-lg-2
+            strong Fecha
+            - for (var y = 0; y < Object.keys(index).length; y++)                                          
+              p= index[y].fecha
+          .col-lg-2
+            strong Hora
+            - for (var y = 0; y < Object.keys(index).length; y++)                                          
+              p= index[y].hora
+          .col-lg-2
+              strong Membresia
+              - for (var y = 0; y < Object.keys(index).length; y++)                                          
+                p= index[y].membresia       
+          .col-lg-2
+              strong.onway.hidden Tipo de atención
+              - for (var y = 0; y < Object.keys(index).length; y++)                                          
+                p= index[y].tipo_atencion        
+          
     footer
       .container
         .row
@@ -80,4 +138,5 @@ block content
     // Theme JavaScript
     script(src='javascripts/agency.js')
     script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
+  
     

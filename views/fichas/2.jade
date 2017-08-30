@@ -75,8 +75,10 @@ block content
         .row              
           .col-lg-12.text-center    
             .container
+              - var cromaImg = cromatografia.ubicacion
+              //p #{cromatografia.ubicacion}              
               br
-              img.img-responsive.img-rcorners(src='img/fichas/ak.jpg', alt='Alpine Kush')
+              img.img-responsive.img-rcorners(src='#{cromaImg}', alt='Alpine Kush')
               
               
               

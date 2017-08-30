@@ -25,7 +25,7 @@ var isAdmin = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/stock')
 }
-
+// GET
 function getFlores(req, res){
 	var florId = req.url
 	florId = florId.replace("/flor", "");
@@ -40,6 +40,50 @@ function getFlores(req, res){
 			 }
 	})
 	return florId
+}
+//// POST
+function postFlores(req, res) {
+	request(
+      { method: 'post',
+        uri: 'http://api.fernandopiza.xyz/flores/',
+        form:
+          {
+            flor:
+              {
+								nombre: req.body.nombre,
+                //
+                clasificacion_id: req.body.clasificacion_id,
+                //
+                thc: req.body.thc,
+                //
+                cbd: req.body.cbd,
+                //
+                cbn: req.body.cbn,
+                //
+                cnc: req.body.cnc,
+
+                humeleneo: '1.01',
+                terpileno: '0.75',
+                nerolidol1 : '0.08',
+                limonene:'0.11',
+                myrcene: '0.04',
+                beta_pinene: '0.01',
+                alpha_pinene: '0.05',
+                geraniol: '1.69',
+                beta_caryophyllene: '0.51',
+                //
+                stock: req.body.stock
+              }
+          }
+      }, function (error, response, body) {
+        if(!error && response.statusCode == 200){
+          membresias = JSON.parse(body);
+          console.log(req.body);
+        } else {
+          console.log('error: '+ response.statusCode)
+          console.log(body)
+        }
+      })
 }
 // PUT
 function putFlores(req, res, florId) {
@@ -85,52 +129,6 @@ function putFlores(req, res, florId) {
         }
       })
 }
-
-//// POST
-function postFlores(req, res) {
-	request(
-      { method: 'post',
-        uri: 'http://api.fernandopiza.xyz/flores/',
-        form:
-          {
-            flor:
-              {
-								nombre: req.body.nombre,
-                //
-                clasificacion_id: req.body.clasificacion_id,
-                //
-                thc: req.body.thc,
-                //
-                cbd: req.body.cbd,
-                //
-                cbn: req.body.cbn,
-                //
-                cnc: req.body.cnc,
-
-                humeleneo: '1.01',
-                terpileno: '0.75',
-                nerolidol1 : '0.08',
-                limonene:'0.11',
-                myrcene: '0.04',
-                beta_pinene: '0.01',
-                alpha_pinene: '0.05',
-                geraniol: '1.69',
-                beta_caryophyllene: '0.51',
-                //
-                stock: req.body.stock
-              }
-          }
-      }, function (error, response, body) {
-        if(!error && response.statusCode == 200){
-          membresias = JSON.parse(body);
-          console.log(req.body);
-        } else {
-          console.log('error: '+ response.statusCode)
-          console.log(body)
-        }
-      })
-}
-
 module.exports = function(){
   // Get by id
 	router.get('/flor*', isAdmin, function(req, res){

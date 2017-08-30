@@ -1,7 +1,7 @@
 var LocalStrategy   = require('passport-local').Strategy;
 var User = require('../models/user');
 var bCrypt = require('bcrypt-nodejs');
-
+// function postApi()
 module.exports = function(passport){
 
 	passport.use('signup', new LocalStrategy({
@@ -53,7 +53,7 @@ module.exports = function(passport){
 												newUser.week = req.param('week');
 												newUser.month = req.param('month');
 												newUser.other = req.param('other');
-												newUser.sign = req.param('sign');                  
+												newUser.sign = req.param('sign');
 
                         // save the user
                         newUser.save(function(err) {

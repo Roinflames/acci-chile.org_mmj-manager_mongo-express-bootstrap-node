@@ -14,6 +14,66 @@ var isAuthenticated = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/');
 }
+//GET FLORES
+request('http://api.fernandopiza.xyz/flores/', function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+        //var role
+        //console.log(body);
+				menu = JSON.parse(body);
+				//console.log(menu);
+        menu.forEach(function(menu) {
+					id.push(menu.id)
+					nombres.push(menu.nombre)
+					clasificacion.push(menu.clasificacion.nombre)
+          //if (role != 'admin') {
+          if(menu.stock>0){
+					//		stock.push("Disponible")
+					}
+					else {
+					//		stock.push("No disponible")
+  					}
+          //}
+					//ficha.push(obj.ficha)
+				})
+		 }
+})
+//// POST
+function postHora(req, res) {
+	username = req.user.username
+	console.log(req.user.username);
+	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios/'
+	console.log(uriCall);
+	request(
+      { method: 'post',
+        uri: uriCall,
+        form:
+          {
+						hora_usuario: {
+							nombre: req.body.nombre,
+	            fecha: req.body.fecha,
+							hora_medica_id: req.body.hora_medica_id,
+							usuario_id: req.body.usuario_id,
+							membresia_id: req.body.membresia_id
+						}
+						/* "hora_usuario": {"hora_medica_id": 1,"usuario_id": 1,"membresia_id": 2,"fecha":"2017-08-29"}}
+						*/
+
+
+          }
+      }, function (error, response, body) {
+        if(!error && response.statusCode == 200){
+          hora = JSON.parse(body);
+          console.log(hora);
+					//console.log(uri)
+					return hora
+        } else {
+          console.log('error: '+ response.statusCode)
+          console.log(body)
+					return body
+        }
+      })
+
+}
 //passport
 module.exports = function(passport){
 
@@ -25,13 +85,22 @@ module.exports = function(passport){
 	router.get('/stock', isAuthenticated, function(req, res){
 		res.render('stock', {title:'ACCI'});
 	});
+	router.get('/editStock', isAuthenticated, function(req, res){
+		res.render('editStock', {title:'ACCI'});
+	});
 ////////////////////// AGENDAMIENTOS //////////////////////
 /////////////////////// MEMBRESIAS /////////////////////////
-	router.get('/scheduling', function(req, res){
+	router.get('/scheduling', isAuthenticated, function(req, res){
 			res.render('scheduling', {title: 'ACCI'})
 	})
-	router.get('/history', function(req, res){
-			res.render('history', {title: 'ACCI'})
+	router.post('/scheduling', isAuthenticated, function(req, res){
+			var body = postHora(req, res)
+			console.log(body);
+			res.render('scheduling', {title: 'ACCI', estado: body})
+	})
+	router.get('/history', isAuthenticated, function(req, res){
+			var body = postHora(req, res)
+			res.render('history', {title: 'ACCI', estado: body})
 	})
 ////////////////////// DECLARACIONES //////////////////////
 	//get declaraciones

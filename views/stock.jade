@@ -7,8 +7,8 @@ block content
         .row
           .col-sm-4
             .container              
-              h1 VARIEDADES DE CANNABIS
-              p.onway Nota: Los análisis mostrados se realizaron con el equipo "Mydx", el cual entrega resultados cualitativos y semicuantitativos,                
+              h1.info VARIEDADES DE CANNABIS
+              p.info Nota: Los análisis mostrados se realizaron con el equipo "Mydx", el cual entrega resultados cualitativos y semicuantitativos,                
             .container                
               .col-lg-4.col-lg-offset-4
                 - if(role=='admin')
@@ -28,14 +28,17 @@ block content
                   - for (var y = 0; y < Object.keys(menu).length; y++)                                          
                     tr
                     - for (var x = 0; x < 1; x++)
-                        td= id[y] 
-                        - var callId = id[y] 
+                      td= id[y] 
+                      - var callId = id[y] 
                     - for (var x = 0; x < 1; x++)
                       td= nombres[y]
                     - for (var x = 0; x < 1; x++)
                       td= clasificacion[y]
                     - for (var x = 0; x < 1; x++)
                       td= stock[y]
+                        - if(role == 'admin')
+                          br                    
+                          a.hidden.portfolio-link(href='editStock', data-toggle='modal').button.btn.btn-primary(type='submit') Modificar
                     - for (var x = 0; x < 1; x++)
                       td
                         a.portfolio-link(href='flor'+id[y], data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar

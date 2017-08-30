@@ -1,46 +1,51 @@
 extends layout-loggedin
 
 block content
+    //http://api.fernandopiza.xyz/hora_usuarios
     // Team Section
     section#testimonies.bg-light-gray
       .container.text-center
         .row
           .col-lg-12        
-              h1 Histórico de horas              
-              h2.onway En construcción                          
+              h1 Histórico de horas                                                   
               br
               br
         .row
-          .col-lg-2
-            strong Martes
-            - for (var y = 0; y < Object.keys(horas).length; y++)                                          
-              p= horas[y].hora
-          .col-lg-2
-            strong Jueves
-            - for (var y = 0; y < Object.keys(horas).length; y++)                                          
-              p= horas[y].hora
-          .col-lg-4
-              strong Membresias
-              - for (var y = 0; y < Object.keys(membresias).length; y++)                                          
-                p= membresias[y].nombre
-          .col-lg-4
-            p El agendamiento debe contener: 
-            strong 1 al 31
-            br
-            strong Mes
-            br
-            strong Año
-            br
-            strong Hora
-            br
-            strong Membresía
-            br
-            .z-depth-1.grey.lighten-4.row(style='display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;')
-              form(class='form-signin', action='/signup', method='post')                
-              button(class='btn btn-lg btn-primary btn-block', type='submit') Reserva tu hora
+          .col-lg-2.hidden
+            p.onway PENDIENTE
+            form(action='http://localhost:3000/hora_usuarios', method='get')              
+              br
+              input(type='text', name='username', placeholder='Nombre de usuario', required='')
+              br                                                 
+              br
+              input.btn.btn-primary(type='submit', value='Buscar horas de usuario')
               p
                 a(href='/', class='text-center') Volver
                 span.clearfix
+          .col-lg-2.col-lg-offset-2
+            strong Nombre de socio
+            - for (var y = 0; y < Object.keys(index).length; y++)                                          
+              p= index[y].usuario.nombre
+          .col-lg-2.hidden
+              strong.onway Tipo de atención 
+              - for (var y = 0; y < Object.keys(index).length; y++)                                          
+                //p= index[y].membresia          
+                p.onway='<Stock o Médica>'
+          .col-lg-2
+            strong Fecha atención
+            - for (var y = 0; y < Object.keys(index).length; y++)                                          
+              p= index[y].fecha
+          .col-lg-2
+              strong Hora
+              - for (var y = 0; y < Object.keys(index).length; y++)                                          
+                p= index[y].hora
+          .col-lg-2
+              strong Membresía
+              - for (var y = 0; y < Object.keys(index).length; y++)                                          
+                p= index[y].membresia
+          
+                //fecha, hora_medica_id,usuario_id,membresia_id
+          
     footer
       .container
         .row
