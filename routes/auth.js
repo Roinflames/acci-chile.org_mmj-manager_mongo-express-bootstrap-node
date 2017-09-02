@@ -6,10 +6,9 @@ var router = express.Router()
 
 var indexLoggedin = require('../routes/index-loggedin')
 
-function postUser(req, res) {
-  console.log(req.body);
+var apiUser = function (req, res, next) {
   uriCall = 'http://api.fernandopiza.xyz/usuarios'
-  //console.log(uriCall);
+
   request(
       { method: 'post',
         uri: uriCall,
@@ -29,15 +28,18 @@ function postUser(req, res) {
           user = JSON.parse(body)
           pcl.enable()
           console.log(user)
+          return next()
         }
         else {
           pcl.enable()
           console.log('Lo sentimos, el usuario no ha sido registrado. Vuelva a intentarlo más tarde.')
           console.log(body + 'error: '+ response.statusCode)
+          return next()
         }
       }
-  )
+    )
 }
+
 module.exports = function(passport){
   //Logueo User
   router.get('/signin', function(req, res){
@@ -48,9 +50,7 @@ module.exports = function(passport){
     successRedirect: '/index-loggedin',
 		failureRedirect: '/',
 		failureFlash : true,
-	})), function (){
-    var apiUser = postUser(req, res)
-  }
+	}))
   //End Logueo User
 
   //Register User
@@ -59,9 +59,7 @@ module.exports = function(passport){
 		res.render('ficha',{message: req.flash('message'), title: 'ACCI'});
 	});
 
-	router.post('/signup', function(req,res){
-    var apiUser = postUser(req, res)
-  }, passport.authenticate('signup', {
+	router.post('/signup', apiUser, passport.authenticate('signup', {
 		successRedirect: '/index-loggedin',
 		failureRedirect: '/',
 		failureFlash : true
