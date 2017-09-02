@@ -13,7 +13,7 @@ request('http://api.fernandopiza.xyz/membresias/', function (error, response, bo
 				//console.log(membresias);
 		 }
 		 else {
-		 	console.log('error');
+		 	console.log('Error ('+ response.statusCode +') No se han podido solicitar las membresias.')
 		 }
 })
 request('http://api.fernandopiza.xyz/horas/', function (error, response, body) {
@@ -26,7 +26,7 @@ request('http://api.fernandopiza.xyz/horas/', function (error, response, body) {
 
 		 }
 		 else {
-		 	console.log('error');
+		 	console.log('Error ('+ response.statusCode +') No se han podido obtener las horas disponibles.')
 		 }
 })
 // TODO
@@ -37,7 +37,7 @@ request('http://api.fernandopiza.xyz/usuario/'+'roro', function (error, response
 				//console.log(usuario_id);
 		 }
 		 else {
-		 	console.log('error');
+		 	console.log('Error ('+ response.statusCode +')  No se ha podido obtener el usuario <usuario>')
 		 }
 })
 //end CALL scheduling
@@ -46,14 +46,16 @@ request('http://api.fernandopiza.xyz/hora_usuarios', function (error, response, 
 		if (!error && response.statusCode == 200) {
 				//console.log(body);
 				index = JSON.parse(body);
+				console.log(index[i])
 				for (var i = 0; i < index.length; i++) {
 					// DPONG
-					//console.log(index[i])
+					console.log(index[i])
 				}
 
 		 }
 		 else {
-		 	console.log('error');
+		 	console.log('Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
+			//console.log(body)
 		 }
 })
 // POST hora usuario

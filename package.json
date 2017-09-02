@@ -24,6 +24,7 @@
     "nodemailer": "^4.0.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "pretty-console.log": "^2.0.0",
     "request": "^2.81.0"
   }
 }

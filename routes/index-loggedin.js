@@ -1,5 +1,7 @@
 var express = require('express')
 var request = require('request')
+var pcl = require("pretty-console.log")
+
 var router = express.Router()
 // controllers
 var stock = require('../controllers/stock')
@@ -17,8 +19,6 @@ var isAuthenticated = function (req, res, next) {
 //GET FLORES
 request('http://api.fernandopiza.xyz/flores/', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
-        //var role
-        //console.log(body);
 				menu = JSON.parse(body);
 				//console.log(menu);
         menu.forEach(function(menu) {
@@ -36,13 +36,16 @@ request('http://api.fernandopiza.xyz/flores/', function (error, response, body) 
 					//ficha.push(obj.ficha)
 				})
 		 }
+		 else {
+		 	console.log('Error ('+ response.statusCode +') No se ha podido solicitar el stock.');
+		 }
 })
 //// POST
 function postHora(req, res) {
 	username = req.user.username
-	console.log(req.body);
+	//console.log(req.body);
 	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios/'
-	console.log(uriCall);
+	//console.log(uriCall);
 	request(
       { method: 'post',
         uri: uriCall,
@@ -63,7 +66,44 @@ function postHora(req, res) {
       }, function (error, response, body) {
         if(!error && response.statusCode == 201){
           hora = JSON.parse(body);
+					console.log('Hora registrada con éxito: ');
           console.log(hora);
+					//console.log(uri)
+
+        } else {
+          console.log('Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
+          console.log(body + 'error:' + response.statusCode)
+
+        }
+      })
+}
+//
+function postUser(req, res) {
+	//username = req.user.username
+	//console.log(req.body);
+	uriCall = 'http://api.fernandopiza.xyz/usuarios/'
+	//console.log(uriCall);
+	request(
+      { method: 'get',
+        uri: uriCall,
+        form:
+          {
+						hora_usuario: {
+							nombre: req.body.nombre,
+	            fecha: req.body.fecha,
+							hora_medica_id: req.body.hora_medica_id,
+							usuario_id: req.body.usuario_id,
+							membresia_id: req.body.membresia_id
+						}
+						/* "hora_usuario": {"hora_medica_id": 1,"usuario_id": 1,"membresia_id": 2,"fecha":"2017-08-29"}}
+						*/
+
+
+          }
+      }, function (error, response, body) {
+        if(!error && response.statusCode == 201){
+          users = JSON.parse(body);
+          console.log(users);
 					//console.log(uri)
 
         } else {
@@ -79,6 +119,11 @@ module.exports = function(passport){
   router.get('/index-loggedin', isAuthenticated, function(req, res){
     res.render('index-loggedin', {title:'ACCI', usuario: req.user.username});
   });
+////////////////////// USERS ////////////////////////////////
+	router.post('/users', isAuthenticated, function(req, res){
+			var body = postUser(req, res)
+			res.render('index-loggedin', {title: 'ACCI', estado: body})
+	})
 ////////////////////// STOCK ////////////////////////////////
 	//get stock
 	router.get('/stock', isAuthenticated, function(req, res){
@@ -93,8 +138,7 @@ module.exports = function(passport){
 			res.render('scheduling', {title: 'ACCI'})
 	})
 	router.post('/scheduling', isAuthenticated, function(req, res){
-			var body = postHora(req, res)
-			console.log(body);
+			var body = postHora(req, res)			
 			res.render('scheduling', {title: 'ACCI', estado: body})
 	})
 	router.get('/history', isAuthenticated, function(req, res){
