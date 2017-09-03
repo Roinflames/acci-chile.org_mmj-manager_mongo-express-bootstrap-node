@@ -137,19 +137,19 @@ module.exports = function(){
 		res.render('fichas/'+florId, {title:'ACCI'})
   })
 	// put by id
-	router.put('/flor*', function(req, res){
+	router.put('/flor*', isAdmin, function(req, res){
 	//router.put('/flor*', isAuthenticated, function(req, res){
 		florId = getFlores(req, res)
 		putFlores(req, res, florId)
 		res.send("Actualización de registro exitosa!")
   })
 	// POST
-	router.post('/flores', function(req, res){
+	router.post('/flores', isAdmin, function(req, res){
 		postFlores(req, res)
 		res.render('fichas/0', {response: "Operación realizada con éxito!"})
 	})
 	// delete by id
-	router.delete('/flor*', function(req, res){
+	router.delete('/flor*', isAdmin, function(req, res){
 		res.send("Se ha borrado el registro exitosamente!")
 	})
 	return router

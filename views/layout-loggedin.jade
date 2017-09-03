@@ -45,9 +45,13 @@ html(lang='en')
                 a.page-scroll.hidden(href='/scheduling') RESERVA TU HORA 
               li
                 a.page-scroll(href='/history') HISTORIAL DE HORAS 
+              li
+                a.page-scroll(href='/user') CREAR NUEVO USUARIO  
             - if(role!='admin') 
               li
                 a.page-scroll(href='/scheduling') RESERVA TU HORA 
+              li
+                a.page-scroll.hidden(href='/history') HISTORIAL DE HORAS 
             li
               a.page-scroll.hidden(href='/declaraciones') DECLARACIONES PÚBLICAS ACCI
             li

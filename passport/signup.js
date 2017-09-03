@@ -19,7 +19,7 @@ module.exports = function(passport){
                     }
                     // already exists
                     if (user) {
-                        console.log('User already exists with username: '+username);
+                        console.log('Ya existe este usuario: '+username);
                         return done(null, false, req.flash('message','El usuario ya existe'));
                     } else {
                         // if there is no user with that email
@@ -27,33 +27,33 @@ module.exports = function(passport){
                         var newUser = new User();
 
                         // set the user's local credentials
-												newUser.date = req.param('date');
-                        newUser.username = username;
-												newUser.password = createHash(password);
+												newUser.date = req.param('date')
+                        newUser.username = username
+												newUser.password = createHash(password)
 
-												newUser.name = req.param('name');
-												newUser.rut = req.param('rut');
-												newUser.age = req.param('age');
-												newUser.phone = req.param('phone');
-												newUser.email = req.param('email');
-												newUser.address = req.param('address');
-												newUser.region = req.param('region');
-												newUser.comuna = req.param('comuna');
+												newUser.name = req.param('name')
+												newUser.rut = req.param('rut')
+												newUser.age = req.param('age')
+												newUser.phone = req.param('phone')
+												newUser.email = req.param('email')
+												newUser.address = req.param('address')
+												newUser.region = req.param('region')
+												newUser.comuna = req.param('comuna')
 
-												newUser.sick = req.param('sick');
-												newUser.operaciones = req.param('operaciones');
+												newUser.sick = req.param('sick')
+												newUser.operaciones = req.param('operaciones')
 												newUser.alergias = req.param('alergias');
-												newUser.medicamentos = req.param('medicamentos');
-												newUser.declaracion = req.param('declaracion');
+												newUser.medicamentos = req.param('medicamentos')
+												newUser.declaracion = req.param('declaracion')
 
-												newUser.sender = req.param('sender');
+												newUser.sender = req.param('sender')
 												newUser.dosis = req.param('dosis');
-												newUser.product = req.param('product');
-												newUser.diary = req.param('diary');
-												newUser.week = req.param('week');
-												newUser.month = req.param('month');
-												newUser.other = req.param('other');
-												newUser.sign = req.param('sign');
+												newUser.product = req.param('product')
+												newUser.diary = req.param('diary')
+												newUser.week = req.param('week')
+												newUser.month = req.param('month')
+												newUser.other = req.param('other')
+												newUser.sign = req.param('sign')
 
                         // save the user
                         newUser.save(function(err) {
@@ -61,8 +61,10 @@ module.exports = function(passport){
                                 console.log('Error al guardar el usuario: '+err);
                                 throw err;
                             }
-                            console.log('Usuario correctamente registrado');
-                            return done(null, newUser);
+														else {
+															console.log('Usuario correctamente registrado');
+	                            return done(null, newUser);
+														}
                         });
                     }
                 });
@@ -71,11 +73,9 @@ module.exports = function(passport){
             // in the next tick of the event loop
             process.nextTick(findOrCreateUser);
         })
-    );
-
+    )
     // Generates hash using bCrypt
     var createHash = function(password){
         return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
     }
-
 }

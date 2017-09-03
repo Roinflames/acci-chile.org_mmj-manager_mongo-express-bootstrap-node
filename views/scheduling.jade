@@ -6,37 +6,31 @@ block content
       .container.text-center
         .row
           .col-lg-12        
-              h1.info Agendamiento de horas
-              h2.info Bienvenido #{index[0].usuario.nombre}!                       
-              //a.h4(href='https://reservahora.setmore.com/resourcebookingpage/rd372442c0a868201e64facecbe1f31a19f94755a', target='_blank') Realizar un agendamiento temporal >>
-              br
-              br
+            h1.info Agendamiento de horas            
+            h2.info Bienvenido 
+            br
+            br
         .row
           .col-lg-offset-4.col-lg-4
             h2 Agenda tu hora
+            p.onway #{error}
         .row
           .col-lg-12
             form(action='http://localhost:3000/scheduling', method='post')              
-              br            
-              //h4 Agenda tu hora
-              strong Tipo de hora
-              br
-              br
+              br                          
+              strong Tipo de hora          
+              // tipo de atencion  
               select(type='text', name='tipo_atencion', placeholder='tipo_atencion', required='')
                 option(value='administrativa') Administrativa       
-                option(value='medica') Médica               
+                option(value='medica') Médica                               
               br 
               br
-              strong Fecha
-              br
-              br
+              strong Fecha &nbsp             
               // fecha de atencion
-              input(type='text', name='fecha', placeholder='aaaa-mm-dd', required='')
+              input(type='date', name='fecha', placeholder='aaaa-mm-dd', required='')
               br                                   
               br              
               strong Hora médica            
-              br
-              br
               // horas medicas
               select(type='text', name='hora_medica_id', placeholder='hora_medica_id', required='')
                 - for (var i = 0; i < Object.keys(horas).length; i++) 
@@ -44,8 +38,8 @@ block content
               br
               br
               //id de usuario TODO
-              input.hidden(type='radio', name='usuario_id', value=usuario_id.id, checked='')              
-              br
+              - console.log(username);
+              input.hidden(type='text', name='usuario_id', value=username)              
               br
               strong Solicite una membresía:
               br
@@ -75,10 +69,18 @@ block content
               | #{membresias[2].descripcion}
               br
               br
+              br
+              strong Indique sus requerimientos (Opcional):
+              br
+              br
+              // Comentarios
+              input(type='test', name='comentario', placeholder='Comentario')
+              br
+              br
               // post agendar
-              input.btn.btn-primary(type='submit', value='Agendar hora')
+              input.btn.btn-primary(type='submit', value='Agendar hora')                
               p
-                a(href='/', class='text-center') Volver
+                a(href='/index-loggedin', class='text-center') Volver
                 span.clearfix              
               p.onway #{estado}
           .col-lg-2.hidden
@@ -98,8 +100,7 @@ block content
           .col-lg-2.hidden
               strong.onway Tipo de atención
               - for (var y = 0; y < Object.keys(index).length; y++)                                          
-                p= index[y].tipo_atencion        
-          
+                p= index[y].tipo_atencion                  
     footer
       .container
         .row
@@ -124,8 +125,7 @@ block content
               |                                   TEL: +56999467416
               br
               |  Correo: DM@FASIMC.ORG
-              |                                   A PASOS DEL METRO PLAZA DE ARMAS
-              
+              |                                   A PASOS DEL METRO PLAZA DE ARMAS              
     // Bootstrap Core JavaScript
     script(src='vendor/bootstrap/js/bootstrap.min.js')
     // jQuery
@@ -138,5 +138,3 @@ block content
     // Theme JavaScript
     script(src='javascripts/agency.js')
     script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
-  
-    

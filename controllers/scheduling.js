@@ -30,7 +30,7 @@ request('http://api.fernandopiza.xyz/horas/', function (error, response, body) {
 		 }
 })
 // TODO
-request('http://api.fernandopiza.xyz/usuario/'+'roro', function (error, response, body) {
+request('http://api.fernandopiza.xyz/usuario/'+'ro', function (error, response, body) {
 		if (!error && response.statusCode == 200) {
 				//console.log(body);
 				usuario_id = JSON.parse(body);
@@ -46,10 +46,10 @@ request('http://api.fernandopiza.xyz/hora_usuarios', function (error, response, 
 		if (!error && response.statusCode == 200) {
 				//console.log(body);
 				index = JSON.parse(body);
-				console.log(index[i])
+				//console.log(index[i])
 				for (var i = 0; i < index.length; i++) {
 					// DPONG
-					console.log(index[i])
+					//console.log(index[i])
 				}
 
 		 }

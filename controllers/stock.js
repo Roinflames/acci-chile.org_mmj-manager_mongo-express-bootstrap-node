@@ -2,8 +2,6 @@ var express = require('express')
 var request = require('request');
 var router = express.Router()
 
-var fs = require('fs'), obj
-
 // GLOBALS
 id = []
 nombres = []
@@ -34,17 +32,7 @@ request('http://api.fernandopiza.xyz/flores/', function (error, response, body) 
 							stock.push("No disponible")
   					}
           //}
-					ficha.push(obj.ficha)
+					//ficha.push(obj.ficha)
 				})
 		 }
 })
-// Read the file and send to the callback
-fs.readFile('public/json/links.json', handleFile)
-
-// Write the callback function
-function handleFile(err, data) {
-    if (err) throw err
-    obj = JSON.parse(data)
-		//console.log(obj);
-    // You can now play with your datas
-}
