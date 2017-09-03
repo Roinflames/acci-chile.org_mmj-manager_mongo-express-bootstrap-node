@@ -71,14 +71,14 @@ var getApiUserId = function (req, res, name, next) {
 					 	console.log('Error ('+ response.statusCode +')  No se ha podido obtener el usuario ' + nombre)
 					 }
 
-			})			
+			})
 }
 // (3)
 // POST apiUser
 var postApiUser = function (req, res, next) {
 	uriCall = 'http://api.fernandopiza.xyz/usuarios'
 	//console.log(uriCall);
-	console.log(req.body);
+	console.log('req.body' + req.body);
 	request(
 	    { method: 'post',
 	      uri: uriCall,
@@ -227,6 +227,7 @@ module.exports = function(passport){
 
   router.get('/index-loggedin', isAuthenticated, function(req, res){
 		var name = req.user.username
+		console.log('req.user: ' + req.user);
 		var body = getApiUserId(req, res, name)
 		getApiUsers()
 		getFlores()
@@ -236,10 +237,10 @@ module.exports = function(passport){
     res.render('index-loggedin', {title:'ACCI', usuario: req.user.username})
   })
 ////////////////////// USERS ////////////////////////////////
-	router.get('/user', isAuthenticated, isAdmin, function(req, res) {
+	router.get('/user',  function(req, res) {
 	  res.render('ficha', {title: 'ACCI'})
 	})
-	router.post('/user', isAuthenticated, isAdmin, function(req, res){
+	router.post('/user',  function(req, res){
 			var name = req.user.username
 			//var body = getApiUserId(req, res, name)
 			var body2 = postApiUser(req, res)
