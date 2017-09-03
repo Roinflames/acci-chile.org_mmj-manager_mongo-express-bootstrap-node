@@ -150,7 +150,7 @@ var getHorasIndex = function (req, res, next) {
 }
 // (6) TODO - agragar comentario en modelo api
 // POST apiHora - ISSUE usuario_id
-var postHora = function (req, res, status, next) {
+var postHora = function (req, res, status, globalUser, next) {
 	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios/'
 	//console.log(uriCall);
 	request(
@@ -162,7 +162,7 @@ var postHora = function (req, res, status, next) {
 							nombre: req.body.nombre,
 	            fecha: req.body.fecha,
 							hora_medica_id: req.body.hora_medica_id,
-							usuario_id: usuario_id.id,
+							usuario_id: globalUser,
 							membresia_id: req.body.membresia_id
 						}
           }
@@ -262,7 +262,8 @@ module.exports = function(passport){
 			res.render('scheduling', {title: 'ACCI', estado: status})
 	})
 	router.post('/scheduling', isAuthenticated, function(req, res){
-			var body = postHora(req, res, status)
+			getApiUserId()
+			var body = postHora(req, res, status, globalUser)
 			console.log('hora' + status);
 			res.render('scheduling', {title: 'ACCI', estado: body})
 	})
