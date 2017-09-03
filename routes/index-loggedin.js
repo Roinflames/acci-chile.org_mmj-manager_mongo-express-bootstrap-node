@@ -80,22 +80,24 @@ var getApiUserId = function (req, res, name, next) {
 var postApiUser = function (req, res, next) {
 	uriCall = 'http://api.fernandopiza.xyz/usuarios'
 	//console.log(uriCall);
+	console.log(req.body);
 	request(
 	    { method: 'post',
 	      uri: uriCall,
 	      form:
 	        {
 	          usuario: {
-	            nombre: req.body.nombre,
-	            correo: req.body.correo,
-	            numero: req.body.numero,
-	            direccion: req.body.direccion
+	            nombre: req.body.username,
+	            correo: req.body.email,
+	            numero: req.body.phone,
+	            direccion: req.body.address
 	          }
 	        }
 	    },
 	    function (error, response, body) {
 	      //console.log(body);
 	      if(!error && response.statusCode == 201){
+					console.log(body);
 	        user = JSON.parse(body);
 	        console.log('Usuario creado con éxito. ' + user);
 	      }
@@ -117,21 +119,8 @@ var getFlores = function (req, res, next) {
       }, function (error, response, body) {
 				if (!error && response.statusCode == 200) {
 						menu = JSON.parse(body);
-						console.log('Variedades de flores obtenidad con éxito!');
+						console.log('Variedades de flores obtenidas con éxito!');
 						//pcl(menu);
-		        /*menu.forEach(function(menu) {
-							id.push(menu.id)
-							nombres.push(menu.nombre)
-							clasificacion.push(menu.clasificacion.nombre)
-
-		          if(menu.stock>0){
-									//stock.push("Disponible")
-							}
-							else {
-									//stock.push("No disponible")
-		  				}
-							//ficha.push(obj.ficha)
-						})*/
 				 }
 				 else {
 				 	console.log('Lo sentimos. Error ('+ response.statusCode +') No se ha podido solicitar el stock.');
@@ -151,7 +140,7 @@ var getHorasIndex = function (req, res, next) {
 							//console.log(body);
 							indexHoras = JSON.parse(body);
 							console.log('Horas de usuario obtenidas con éxito!')
-							//pcl(indexHoras)
+							pcl(indexHoras)
 					 }
 					 else {
 					 	console.log('Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
@@ -187,6 +176,7 @@ var postHora = function (req, res, status, next) {
         } else {
           console.log('Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
           console.log(body + 'error:' + response.statusCode)
+					status = response.statusCode
         }
       })
 }
@@ -252,9 +242,9 @@ module.exports = function(passport){
 	router.get('/user', isAuthenticated, isAdmin, function(req, res) {
 	  res.render('ficha', {title: 'ACCI'})
 	})
-	router.post('/users', isAuthenticated, isAdmin, function(req, res){
+	router.post('/user', isAuthenticated, isAdmin, function(req, res){
 			var name = req.user.username
-			var body = getApiUserId(req, res, name)
+			//var body = getApiUserId(req, res, name)
 			var body2 = postApiUser(req, res)
 			res.render('index-loggedin', {title: 'ACCI', estado: status})
 	})

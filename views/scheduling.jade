@@ -16,13 +16,13 @@ block content
             h2 Agenda tu hora
         .row
           .col-lg-12
-            form(action='http://acci-chile.org/scheduling', method='post')              
+            form(action='scheduling', method='post')              
               br                          
               strong Tipo de hora          
               // tipo de atencion  
               select(type='text', name='tipo_atencion', placeholder='tipo_atencion', required='')
-                option(value='administrativa') Administrativa       
-                option(value='medica') Médica                               
+                option(value='1') Administrativa       
+                option(value='2') Médica                               
               br 
               br
               strong Fecha &nbsp             
