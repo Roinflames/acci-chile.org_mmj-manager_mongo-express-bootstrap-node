@@ -71,9 +71,7 @@ var getApiUserId = function (req, res, name, next) {
 					 	console.log('Error ('+ response.statusCode +')  No se ha podido obtener el usuario ' + nombre)
 					 }
 
-			})
-			//console.log('apiuser' + globalUser.id);
-			//return usuario_id
+			})			
 }
 // (3)
 // POST apiUser
@@ -230,7 +228,6 @@ module.exports = function(passport){
   router.get('/index-loggedin', isAuthenticated, function(req, res){
 		var name = req.user.username
 		var body = getApiUserId(req, res, name)
-		//console.log('index ' + usuario_id.id);
 		getApiUsers()
 		getFlores()
 		getHorarios()
