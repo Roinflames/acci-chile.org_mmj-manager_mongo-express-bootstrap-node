@@ -156,9 +156,9 @@ var getHorasIndex = function (req, res, next) {
 					 }
 			})
 }
-// (6)
+// (6) TODO - agragar comentario en modelo api
 // POST apiHora - ISSUE usuario_id
-var postHora = function (req, res, next) {	
+var postHora = function (req, res, next) {
 	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios/'
 	//console.log(uriCall);
 	request(

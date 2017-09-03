@@ -26,7 +26,7 @@ var privateArea = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/stock')
 }
-// (2) TODO
+// (2) TODO - cromatografia (?)
 // GET florById
 var getFlores = function (req, res, florId) {
 	florId = florId.replace("/flor", "")
@@ -48,7 +48,7 @@ var getFlores = function (req, res, florId) {
 					 }
 			})
 }
-// (3) TODO
+// (3) TODO - argumentos form
 // POST
 function postFlores(req, res) {
 	request(
@@ -93,7 +93,7 @@ function postFlores(req, res) {
         }
       })
 }
-// (4) TODO
+// (4) TODO - argumentos form
 // PUT
 function putFlores(req, res, florId) {
   request(
