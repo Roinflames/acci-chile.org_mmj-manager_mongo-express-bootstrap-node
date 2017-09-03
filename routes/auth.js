@@ -3,7 +3,7 @@ var request = require('request')
 var indexLoggedin = require('../routes/index-loggedin')
 var router = express.Router()
 
-var isAdmin = function (req, res, next) {	
+var isAdmin = function (req, res, next) {
 	if (role == 'admin')
 		return next()
 	// if the user is not authenticated then redirect him to the login page
@@ -30,7 +30,7 @@ module.exports = function(passport){
 		failureFlash : true,
 	}))
   //Register User
-	router.get('/signup', isAdmin,isAuthenticated, function(req, res){
+	router.get('/signup', isAdmin, isAuthenticated, function(req, res){
 		res.render('ficha',{message: req.flash('message'), title: 'ACCI'});
 	});
 	router.post('/signup', isAdmin, passport.authenticate('signup', {

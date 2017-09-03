@@ -43,7 +43,7 @@ var getApiUsers = function (req, res, next) {
 							//console.log(body);
 							users = JSON.parse(body);
 							console.log('Listado de usuarios obtenido con éxito!');
-							//pcl(users);
+							pcl(users);
 					 }
 					 else {
 					 	console.log('Error ('+ response.statusCode +')  No se ha podido obtener el usuario <usuario>')
@@ -239,8 +239,9 @@ module.exports = function(passport){
 
   router.get('/index-loggedin', isAuthenticated, function(req, res){
 		var name = req.user.username
-		getApiUserId(req, res, name)
-		console.log('index ' + usuario_id.id);
+		var body = getApiUserId(req, res, name)
+		//console.log('index ' + usuario_id.id);
+		getApiUsers()
 		getFlores()
 		getHorarios()
 		getMembresias()
@@ -248,10 +249,10 @@ module.exports = function(passport){
     res.render('index-loggedin', {title:'ACCI', usuario: req.user.username})
   })
 ////////////////////// USERS ////////////////////////////////
-	router.get('/user', isAuthenticated, function(req, res) {
+	router.get('/user', isAuthenticated, isAdmin, function(req, res) {
 	  res.render('ficha', {title: 'ACCI'})
 	})
-	router.post('/users', isAuthenticated, function(req, res){
+	router.post('/users', isAuthenticated, isAdmin, function(req, res){
 			var name = req.user.username
 			var body = getApiUserId(req, res, name)
 			var body2 = postApiUser(req, res)
@@ -284,7 +285,6 @@ module.exports = function(passport){
 			res.send('delete scheduling', {title: 'ACCI', estado: body})
 	})
 	router.get('/history', isAdmin, isAuthenticated, function(req, res){
-			getHorasIndex()
 			res.render('history', {title: 'ACCI'})
 	})
 ////////////////////// DECLARACIONES //////////////////////
