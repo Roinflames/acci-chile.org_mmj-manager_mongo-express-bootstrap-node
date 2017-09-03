@@ -239,8 +239,8 @@ module.exports = function(passport){
 
   router.get('/index-loggedin', isAuthenticated, function(req, res){
 		var name = req.user.username
-		var body = getApiUserId(req, res, name)
-		//console.log('index ' + usuario_id.id);
+		getApiUserId(req, res, name)
+		console.log('index ' + usuario_id.id);
 		getFlores()
 		getHorarios()
 		getMembresias()
