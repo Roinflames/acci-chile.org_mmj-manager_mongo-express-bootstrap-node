@@ -12,7 +12,7 @@ block content
               br
         .row
           .col-lg-2.hidden
-            p.onway PENDIENTE
+            p.onway PENDIENTE FILTRAT USUARIOS
             form(action='http://localhost:3000/hora_usuarios', method='get')              
               br
               input(type='text', name='username', placeholder='Nombre de usuario', required='')
@@ -22,28 +22,27 @@ block content
               p
                 a(href='/', class='text-center') Volver
                 span.clearfix
-          .col-lg-2.col-lg-offset-2
-            strong Nombre de socio
-            - for (var y = 0; y < Object.keys(index).length; y++)                                          
-              p= index[y].usuario.nombre
-          .col-lg-2.hidden
-              strong.onway Tipo de atención 
-              - for (var y = 0; y < Object.keys(index).length; y++)                                          
-                //p= index[y].membresia          
-                p.onway='<Stock o Médica>'
-          .col-lg-2
-            strong Fecha atención
-            - for (var y = 0; y < Object.keys(index).length; y++)                                          
-              p= index[y].fecha
-          .col-lg-2
-              strong Hora
-              - for (var y = 0; y < Object.keys(index).length; y++)                                          
-                p= index[y].hora
-          .col-lg-2
-              strong Membresía
-              - for (var y = 0; y < Object.keys(index).length; y++)                                          
-                p= index[y].membresia
-          
+        .row
+          .col-lg-12
+            table#history.display.text-center(width='100%', cellspacing='0')
+              thead
+                tr
+                  th Nombre de socio                  
+                  th Fecha de atención     
+                  th Hora           
+                  th Membresía                     
+              tbody                        
+                - for (var y = 0; y < Object.keys(indexHoras).length; y++) 
+                  - console.log(indexHoras[i]);
+                  tr
+                  - for (var x = 0; x < 1; x++)
+                    td= indexHoras[y].usuario.nombre                  
+                  - for (var x = 0; x < 1; x++)                
+                    td= indexHoras[y].fecha                                    
+                  - for (var x = 0; x < 1; x++)
+                    td= indexHoras[y].hora                  
+                  - for (var x = 0; x < 1; x++)
+                    td= indexHoras[y].membresia          
                 //fecha, hora_medica_id,usuario_id,membresia_id
           
     footer
@@ -84,4 +83,8 @@ block content
     // Theme JavaScript
     script(src='javascripts/agency.js')
     script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
+    script(type='text/javascript').
+      $(document).ready(function(){
+      $('#history').DataTable();
+      });
     

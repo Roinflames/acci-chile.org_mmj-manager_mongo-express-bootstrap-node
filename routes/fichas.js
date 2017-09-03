@@ -3,7 +3,7 @@ var request = require('request');
 var pcl = require('pretty-console.log')
 pcl.enable()
 
-var stock = require('../controllers/stock')
+//var stock = require('../controllers/stock')
 
 var router = express.Router();
 
@@ -144,9 +144,7 @@ module.exports = function(){
 		var florId = req.url
 		florId = florId.replace("/flor", "")
 		var body = getFlores(req, res, florId)
-		console.log(body);
 		res.render('fichas/'+florId, {title:'ACCI'})
-
   })
 	// PUT flor byid
 	router.put('/flor*', isAuthenticated, privateArea, function(req, res){

@@ -28,20 +28,25 @@ block content
                   - for (var y = 0; y < Object.keys(menu).length; y++)                                          
                     tr
                     - for (var x = 0; x < 1; x++)
-                      td= id[y] 
-                      - var callId = id[y] 
+                      td= menu[y].id                
                     - for (var x = 0; x < 1; x++)
-                      td= nombres[y]
+                      td= menu[y].nombre
                     - for (var x = 0; x < 1; x++)
-                      td= clasificacion[y]
+                      td= menu[y].clasificacion.nombre
                     - for (var x = 0; x < 1; x++)
-                      td= stock[y]
+                      - if (role=='admin') 
+                        td= menu[y].stock
+                      - else
+                        - if (menu[y].stock > 0) 
+                          td= 'Disponible'
+                        - else
+                          td= 'No disponible'                       
                         - if(role == 'admin')
                           br                    
                           a.hidden.portfolio-link(href='editStock', data-toggle='modal').button.btn.btn-primary(type='submit') Modificar
                     - for (var x = 0; x < 1; x++)
                       td
-                        a.portfolio-link(href='flor'+id[y], data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar
+                        a.portfolio-link(href='flor'+menu[y].id, data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar
               
                                                                                                      
     footer
