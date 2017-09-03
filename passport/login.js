@@ -24,7 +24,7 @@ module.exports = function(passport){
                         console.log('Invalid Password');
                         return done(null, false, req.flash('message', 'Invalid Password')); // redirect back to login page
                     }
-										if (username == 'admin') {
+										if (username == 'admin' || username == 'acciadmin') {
 											role = 'admin'
 										}
 										else {
