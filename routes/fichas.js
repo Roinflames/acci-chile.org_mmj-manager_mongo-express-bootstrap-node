@@ -1,5 +1,7 @@
 var express = require('express');
 var request = require('request');
+var pcl = require('pretty-console.log')
+pcl.enable()
 
 var stock = require('../controllers/stock')
 
@@ -15,9 +17,8 @@ var isAuthenticated = function (req, res, next) {
 	res.redirect('/index-loggedin');
 }
 
-var isAdmin = function (req, res, next) {
+var privateArea = function (req, res, next) {
 	var florId = req.url
-	florId = florId.replace("/flor", "");
 	if (role == 'admin')
 		return next()
 	if (role != 'admin' && florId != '0')
@@ -25,23 +26,30 @@ var isAdmin = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/stock')
 }
-// GET
-function getFlores(req, res){
-	var florId = req.url
-	florId = florId.replace("/flor", "");
-	var url = "http://Api.fernandopiza.xyz/flores/"+florId
-	//console.log(url);
-	//console.log(menu);
-	request(url, function (error, response, body) {
-			if (!error && response.statusCode == 200) {
-					//console.log(body);
-					cromatografia = JSON.parse(body);
-					//console.log(cromatografia);
-			 }
-	})
-	return florId
+// (2) TODO
+// GET florById
+var getFlores = function (req, res, florId) {
+	florId = florId.replace("/flor", "")
+	uriCall = "http://Api.fernandopiza.xyz/flores/"+florId
+	//console.log(uriCall);
+	var flor_id
+	request(
+      { method: 'get',
+        uri: uriCall
+      }, function (error, response, body, flor_id) {
+					if (!error && response.statusCode == 200) {
+							//console.log(body);
+							cromatografia = JSON.parse(body);
+							console.log('Datos obtenidos con éxito! Flor ' + florId);
+							//pcl(flor_id)
+					 }
+					 else {
+					 	console.log('Error ('+ response.statusCode +')  No hemos podido atender su solicitus, inténtelo más tarde')
+					 }
+			})
 }
-//// POST
+// (3) TODO
+// POST
 function postFlores(req, res) {
 	request(
       { method: 'post',
@@ -85,6 +93,7 @@ function postFlores(req, res) {
         }
       })
 }
+// (4) TODO
 // PUT
 function putFlores(req, res, florId) {
   request(
@@ -130,26 +139,28 @@ function putFlores(req, res, florId) {
       })
 }
 module.exports = function(){
-  // Get by id
-	router.get('/flor*', isAdmin, function(req, res){
-	//router.get('/flor*', isAuthenticated, function(req, res){
-		florId = getFlores(req, res)
+  // GET flor byid
+	router.get('/flor*', isAuthenticated, privateArea, function(req, res){
+		var florId = req.url
+		florId = florId.replace("/flor", "")
+		var body = getFlores(req, res, florId)
+		console.log(body);
 		res.render('fichas/'+florId, {title:'ACCI'})
+
   })
-	// put by id
-	router.put('/flor*', isAdmin, function(req, res){
-	//router.put('/flor*', isAuthenticated, function(req, res){
+	// PUT flor byid
+	router.put('/flor*', isAuthenticated, privateArea, function(req, res){
 		florId = getFlores(req, res)
 		putFlores(req, res, florId)
 		res.send("Actualización de registro exitosa!")
   })
-	// POST
-	router.post('/flores', isAdmin, function(req, res){
+	// POST flor
+	router.post('/flores', isAuthenticated, privateArea, function(req, res){
 		postFlores(req, res)
 		res.render('fichas/0', {response: "Operación realizada con éxito!"})
 	})
-	// delete by id
-	router.delete('/flor*', isAdmin, function(req, res){
+	// DELETE flor byid
+	router.delete('/flor*', isAuthenticated, privateArea, function(req, res){
 		res.send("Se ha borrado el registro exitosamente!")
 	})
 	return router

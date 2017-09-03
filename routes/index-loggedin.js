@@ -4,6 +4,8 @@ var request = require('request')
 var pcl = require('pretty-console.log')
 pcl.enable()
 
+var globalUser = ''
+
 var router = express.Router()
 // controllers
 //var stock = require('../controllers/stock')
@@ -18,6 +20,13 @@ var isAuthenticated = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/');
 }
+// Admin middleware
+var isAdmin = function (req, res, next) {
+	if (role == 'admin')
+		return next()
+	// if the user is not authenticated then redirect him to the login page
+	res.redirect('/index-loggedin')
+}
 // (1)
 // GET index usuarios
 var getApiUsers = function (req, res, next) {
@@ -31,7 +40,7 @@ var getApiUsers = function (req, res, next) {
 							//console.log(body);
 							users = JSON.parse(body);
 							console.log('Listado de usuarios obtenido con éxito!');
-							pcl(users);
+							//pcl(users);
 					 }
 					 else {
 					 	console.log('Error ('+ response.statusCode +')  No se ha podido obtener el usuario <usuario>')
@@ -39,10 +48,10 @@ var getApiUsers = function (req, res, next) {
 			})
 }
 // (2)
-//TODO GET usuario por ID
+// GET usuario por ID
 var getApiUserId = function (req, res, name, next) {
 	var nombre = name
-	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios/' + nombre + '/usuario/'
+	uriCall = 'http://api.fernandopiza.xyz/usuario/' + nombre
 	//console.log(uriCall);
 	request(
       { method: 'get',
@@ -51,16 +60,20 @@ var getApiUserId = function (req, res, name, next) {
 					if (!error && response.statusCode == 200) {
 							//console.log(body);
 							usuario_id = JSON.parse(body);
-							console.log('Datos de usuarios obtenidos con éxito!');
-							pcl(usuario_id)
-							return usuario_id
+							console.log('Datos de usuarios obtenidos con éxito! Usuario '+ usuario_id.id);
+							//pcl(usuario_id)
+							globalUser = usuario_id
 					 }
 					 else {
 					 	console.log('Error ('+ response.statusCode +')  No se ha podido obtener el usuario ' + nombre)
 					 }
+
 			})
+			//console.log('apiuser' + globalUser.id);
+			return usuario_id
 }
-//// (3) POST apiUser
+// (3)
+// POST apiUser
 var postApiUser = function (req, res, next) {
 	uriCall = 'http://api.fernandopiza.xyz/usuarios'
 	//console.log(uriCall);
@@ -90,7 +103,8 @@ var postApiUser = function (req, res, next) {
 	    }
 	)
 }
-//// (4) GET FLORES
+// (4)
+// GET FLORES
 var getFlores = function (req, res, next) {
 	uriCall = 'http://api.fernandopiza.xyz/flores/'
 	//console.log(uriCall);
@@ -121,7 +135,8 @@ var getFlores = function (req, res, next) {
 				 }
 		})
 }
-//// (5) GET index hora_usuarios
+// (5)
+// GET index hora_usuarios
 var getHorasIndex = function (req, res, next) {
 	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios'
 	//console.log(uriCall);
@@ -141,11 +156,9 @@ var getHorasIndex = function (req, res, next) {
 					 }
 			})
 }
-//TODO (6) POST apiHora - ISSUE usuario_id
-var postHora = function (req, res, next) {
-	username = req.user.username
-	console.log(username)
-	console.log(req.body)
+// (6)
+// POST apiHora - ISSUE usuario_id
+var postHora = function (req, res, next) {	
 	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios/'
 	//console.log(uriCall);
 	request(
@@ -157,7 +170,7 @@ var postHora = function (req, res, next) {
 							nombre: req.body.nombre,
 	            fecha: req.body.fecha,
 							hora_medica_id: req.body.hora_medica_id,
-							usuario_id: 3,//req.body.usuario_id,
+							usuario_id: usuario_id.id,
 							membresia_id: req.body.membresia_id
 						}
           }
@@ -165,7 +178,7 @@ var postHora = function (req, res, next) {
         if(!error && response.statusCode == 201){
           hora = JSON.parse(body);
 					console.log('Hora registrada con éxito: ');
-          console.log(hora);
+          pcl(hora);
 					//console.log(uri)
         } else {
           console.log('Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
@@ -173,20 +186,13 @@ var postHora = function (req, res, next) {
         }
       })
 }
-// Admin middleware
-var isAdmin = function (req, res, next) {
-	if (role == 'admin')
-		return next()
-	// if the user is not authenticated then redirect him to the login page
-	res.redirect('/index-loggedin')
-}
 // MAIN
 module.exports = function(passport){
 
   router.get('/index-loggedin', isAuthenticated, function(req, res){
-		var name = 'ro'//req.user.username
+		var name = req.user.username
 		var body = getApiUserId(req, res, name)
-		//console.log(body);
+		//console.log('index ' + usuario_id.id);
     res.render('index-loggedin', {title:'ACCI', usuario: req.user.username})
   })
 ////////////////////// USERS ////////////////////////////////
@@ -194,7 +200,9 @@ module.exports = function(passport){
 	  res.render('ficha', {title: 'ACCI'})
 	})
 	router.post('/users', isAuthenticated, function(req, res){
-			var body = postApiUser(req, res)
+			var name = req.user.username
+			var body = getApiUserId(req, res, name)
+			var body2 = postApiUser(req, res)
 			res.render('index-loggedin', {title: 'ACCI', estado: body})
 	})
 ////////////////////// STOCK ////////////////////////////////
@@ -224,7 +232,6 @@ module.exports = function(passport){
 	})
 	router.get('/history', isAdmin, isAuthenticated, function(req, res){
 			var body = getHorasIndex(req, res)
-			console.log(body);
 			res.render('history', {title: 'ACCI'})
 	})
 ////////////////////// DECLARACIONES //////////////////////
