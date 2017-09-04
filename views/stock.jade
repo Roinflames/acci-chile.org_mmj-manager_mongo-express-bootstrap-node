@@ -24,7 +24,7 @@ block content
                     th DISPONIBILIDAD
                     th FICHA
                 
-                tbody              
+                tbody                       
                   - for (var y = 0; y < Object.keys(menu).length; y++)                                          
                     tr
                     - for (var x = 0; x < 1; x++)
@@ -46,9 +46,7 @@ block content
                           a.hidden.portfolio-link(href='editStock', data-toggle='modal').button.btn.btn-primary(type='submit') Modificar
                     - for (var x = 0; x < 1; x++)
                       td
-                        a.portfolio-link(href='flor'+menu[y].id, data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar
-              
-                                                                                                     
+                        a.portfolio-link(href='flor'+menu[y].id, data-toggle='modal').button.btn.btn-primary(type='submit') Mostrar                                                                                                                   
     footer
       .container
         .row
@@ -73,8 +71,7 @@ block content
               |                                   TEL: +56999467416
               br
               |  Correo: DM@FASIMC.ORG
-              |                                   A PASOS DEL METRO PLAZA DE ARMAS
-    
+              |                                   A PASOS DEL METRO PLAZA DE ARMAS    
     // Bootstrap Core JavaScript
     script(src='vendor/bootstrap/js/bootstrap.min.js')
     // jQuery
@@ -88,32 +85,7 @@ block content
     script(src='javascripts/agency.js')
     script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
     script(type='text/javascript').
-      $(document).ready(function() {
-      $('#catalogo').DataTable( {
-      "decimal":        "",
-      "emptyTable":     "Lo sentimos, no existen productos para cargar.",
-      "info":           "Mostrando _START_ a _END_ de _TOTAL_ productos",
-      "infoEmpty":      "Mostrando 0 a 0 de 0 productos",
-      "infoFiltered":   "(Filtrado desde _MAX_ total de productos)",
-      "language": {
-      "search":         "Buscar:"
-      },
-      "paginate": {
-      "first":      "Primero",
-      "last":       "Último",
-      "next":       "Siguiente",
-      "previous":   "Anterior"
-      },
-      columnDefs: [ {
-      targets: [ 0 ],
-      orderData: [ 0, 1 ]
-      }, {
-      targets: [ 1 ],
-      orderData: [ 1, 0 ]
-      }, {
-      targets: [ 4 ],
-      orderData: [ 4, 0 ]
-      } ]
-      } );
-      } );
+      $(document).ready(function(){
+      $('#catalogo').DataTable();
+      });
       

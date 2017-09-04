@@ -78,7 +78,8 @@ var getApiUserId = function (req, res, name, next) {
 var postApiUser = function (req, res, next) {
 	uriCall = 'http://api.fernandopiza.xyz/usuarios'
 	//console.log(uriCall);
-	console.log('req.body' + req.body);
+	log = JSON.stringify(req.body)
+	console.log('req.body' + log);
 	request(
 	    { method: 'post',
 	      uri: uriCall,
@@ -174,7 +175,6 @@ var postHora = function (req, res, status, globalUser, next) {
         } else {
           console.log('Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
           console.log(body + 'error:' + response.statusCode)
-					status = response.statusCode
         }
       })
 }
@@ -195,7 +195,7 @@ var getMembresias = function (req, res, next) {
 							membership = membresias
 					 }
 					 else {
-					 	console.log('Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
+					 	console.log('Error en membresias ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
 						//console.log(body)
 					 }
 			})
@@ -249,7 +249,7 @@ module.exports = function(passport){
 ////////////////////// STOCK ////////////////////////////////
 	//get stock
 	router.get('/stock', isAuthenticated, function(req, res){
-		//var body = getFlores(req, res)
+		//getFlores()
 		res.render('stock', {title:'ACCI'})
 	});
 	router.get('/editStock', isAuthenticated, function(req, res){
