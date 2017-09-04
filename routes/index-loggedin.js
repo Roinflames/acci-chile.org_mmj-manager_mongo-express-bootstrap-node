@@ -227,7 +227,7 @@ var getHorarios = function (req, res, next) {
 module.exports = function(passport){
 
   router.get('/index-loggedin', isAuthenticated, function(req, res){
-		var name = 'asd'//req.user.username
+		var name = req.user.username
 		//console.log('req.user.username: ' + req.user.username);
 		var body = getApiUserId(req, res, name)
 		getApiUsers()
