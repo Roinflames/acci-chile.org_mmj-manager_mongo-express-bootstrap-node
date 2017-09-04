@@ -142,7 +142,7 @@ var getHorasIndex = function (req, res, next) {
 							pcl(indexHoras)
 					 }
 					 else {
-					 	console.log('Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
+					 	console.log('Error horasIndex ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
 						//console.log(body)
 					 }
 			})
