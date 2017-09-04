@@ -46,12 +46,13 @@ var getApiUsers = function (req, res, next) {
 							//pcl(users);
 					 }
 					 else {
-					 	console.log('Error ('+ response.statusCode +')  No se ha podido obtener el usuario <usuario>')
+					 	console.log('[getApiUsers] Error ('+ response.statusCode +')  No se ha podido obtener el listado de usuarios')
 					 }
 			})
 }
 // (2)
 // GET usuario por ID
+// TODO SIEMPRE OBTENER EL ID DEL QLO
 var getApiUserId = function (req, res, name, next) {
 	var nombre = name
 	uriCall = 'http://api.fernandopiza.xyz/usuario/' + nombre
@@ -64,11 +65,11 @@ var getApiUserId = function (req, res, name, next) {
 							//console.log(body);
 							usuario_id = JSON.parse(body);
 							console.log('Datos de usuarios obtenidos con éxito! Usuario '+ usuario_id.id);
-							//pcl(usuario_id)
-							globalUser = usuario_id
+							globalUser = usuario_id.id
+							pcl('globalUser: ' + globalUser)
 					 }
 					 else {
-					 	console.log('Error ('+ response.statusCode +')  No se ha podido obtener el usuario ' + nombre)
+					 	console.log('[getApiUserId] Error ('+ response.statusCode +')  No se ha podido obtener el usuario ' + nombre)
 					 }
 
 			})
@@ -101,7 +102,7 @@ var postApiUser = function (req, res, next) {
 	        console.log('Usuario creado con éxito. ' + user);
 	      }
 	      else {
-	        console.log('Lo sentimos, el usuario no ha sido registrado. Vuelva a intentarlo más tarde.')
+	        console.log(' [postApiUser] Lo sentimos, el usuario no ha sido registrado. Vuelva a intentarlo más tarde.')
 	        console.log(body + 'error: ' + response.statusCode)
 	      }
 	    }
@@ -122,7 +123,7 @@ var getFlores = function (req, res, next) {
 						//pcl(menu);
 				 }
 				 else {
-				 	console.log('Lo sentimos. Error ('+ response.statusCode +') No se ha podido solicitar el stock.');
+				 	console.log(' [getFlores] Lo sentimos. Error ('+ response.statusCode +') No se ha podido solicitar el stock.');
 				 }
 		})
 }
@@ -139,10 +140,10 @@ var getHorasIndex = function (req, res, next) {
 							//console.log(body);
 							indexHoras = JSON.parse(body);
 							console.log('Horas de usuario obtenidas con éxito!')
-							pcl(indexHoras)
+							//pcl(indexHoras)
 					 }
 					 else {
-					 	console.log('Error horasIndex ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
+					 	console.log('[getHorasIndex] Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
 						//console.log(body)
 					 }
 			})
@@ -173,7 +174,7 @@ var postHora = function (req, res, status, globalUser, next) {
 					//console.log(uri)
 					status = 'test'
         } else {
-          console.log('Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
+          console.log('[postApiHora] Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
           console.log(body + 'error:' + response.statusCode)
         }
       })
@@ -195,7 +196,7 @@ var getMembresias = function (req, res, next) {
 							membership = membresias
 					 }
 					 else {
-					 	console.log('Error en membresias ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
+					 	console.log('[membresias] Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
 						//console.log(body)
 					 }
 			})
@@ -216,7 +217,7 @@ var getHorarios = function (req, res, next) {
 							schedule = horas
 					 }
 					 else {
-					 	console.log('Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
+					 	console.log('[horariosIndex] Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
 						//console.log(body)
 					 }
 			})
@@ -226,8 +227,8 @@ var getHorarios = function (req, res, next) {
 module.exports = function(passport){
 
   router.get('/index-loggedin', isAuthenticated, function(req, res){
-		var name = req.user.username
-		console.log('req.user: ' + req.user);
+		var name = 'asd'//req.user.username
+		//console.log('req.user.username: ' + req.user.username);
 		var body = getApiUserId(req, res, name)
 		getApiUsers()
 		getFlores()
@@ -260,9 +261,8 @@ module.exports = function(passport){
 			res.render('scheduling', {title: 'ACCI', estado: status})
 	})
 	router.post('/scheduling', isAuthenticated, function(req, res){
-			getApiUserId()
 			var body = postHora(req, res, status, globalUser)
-			console.log('hora' + status);
+			//console.log('hora' + status);
 			res.render('scheduling', {title: 'ACCI', estado: body})
 	})
 	router.put('/scheduling', isAuthenticated, function(req, res){
