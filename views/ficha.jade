@@ -12,11 +12,12 @@ block content
           .container
             .row
               .col-lg-12
-                h3.orange-text Ficha de registro de Socios
+                h1.info Ficha de registro de Socios
+                p.info Nota: Luego de crear un nuevo usuario, realizar acción "Validar un nuevo usuario" para habilitar agendamiento de horas.
                 br  
               .col-lg-6
-                p Fecha
                 p Nombre de usuario (para acceder al sistema)
+                p Fecha
                 p Contraseña
                 hr
                 h4 Datos personales
@@ -46,15 +47,15 @@ block content
                 p Otros
                 //p Firma              
               .col-lg-6.text-center                            
-                form(class='form-signin', action='/signup, /user', method='post')                 
-                  input(type='text', name='date', class='form-control', placeholder='Fecha', required)                  
-                  input(type='text', name='username', class='form-control', placeholder='Nombre de usuario',required, autofocus)                  
+                form(class='form-signup', action='/signup', method='post')                 
+                  input(type='text', name='username', class='form-control', placeholder='Nombre de usuario',required, autofocus)                                    
+                  input(type='date', name='date', class='form-control', placeholder='Fecha creación del usuario', required)                  
                   br
-                  input(type='password', name='password', class='form-control nomargin', placeholder='Contraseña', required)
+                  input(type='password', name='password', class='form-control nomargin', placeholder='Contraseña del usuario', required)
                   hr
                   br
                   br
-                  input(type='text', name='name', class='form-control', placeholder='Nombre completo',required)
+                  input(type='text', name='name', class='form-control', placeholder='Nombre completo del socio',required)
                   input(type='text', name='rut', class='form-control', placeholder='Rut',required)
                   br
                   input(type='text', name='age', class='form-control', placeholder='Edad',required)
@@ -89,11 +90,10 @@ block content
                   br
                   input(type='text', name='other', class='form-control', placeholder='Otros',required)
                   //input(type='text', name='sign', class='form-control', placeholder='Firma',required)                  
-                  br
+                  br              
                   button(class='btn btn-lg btn-primary btn-block', type='submit') Registrar
-                  p
-                    a(href='/', class='text-center') Volver
-                      span.clearfix
+                  br                   
+                  
                 #message
                   if message
                     h1.text-center.error-message #{message}

@@ -18,7 +18,6 @@ var isAuthenticated = function (req, res, next) {
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/index-loggedin');
 }
-
 module.exports = function(passport){
   //Logueo User
   router.get('/signin', function(req, res){
@@ -28,20 +27,24 @@ module.exports = function(passport){
     successRedirect: '/index-loggedin',
 		failureRedirect: '/',
 		failureFlash : true,
-	}))
+		})
+	)
   //Register User
 	router.get('/signup', isAdmin, isAuthenticated, function(req, res){
 		res.render('ficha',{message: req.flash('message'), title: 'ACCI'});
 	});
-	router.post('/signup', isAdmin, passport.authenticate('signup', {
-		successRedirect: '/user',
+	// Ruta inutilizada
+	router.post('/signup', isAdmin, isAuthenticated, passport.authenticate('signup', {
+		successRedirect: '/profile',
 		failureRedirect: '/',
 		failureFlash : true
-	}));
+		})
+	);
 	//Logout user
 	router.get('/signout', function(req, res) {
 		req.logout();
 		res.redirect('/');
 	});
+
 	return router;
 }

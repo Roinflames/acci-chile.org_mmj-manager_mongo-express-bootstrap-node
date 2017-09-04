@@ -9,6 +9,7 @@ var membership = ''
 var schedule = ''
 var status = ''
 
+
 var router = express.Router()
 // controllers
 //var stock = require('../controllers/stock')
@@ -66,7 +67,7 @@ var getApiUserId = function (req, res, name, next) {
 							usuario_id = JSON.parse(body);
 							console.log('Datos de usuarios obtenidos con éxito! Usuario '+ usuario_id.id);
 							globalUser = usuario_id.id
-							pcl('globalUser: ' + globalUser)
+							//pcl('globalUser: ' + globalUser)
 					 }
 					 else {
 					 	console.log('[getApiUserId] Error ('+ response.statusCode +')  No se ha podido obtener el usuario ' + nombre)
@@ -78,9 +79,7 @@ var getApiUserId = function (req, res, name, next) {
 // POST apiUser
 var postApiUser = function (req, res, next) {
 	uriCall = 'http://api.fernandopiza.xyz/usuarios'
-	//console.log(uriCall);
-	log = JSON.stringify(req.body)
-	console.log('req.body' + log);
+
 	request(
 	    { method: 'post',
 	      uri: uriCall,
@@ -94,12 +93,12 @@ var postApiUser = function (req, res, next) {
 	          }
 	        }
 	    },
-	    function (error, response, body) {
+	    function (error, response, body, user) {
 	      //console.log(body);
 	      if(!error && response.statusCode == 201){
-					console.log(body);
+					//console.log(body);
 	        user = JSON.parse(body);
-	        console.log('Usuario creado con éxito. ' + user);
+	        console.log('Usuario creado con éxito. ' + user.nombre);
 	      }
 	      else {
 	        console.log(' [postApiUser] Lo sentimos, el usuario no ha sido registrado. Vuelva a intentarlo más tarde.')
@@ -107,6 +106,7 @@ var postApiUser = function (req, res, next) {
 	      }
 	    }
 	)
+	return req.body
 }
 // (4)
 // GET FLORES
@@ -172,7 +172,7 @@ var postHora = function (req, res, status, globalUser, next) {
 					console.log('Hora registrada con éxito!');
 					//pcl(hora);
 					//console.log(uri)
-					status = 'test'
+					//status = 'test'
         } else {
           console.log('[postApiHora] Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
           console.log(body + 'error:' + response.statusCode)
@@ -241,11 +241,16 @@ module.exports = function(passport){
 	router.get('/user', isAuthenticated, isAdmin, function(req, res) {
 	  res.render('ficha', {title: 'ACCI'})
 	})
-	router.post('/user', isAuthenticated, isAdmin, function(req, res){
+	// postApiUser
+	router.post('/user', isAuthenticated, isAdmin, function(req, res, next){
 			var name = req.user.username
 			//var body = getApiUserId(req, res, name)
 			var body2 = postApiUser(req, res)
-			res.render('index-loggedin', {title: 'ACCI', estado: status})
+			//console.log(body2);
+			res.render('profile', {title: 'ACCI', estado: status})
+	})
+	router.get('/validate', isAuthenticated, isAdmin, function(req, res) {
+	  res.render('fichaValidada', {title: 'ACCI'})
 	})
 ////////////////////// STOCK ////////////////////////////////
 	//get stock

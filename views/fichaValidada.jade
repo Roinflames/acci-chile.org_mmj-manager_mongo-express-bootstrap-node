@@ -1,0 +1,43 @@
+extends layout-loggedin
+
+block content
+      .container
+      br
+      br
+      br
+      .section
+      main
+        center
+          .section
+          .container
+            .row
+              .col-lg-12
+                h1.info Validación de registro de socios
+                p.info Nota: La validación del registro de socios habilita el agendamiento de horas. 
+                p.info Es necesario realizar antes la acción "Crear un nuevo usuario".
+                br  
+              .col-lg-6
+                p Nombre de usuario (para acceder al sistema)                
+                p Correo
+                p Teléfono
+                p Dirección                      
+              .col-lg-6.text-center            
+                form(class='form-signup', action='/user', method='post')                 
+                  input(type='text', name='username', class='form-control', placeholder='Nombre de usuario',required, autofocus)                                    
+                  br
+                  input(type='text', name='email', class='form-control', placeholder='Correo electrónico',required)
+                  input(type='text', name='phone', class='form-control', placeholder='Teléfono',required)  
+                  br
+                  input(type='text', name='address', class='form-control', placeholder='Dirección',required)                                
+                  br
+                  button(class='btn btn-lg btn-primary btn-block', type='submit') Validar
+                  br                                              
+            
+                a(href='/', class='text-center') Volver
+                span.clearfix
+                  
+                #message
+                  if message
+                    h1.text-center.error-message #{message}
+      // jQuery
+      script(src='vendor/jquery/jquery.min.js')

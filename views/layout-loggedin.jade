@@ -40,13 +40,13 @@ html(lang='en')
               a(href='#page-top')            
             li
               a.page-scroll(href='/stock') NUESTRAS VARIEDADES
-            - if(role=='admin')
+            - if(role=='admin')              
               li
-                a.page-scroll.hidden(href='/scheduling') RESERVA TU HORA 
+                a.page-scroll(href='/history') HISTORIAL DE HORAS DE ATENCION
               li
-                a.page-scroll(href='/history') HISTORIAL DE HORAS 
+                a.page-scroll(href='/user') CREAR UN NUEVO USUARIO  
               li
-                a.page-scroll(href='/user') CREAR NUEVO USUARIO  
+                a.page-scroll(href='/validate') VALIDAR UN NUEVO USUARIO  
             - if(role!='admin') 
               li
                 a.page-scroll(href='/scheduling') RESERVA TU HORA 
