@@ -31,6 +31,7 @@ block content
                   th Fecha de atención     
                   th Hora           
                   th Membresía                     
+                  th Tipo de atención
               tbody                        
                 - for (var y = 0; y < Object.keys(indexHoras).length; y++) 
                   - console.log(indexHoras[i]);
@@ -43,6 +44,8 @@ block content
                     td= indexHoras[y].hora                  
                   - for (var x = 0; x < 1; x++)
                     td= indexHoras[y].membresia          
+                  - for (var x = 0; x < 1; x++)
+                    td= indexHoras[y].tipo_atencion
                 //fecha, hora_medica_id,usuario_id,membresia_id
           
     footer

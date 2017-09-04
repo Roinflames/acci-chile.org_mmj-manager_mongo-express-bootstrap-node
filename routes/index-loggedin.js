@@ -153,6 +153,7 @@ var getHorasIndex = function (req, res, next) {
 var postHora = function (req, res, status, globalUser, next) {
 	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios/'
 	//console.log(uriCall);
+	console.log(req.body);
 	request(
       { method: 'post',
         uri: uriCall,
@@ -160,6 +161,7 @@ var postHora = function (req, res, status, globalUser, next) {
           {
 						hora_usuario: {
 							nombre: req.body.nombre,
+							tipo_atencion: req.body.tipo_atencion,
 	            fecha: req.body.fecha,
 							hora_medica_id: req.body.hora_medica_id,
 							usuario_id: globalUser,
