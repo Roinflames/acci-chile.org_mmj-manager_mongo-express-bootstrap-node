@@ -92,7 +92,8 @@ block content
                   th ID
                   th FECHA
                   th HORA
-                  th ATENCIÓN                                     
+                  th ATENCIÓN             
+                  th MEMBRESIA                         
               tbody                       
                 //- console.log(horas);
                 - for (var y = 0; y < Object.keys(horasUser).length; y++)                                          
@@ -105,6 +106,8 @@ block content
                     td= horasUser[y].hora
                   - for (var x = 0; x < 1; x++)
                     td= horasUser[y].tipo_atencion
+                  - for (var x = 0; x < 1; x++)
+                    td= horasUser[y].membresia
                  
             
     footer
