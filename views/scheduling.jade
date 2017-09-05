@@ -2,12 +2,12 @@ extends layout-loggedin
 
 block content
     // Team Section
-    section#testimonies.bg-light-gray
+    section#agendamiento.bg-light-gray
       .container.text-center
         .row
           .col-lg-12        
             h1.info Agendamiento de horas            
-            h2.info Bienvenido 
+            p.info Nota: Refresque la página presionando F5 si su hora no aparece.
             p.onway #{estado}
             br
             br
@@ -85,18 +85,22 @@ block content
             table#horas.display.text-center(width='100%', cellspacing='0')
               thead
                 tr
+                  th ID
                   th FECHA
                   th HORA
                   th ATENCIÓN                                     
               tbody                       
-                - for (var y = 0; y < Object.keys(menu).length; y++)                                          
+                //- console.log(horas);
+                - for (var y = 0; y < Object.keys(horasUser).length; y++)                                          
                   tr
                   - for (var x = 0; x < 1; x++)
-                    td= horasId[y].fecha                
+                    td= y + 1                
                   - for (var x = 0; x < 1; x++)
-                    td= horasId[y].hora
+                    td= horasUser[y].fecha                
                   - for (var x = 0; x < 1; x++)
-                    td= horasId[y].tipo_atencion
+                    td= horasUser[y].hora
+                  - for (var x = 0; x < 1; x++)
+                    td= horasUser[y].tipo_atencion
     footer
       .container
         .row
@@ -134,3 +138,7 @@ block content
     // Theme JavaScript
     script(src='javascripts/agency.js')
     script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
+    script(type='text/javascript').
+      $(document).ready(function(){
+      $('#horas').DataTable();
+      });

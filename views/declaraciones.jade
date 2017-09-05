@@ -8,7 +8,7 @@ block content
         .row
           .col-sm-4
             .container.text-center
-              h2.section-heading Índice de declaraciones              
+              h2.section-heading.info Índice de declaraciones              
               <iframe src="https://drive.google.com/embeddedfolderview?id=0B5B42P27TBLXS3Bta2ctd3U3akE#list" style="width:100%; height:600px; border:0;"></iframe>               
     footer
       .container
@@ -46,35 +46,4 @@ block content
     script(src='javascripts/contact_me.js')
     // Theme JavaScript
     script(src='javascripts/agency.js')
-    script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
-    script(type='text/javascript').
-      $(document).ready(function() {
-      $('#declaraciones').DataTable( {
-      "decimal":        "",
-      "emptyTable":     "Lo sentimos, no existen productos para cargar.",
-      "info":           "Mostrando _START_ a _END_ de _TOTAL_ productos",
-      "infoEmpty":      "Mostrando 0 a 0 de 0 productos",
-      "infoFiltered":   "(Filtrado desde _MAX_ total de productos)",
-      "language": {
-      "search":         "Buscar:"
-      },
-      "paginate": {
-      "first":      "Primero",
-      "last":       "Último",
-      "next":       "Siguiente",
-      "previous":   "Anterior"
-      },
-      columnDefs: [ {
-      targets: [ 0 ],
-      orderData: [ 0, 1 ]
-      }, {
-      targets: [ 1 ],
-      orderData: [ 1, 0 ]
-      }, {
-      targets: [ 4 ],
-      orderData: [ 4, 0 ]
-      } ]
-      } );
-      } );
-
-        
+    script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')  
