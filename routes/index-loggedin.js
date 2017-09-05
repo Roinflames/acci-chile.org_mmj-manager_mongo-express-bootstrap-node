@@ -10,7 +10,7 @@ var membership = ''
 // getHorarios
 var schedule = ''
 // respuesta a peticion HTTP
-var status = ''
+var globalStatus = ''
 //
 var mensaje = ''
 //
@@ -177,7 +177,7 @@ var getHorasIndex = function (req, res, next) {
 }
 // (6) TODO - agragar comentario en modelo api
 // POST apiHora - ISSUE usuario_id
-var postHora = function (req, res, status, globalUser, next) {
+var postHora = function (req, res, globalUser, next) {
 	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios/'
 	//console.log(uriCall);
 	//console.log(req.body);
@@ -199,21 +199,20 @@ var postHora = function (req, res, status, globalUser, next) {
       }, function (error, response, body) {
         if(!error && response.statusCode == 201){
           hora = JSON.parse(body);
-					console.log('Hora registrada con éxito!');
-					mensaje = 'Hora registrada con éxito! Lo esperamos el día ' + req.body.fecha + '!'
-					//pcl(hora);
-					//console.log(uri)
-					//status = 'test'
+					//console.log('Hora registrada con éxito!');
+					globalStatus = '[UX] Hora registrada con éxito! Lo esperamos el día ' + req.body.fecha + '!'
+					pcl(globalStatus);
         } else {
           console.log('[postApiHora] Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
-          console.log(body + 'error:' + response.statusCode)
-					mensaje = 'Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.'
+          //console.log(body + 'error:' + response.statusCode)
+					globalStatus = 'Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.'
+					pcl(globalStatus);
         }
-				console.log('1 :'+mensaje);
-				return mensaje
+				pcl('1 ' + globalStatus);
+
       })
-			console.log('3 :'+ mensaje);
-			return mensaje
+			pcl('2 ' + globalStatus);
+
 }
 //CALL scheduling
 // (7)
@@ -227,7 +226,7 @@ var getMembresias = function (req, res, next) {
 					if (!error && response.statusCode == 200) {
 							//console.log(body);
 							membresias = JSON.parse(body);
-							console.log('Membresias de usuario obtenidas con éxito!')
+							console.log(' [membresias] Membresias de usuario obtenidas con éxito!')
 							//pcl(membresias)
 							membership = membresias
 					 }
@@ -272,7 +271,7 @@ module.exports = function(passport){
 		getHorarios()
 		getMembresias()
 		getHorasIndex()
-    res.render('index-loggedin', {title:'ACCI', usuario: req.user.username})
+    res.render('index-loggedin', {title:'ACCI', usuario: req.user.username,  estado: globalStatus})
   })
 ////////////////////// USERS ////////////////////////////////
 	router.get('/user', isAuthenticated, isAdmin, function(req, res) {
@@ -284,7 +283,7 @@ module.exports = function(passport){
 			//var body = getApiUserId(req, res, name)
 			var body2 = postApiUser(req, res)
 			//console.log(body2);
-			res.render('profile', {title: 'ACCI', estado: status})
+			res.render('profile', {title: 'ACCI'})
 	})
 	router.get('/validate', isAuthenticated, isAdmin, function(req, res) {
 	  res.render('fichaValidada', {title: 'ACCI'})
@@ -302,16 +301,17 @@ module.exports = function(passport){
 	router.get('/scheduling', isAuthenticated, function(req, res){
 		var name = req.user.username
 		getApiHoraUserId(req, res, name)
-		res.render('scheduling', {title: 'ACCI', estado: status, horasUser: globalHorasId})
+		res.render('scheduling', {title: 'ACCI', estado: globalStatus, horasUser: globalHorasId})
 	})
 	//// POST
 	router.post('/scheduling', isAuthenticated, function(req, res){
 		var name = req.user.username
 		getApiHoraUserId(req, res, name)
-		var body = postHora(req, res, status, globalUser)
+		var body = postHora(req, res, globalUser)
 		//console.log('hora' + status);
 		//console.log(body);
-		res.render('index-loggedin', {title: 'ACCI', estado: mensaje})
+		pcl('post ' + globalStatus)
+		res.render('index-loggedin', {title: 'ACCI', estado: globalUser, estado: globalStatus})
 	})
 	//// PUT
 	router.put('/scheduling', isAuthenticated, function(req, res){
