@@ -9,6 +9,7 @@ var membership = ''
 var schedule = ''
 var status = ''
 var mensaje = ''
+var horasId = ''
 
 
 var router = express.Router()
@@ -48,7 +49,7 @@ var getApiUsers = function (req, res, next) {
 							//pcl(users);
 					 }
 					 else {
-					 	console.log('[getApiUsers] Error ('+ response.statusCode +')  No se ha podido obtener el listado de usuarios')
+					 	console.log('[getApiUsers] Lo sentimos no hemos podido responder tu solicitud. Inténtelo más tarde.')
 					 }
 			})
 }
@@ -90,18 +91,19 @@ var getApiHoraUserId = function (req, res, name, next) {
 							//console.log(body);
 							horasId = JSON.parse(body);
 							console.log('[getApiHoraUserId] Datos de horas de usuario obtenidas con éxito!: ' + name);
+							/*
 							for (var i = 0; i < Object.keys(horasId).length; i++) {
 								pcl('horasId: ' + horasId[i].fecha)
 								pcl('horasId: ' + horasId[i].hora)
 								pcl('horasId: ' + horasId[i].tipo_atencion)
 								pcl('')
 							}
+							*/
 							//console.log(body);
 					 }
 					 else {
 					 	console.log('[getApiHoraUserId] Error ('+ response.statusCode +')  No se ha podido obtener las horas de usuario: ' + name)
 					 }
-
 			})
 }
 // (3)
@@ -269,7 +271,7 @@ module.exports = function(passport){
 		var name = req.user.username
 		//console.log('req.user.username: ' + req.user.username);
 		var body = getApiUserId(req, res, name)
-		getApiHoraUserId(req, res, name)
+		//getApiHoraUserId(req, res, name)
 		getApiUsers()
 		getFlores()
 		getHorarios()
@@ -301,9 +303,14 @@ module.exports = function(passport){
 		res.render('editStock', {title:'ACCI'})
 	});
 ////////////////////// AGENDAMIENTOS //////////////////////
+//// GET
 	router.get('/scheduling', isAuthenticated, function(req, res){
+		var name = req.user.username
+		var body = getApiHoraUserId(req, res, name)
+		console.log(horasId);
 		res.render('scheduling', {title: 'ACCI', estado: status})
 	})
+	//// POST
 	router.post('/scheduling', isAuthenticated, function(req, res){
 		var name = req.user.username
 		var body = postHora(req, res, status, globalUser, mensaje)
@@ -311,11 +318,12 @@ module.exports = function(passport){
 		//console.log(body);
 		res.render('scheduling', {title: 'ACCI', estado: body})
 	})
+	//// PUT
 	router.put('/scheduling', isAuthenticated, function(req, res){
-			getApiHoraUserId(req, res, name)
 			//var body = putHora(req, res)
 			res.send('put scheduling', {title: 'ACCI', estado: body})
 	})
+	//// DELETE
 	router.delete('/scheduling', isAuthenticated, function(req, res){
 			//var body = deleteHora(req, res)
 			res.send('delete scheduling', {title: 'ACCI', estado: body})

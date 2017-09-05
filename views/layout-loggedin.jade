@@ -42,20 +42,20 @@ html(lang='en')
               a.page-scroll(href='/stock') NUESTRAS VARIEDADES
             - if(role=='admin')              
               li
-                a.page-scroll(href='/history') HISTORIAL DE HORAS DE ATENCION
+                a.page-scroll(href='/history') HISTORIAL DE ATENCIONES
               li
-                a.page-scroll(href='/user') CREAR UN NUEVO USUARIO  
+                a.page-scroll(href='/user') CREAR USUARIO  
               li
-                a.page-scroll(href='/validate') VALIDAR UN NUEVO USUARIO  
+                a.page-scroll(href='/validate') VALIDAR USUARIO  
             - if(role!='admin') 
               li
                 a.page-scroll(href='/scheduling') RESERVA TU HORA 
               li
                 a.page-scroll.hidden(href='/history') HISTORIAL DE HORAS 
             li
-              a.page-scroll.hidden(href='/declaraciones') DECLARACIONES PÚBLICAS ACCI
+              a.page-scroll(href='/declaraciones') DECLARACIONES PÚBLICAS 
             li
-              a.page-scroll.hidden(href='/galeria') GALERÍA FOTOGRÁFICA ACCI
+              a.page-scroll(href='/galeria') GALERÍA  
 
           ul.nav.navbar-nav.navbar-right
             li
