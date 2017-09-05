@@ -76,6 +76,34 @@ var getApiUserId = function (req, res, name, next) {
 
 			})
 }
+// (2.1)
+// GET usuario por ID
+// TODO
+var getApiHoraUserId = function (req, res, name, next) {
+	uriCall = 'http://api.fernandopiza.xyz/hora_usuario/' + name + '/usuario'
+	//console.log(uriCall);
+	request(
+      { method: 'get',
+        uri: uriCall
+      }, function (error, response, body) {
+					if (!error && response.statusCode == 200) {
+							//console.log(body);
+							horasId = JSON.parse(body);
+							console.log('[getApiHoraUserId] Datos de horas de usuario obtenidas con éxito!: ' + name);
+							for (var i = 0; i < Object.keys(horasId).length; i++) {
+								pcl('horasId: ' + horasId[i].fecha)
+								pcl('horasId: ' + horasId[i].hora)
+								pcl('horasId: ' + horasId[i].tipo_atencion)
+								pcl('')
+							}
+							//console.log(body);
+					 }
+					 else {
+					 	console.log('[getApiHoraUserId] Error ('+ response.statusCode +')  No se ha podido obtener las horas de usuario: ' + name)
+					 }
+
+			})
+}
 // (3)
 // POST apiUser
 var postApiUser = function (req, res, next) {
@@ -151,11 +179,11 @@ var getHorasIndex = function (req, res, next) {
 }
 // (6) TODO - agragar comentario en modelo api
 // POST apiHora - ISSUE usuario_id
-var postHora = function (req, res, status, globalUser, next) {
+var postHora = function (req, res, status, globalUser, mensaje, next) {
 	uriCall = 'http://api.fernandopiza.xyz/hora_usuarios/'
 	//console.log(uriCall);
-	var mensaje = ''
-	console.log(req.body);
+	//var mensaje = ''
+	//console.log(req.body);
 	request(
       { method: 'post',
         uri: uriCall,
@@ -175,7 +203,7 @@ var postHora = function (req, res, status, globalUser, next) {
         if(!error && response.statusCode == 201){
           hora = JSON.parse(body);
 					console.log('Hora registrada con éxito!');
-					mensaje = 'Hora registrada con éxito! Lo esperamos el día ' + req.body.fecha + ' a las ' + req.body.hora_medica_id + ' horas!'
+					mensaje = 'Hora registrada con éxito! Lo esperamos el día ' + req.body.fecha + '!'
 					//pcl(hora);
 					//console.log(uri)
 					//status = 'test'
@@ -184,8 +212,10 @@ var postHora = function (req, res, status, globalUser, next) {
           console.log(body + 'error:' + response.statusCode)
 					mensaje = 'Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.'
         }
+				console.log('1 :'+mensaje);
 				return mensaje
       })
+			console.log('3 :'+ mensaje);
 			return mensaje
 }
 //CALL scheduling
@@ -239,6 +269,7 @@ module.exports = function(passport){
 		var name = req.user.username
 		//console.log('req.user.username: ' + req.user.username);
 		var body = getApiUserId(req, res, name)
+		getApiHoraUserId(req, res, name)
 		getApiUsers()
 		getFlores()
 		getHorarios()
@@ -264,7 +295,6 @@ module.exports = function(passport){
 ////////////////////// STOCK ////////////////////////////////
 	//get stock
 	router.get('/stock', isAuthenticated, function(req, res){
-		//getFlores()
 		res.render('stock', {title:'ACCI'})
 	});
 	router.get('/editStock', isAuthenticated, function(req, res){
@@ -272,15 +302,17 @@ module.exports = function(passport){
 	});
 ////////////////////// AGENDAMIENTOS //////////////////////
 	router.get('/scheduling', isAuthenticated, function(req, res){
-			res.render('scheduling', {title: 'ACCI', estado: status})
+		res.render('scheduling', {title: 'ACCI', estado: status})
 	})
 	router.post('/scheduling', isAuthenticated, function(req, res){
-			var body = postHora(req, res, status, globalUser)
-			//console.log('hora' + status);
-			console.log(body);
-			res.render('scheduling', {title: 'ACCI', estado: body})
+		var name = req.user.username
+		var body = postHora(req, res, status, globalUser, mensaje)
+		//console.log('hora' + status);
+		//console.log(body);
+		res.render('scheduling', {title: 'ACCI', estado: body})
 	})
 	router.put('/scheduling', isAuthenticated, function(req, res){
+			getApiHoraUserId(req, res, name)
 			//var body = putHora(req, res)
 			res.send('put scheduling', {title: 'ACCI', estado: body})
 	})

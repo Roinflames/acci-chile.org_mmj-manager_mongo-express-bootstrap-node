@@ -11,11 +11,10 @@ block content
             p.onway #{estado}
             br
             br
+        
         .row
-          .col-lg-offset-4.col-lg-4
-            h2 Agenda tu hora
-        .row
-          .col-lg-12
+          .col-lg-6
+            p Agenda aquí tu hora
             form(action='scheduling', method='post')              
               br                          
               strong Tipo de hora          
@@ -80,7 +79,24 @@ block content
               input.btn.btn-primary(type='submit', value='Agendar hora')                
               p
                 a(href='/index-loggedin', class='text-center') Volver
-                span.clearfix                  
+                span.clearfix                          
+          .col-lg-6
+            p Horas agendadas
+            table#horas.display.text-center(width='100%', cellspacing='0')
+              thead
+                tr
+                  th FECHA
+                  th HORA
+                  th ATENCIÓN                                     
+              tbody                       
+                - for (var y = 0; y < Object.keys(menu).length; y++)                                          
+                  tr
+                  - for (var x = 0; x < 1; x++)
+                    td= horasId[y].fecha                
+                  - for (var x = 0; x < 1; x++)
+                    td= horasId[y].hora
+                  - for (var x = 0; x < 1; x++)
+                    td= horasId[y].tipo_atencion
     footer
       .container
         .row
