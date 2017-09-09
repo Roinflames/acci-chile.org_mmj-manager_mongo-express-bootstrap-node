@@ -11,10 +11,10 @@ var membership = ''
 var schedule = ''
 // respuesta a peticion HTTP
 var globalStatus = ''
-//
-var mensaje = ''
-//
+// getApiHoraUserId
 var globalHorasId = ''
+//
+var globalCont = ''
 
 
 var router = express.Router()
@@ -200,7 +200,7 @@ var postHora = function (req, res, globalUser, next) {
         if(!error && response.statusCode == 201){
           hora = JSON.parse(body);
 					//console.log('Hora registrada con éxito!');
-					globalStatus = '[UX] Hora registrada con éxito! Lo esperamos el día ' + req.body.fecha + '!'
+					globalStatus = 'Hora registrada con éxito! Lo esperamos el día ' + req.body.fecha + '!'
 					pcl(globalStatus);
         } else {
           console.log('[postApiHora] Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
@@ -208,11 +208,7 @@ var postHora = function (req, res, globalUser, next) {
 					globalStatus = 'Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.'
 					pcl(globalStatus);
         }
-				pcl('1 ' + globalStatus);
-
       })
-			pcl('2 ' + globalStatus);
-
 }
 //CALL scheduling
 // (7)
@@ -300,6 +296,14 @@ module.exports = function(passport){
 //// GET
 	router.get('/scheduling', isAuthenticated, function(req, res){
 		var name = req.user.username
+		if (globalCont == true) {
+			globalCont = false
+			console.log(globalCont);
+		}
+		else {
+			globalStatus = ''
+			console.log(globalCont);
+		}
 		getApiHoraUserId(req, res, name)
 		res.render('scheduling', {title: 'ACCI', estado: globalStatus, horasUser: globalHorasId})
 	})
@@ -308,6 +312,7 @@ module.exports = function(passport){
 		var name = req.user.username
 		getApiHoraUserId(req, res, name)
 		var body = postHora(req, res, globalUser)
+		globalCont = true
 		//console.log('hora' + status);
 		//console.log(body);
 		pcl('post ' + globalStatus)
