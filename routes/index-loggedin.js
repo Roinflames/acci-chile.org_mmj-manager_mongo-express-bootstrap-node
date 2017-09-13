@@ -305,7 +305,7 @@ module.exports = function(passport){
 			console.log(globalCont);
 		}
 		getApiHoraUserId(req, res, name)
-		res.render('scheduling', {title: 'ACCI', estado: globalStatus, horasUser: globalHorasId})
+		res.render('scheduling', {title: 'ACCI', estado: globalStatus, horasUser: globalHorasId, horario: schedule})
 	})
 	//// POST
 	router.post('/scheduling', isAuthenticated, function(req, res){

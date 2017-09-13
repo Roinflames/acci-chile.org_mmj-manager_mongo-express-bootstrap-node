@@ -3,7 +3,43 @@ extends layout-loggedin
 block content
     // Team Section
     section#agendamiento.bg-light-gray
+      .container
+        .row
+          .col-lg-12
+            #container
+              #title Escoja la hora
+                table#schedule.display.text-center(width='100%', cellspacing='0')
+                  thead
+                    tr
+                      th Lunes
+                      th Martes
+                      th Miercoles
+                      th Jueves             
+                      th Viernes
+                      th Sábado
+                      th Domingo                         
+                  tbody                                        
+                    - for (var y = 0; y < Object.keys(horario).length; y++)
+                      tr
+                        - for (var x = 0; x < 7; x++)
+                            td #{horario[y].hora}                                                                                                                                                           
+                    //- console.log(horario);
+                    //- for (var y = 0; y < Object.keys(horario).length; y++)                                          
+                      tr
+                      - for (var x = 0; x < 1; x++)
+                          td= horario[i].hora      
+                      //- for (var x = 0; x < 1; x++)
+                        td= horasUser[y].fecha                
+                        - for (var x = 0; x < 1; x++)
+                          td= horasUser[y].hora
+                        - for (var x = 0; x < 1; x++)
+                          td= horasUser[y].tipo_atencion
+                        - for (var x = 0; x < 1; x++)
+                          td= horasUser[y].membresia
       .container.text-center
+        .row
+          <div id="myScheduler"></div>
+
         .row
           .col-lg-12        
             h1.info Agendamiento de horas            
@@ -148,8 +184,12 @@ block content
     // Theme JavaScript
     script(src='javascripts/agency.js')
     script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
+    //Datatables
     script(type='text/javascript').
       $(document).ready(function(){
       $('#horas').DataTable();
       });
+    //Datepicker
     script(src='javascripts/bootstrap-datepicker.min.js')        
+    //Scheduler
+    script(src='https://cdn.alloyui.com/3.0.1/aui/aui-min.js')
