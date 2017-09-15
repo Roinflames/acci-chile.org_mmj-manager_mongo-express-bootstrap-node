@@ -2,7 +2,6 @@ extends layout-loggedin
 
 block content
     // Team Section
-    <p id="demo"></p>
     section#agendamiento.bg-light-gray
       .container
         .row
@@ -28,12 +27,10 @@ block content
                               a(href='/index-loggedin', class='text-center') #{horario[y].hora}
                             //td
                               button(type='button', onclick="alert('Hello world!')") #{horario[y].hora}
-                              td(height='50') January
+                            - var test
                             td
-                              button(type='button', onclick="myFunction()") #{horario[y].hora}
-                            //td
-                              p(onclick="myFunction()") #{horario[y].hora}
-                                
+                              button(type='button', onclick=test = 'holahola') #{horario[y].hora}
+                                - console.log(test);
                     //- console.log(horario);
                     //- for (var y = 0; y < Object.keys(horario).length; y++)                                          
                       tr
@@ -198,21 +195,9 @@ block content
     //Datatables
     script(type='text/javascript').
       $(document).ready(function(){
-      $('#schedule').DataTable({
-        "paging":   false,
-        "ordering": false,
-        "info":     false,
-        "searching":   false
-      });
+      $('#horas').DataTable();
       });
     //Datepicker
-    //script(src='javascripts/bootstrap-datepicker.min.js')        
+    script(src='javascripts/bootstrap-datepicker.min.js')        
     //Scheduler
     script(src='https://cdn.alloyui.com/3.0.1/aui/aui-min.js')
-    //
-    script.
-      var dia = 'DIA'
-      var hora = 'HORA'
-      function myFunction() {
-      alert('Has seleccionado una hora para el día: ' + dia + ' a las ' + hora + ' horas!')      
-      }
