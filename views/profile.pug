@@ -1,6 +1,7 @@
 extends layout-loggedin
 
 block content        
+    
     section#home.bg-light-gray
       .container
         .row
@@ -8,59 +9,134 @@ block content
             h2.section-heading Ficha de : #{name}         
           .col-lg-4
             h3.section-heading Antecedentes Generales
-            .col-lg-5
-              p Nombre : 
-              p Rut : 
-              p Edad : 
-              p Telefono : 
-              p Correo : 
-              p Dirección : 
-              p Región : 
-              p Comuna : 
-            .col-lg-7
-              p #{name}
-              p #{rut}
-              p #{age}
-              p #{phone}
-              p #{email}
-              p #{address}
-              p #{region}
-              p #{comuna}
+            table#generales.display.text-center(width='100%', cellspacing='0')
+              thead
+                tr
+                  th 
+                  th                   
+              tbody                                       
+                tr                  
+                  td
+                    p Nombre :
+                  td 
+                    p #{name}
+                tr                  
+                  td
+                    p Rut :
+                  td 
+                    p #{rut}
+                tr                  
+                  td
+                    p Edad :
+                  td 
+                    p #{age}
+                tr                  
+                  td
+                    p Teléfono :
+                  td 
+                    p #{phone}
+                tr
+                  td
+                    p Correo : 
+                  td
+                    p #{email}
+                tr
+                  td
+                    p Dirección : 
+                  td
+                    p #{address}
+                tr
+                  td
+                    p Región : 
+                  td                    
+                    p #{region}
+                tr
+                  td
+                    p Comuna : 
+                  td              
+                    p #{comuna}
           .col-lg-4
             h3.section-heading Antecedentes Médicos        
-            .col-lg-5    
-              p Diagnóstico : 
-              p Operaciones : 
-              p Alergias : 
-              p Medicamentos : 
-              p Declaración de aceptación MMJ :         
-            .col-lg-7
-              p #{sick}              
-              p #{operaciones}
-              p #{alergias}
-              p #{medicamentos}
-              br
-              p #{declaracion} 
+            table#medicos.display.text-center(width='100%', cellspacing='0')
+              thead
+                tr
+                  th 
+                  th                   
+              tbody                                       
+                tr                  
+                  td            
+                    p Diagnóstico : 
+                  td
+                    p #{sick}        
+                tr
+                  td
+                    p Operaciones :                     
+                  td
+                    p #{operaciones}
+                tr
+                  td
+                    p Alergias : 
+                  td
+                    p #{alergias}
+                tr
+                  td
+                    p Medicamentos : 
+                  td
+                    p #{medicamentos}              
+                tr
+                  td
+                    p Declaración de aceptación MMJ :         
+                  td
+                    p #{declaracion} 
           .col-lg-4
             h3.section-heading Observaciones
-            .col-lg-7
-              p Enviado por : 
-              p Dosis recomendada : 
-              p Producto recomendado : 
-              p Dosis diaria : 
-              p Dosis semanal :       
-              p Dosis mensual : 
-              p Otros : 
-              p Firma :         
-            .col-lg-5
-              p #{sender}
-              p #{dosis}
-              p #{product}
-              p #{diary}
-              p #{week} 
-              p #{month}
-              p #{other}
-              p #{sign} 
+            table#observaciones.display.text-center(width='100%', cellspacing='0')
+              thead
+                tr
+                  th 
+                  th                   
+              tbody                                       
+                tr                  
+                  td              
+                    p Enviado por : 
+                  td
+                    p #{sender}
+                tr
+                  td
+                    p Dosis recomendada : 
+                  td  
+                    p #{dosis}
+                tr
+                  td  
+                    p Producto recomendado : 
+                  td
+                    p #{product}
+                tr
+                  td
+                    p Dosis diaria : 
+                  td  
+                    p #{diary}
+                tr
+                  td  
+                    p Dosis semanal :       
+                  td
+                    p #{week} 
+                tr
+                  td
+                    p Dosis mensual : 
+                  td  
+                    p #{month}
+                tr
+                  td
+                    p Otros : 
+                  td  
+                    p #{other}
+                tr
+                  td
+                    p Firma :         
+                  td
+                    p #{sign} 
+              
     //End navbar theme
     //footer
     footer
