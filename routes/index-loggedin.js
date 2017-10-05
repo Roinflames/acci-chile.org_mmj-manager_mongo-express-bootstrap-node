@@ -50,13 +50,13 @@ var getApiUsers = function (req, res, next) {
 					if (!error && response.statusCode == 200) {
 							//console.log(body);
 							users = JSON.parse(body);
-							console.log('Listado de usuarios obtenido con éxito!');
+							console.log('[200] Listado de usuarios obtenido con éxito!');
 							//pcl(users);
 					 }
 					 else {
-					 	console.log('[getApiUsers] Lo sentimos no hemos podido responder tu solicitud. Inténtelo más tarde.')
+					 	console.log('[400]getApiUsers Lo sentimos no hemos podido responder tu solicitud. Inténtelo más tarde.')
 					 }
-			})
+	})
 }
 // (2)
 // GET usuario por ID
@@ -72,12 +72,12 @@ var getApiUserId = function (req, res, name, next) {
 					if (!error && response.statusCode == 200) {
 							//console.log(body);
 							usuario_id = JSON.parse(body);
-							console.log('Datos de usuarios obtenidos con éxito! Usuario '+ usuario_id.id);
+							console.log('200 - Datos de usuarios obtenidos con éxito! Usuario '+ usuario_id.id);
 							globalUser = usuario_id.id
 							//pcl('globalUser: ' + globalUser)
 					 }
 					 else {
-					 	console.log('[getApiUserId] Error ('+ response.statusCode +')  No se ha podido obtener el usuario ' + nombre)
+					 	console.log('[400]getApiUserId Error ('+ response.statusCode +')  No se ha podido obtener el usuario ' + nombre)
 					 }
 			})
 }
@@ -93,12 +93,12 @@ var getApiHoraUserId = function (req, res, name, next) {
       }, function (error, response, body) {
 					if (!error && response.statusCode == 200) {
 							horasId = JSON.parse(body);
-							console.log('[getApiHoraUserId] Datos de horas de usuario obtenidas con éxito!: ' + name);
+							console.log('[200]getApiHoraUserId Datos de horas de usuario obtenidas con éxito!: ' + name);
 							globalHorasId = horasId
 							//console.log(body);
 					 }
 					 else {
-					 	console.log('[getApiHoraUserId] Error ('+ response.statusCode +')  No se ha podido obtener las horas de usuario: ' + name)
+					 	console.log('[400]getApiHoraUserId Error ('+ response.statusCode +')  No se ha podido obtener las horas de usuario: ' + name)
 					 }
 			})
 }
@@ -125,10 +125,10 @@ var postApiUser = function (req, res, next) {
 	      if(!error && response.statusCode == 201){
 					//console.log(body);
 	        user = JSON.parse(body);
-	        console.log('Usuario creado con éxito. ' + user.nombre);
+	        console.log('[201] Usuario creado con éxito. ' + user.nombre);
 	      }
 	      else {
-	        console.log(' [postApiUser] Lo sentimos, el usuario no ha sido registrado. Vuelva a intentarlo más tarde.')
+	        console.log(' [400]postApiUser Lo sentimos, el usuario no ha sido registrado. Vuelva a intentarlo más tarde.')
 	        console.log(body + 'error: ' + response.statusCode)
 	      }
 	    }
@@ -146,11 +146,11 @@ var getFlores = function (req, res, next) {
       }, function (error, response, body) {
 				if (!error && response.statusCode == 200) {
 						menu = JSON.parse(body);
-						console.log('Variedades de flores obtenidas con éxito!');
+						console.log('[200] Variedades de flores obtenidas con éxito!');
 						//pcl(menu);
 				 }
 				 else {
-				 	console.log(' [getFlores] Lo sentimos. Error ('+ response.statusCode +') No se ha podido solicitar el stock.');
+				 	console.log(' [400]getFlores Lo sentimos. Error ('+ response.statusCode +') No se ha podido solicitar el stock.');
 				 }
 		})
 }
@@ -166,11 +166,11 @@ var getHorasIndex = function (req, res, next) {
 					if (!error && response.statusCode == 200) {
 							//console.log(body);
 							indexHoras = JSON.parse(body);
-							console.log('Horas de usuario obtenidas con éxito!')
+							console.log('[200] Horas de usuario obtenidas con éxito!')
 							//pcl(indexHoras)
 					 }
 					 else {
-					 	console.log('[getHorasIndex] Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
+					 	console.log('[400]getHorasIndex Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
 						//console.log(body)
 					 }
 			})
@@ -200,10 +200,10 @@ var postHora = function (req, res, globalUser, next) {
         if(!error && response.statusCode == 201){
           hora = JSON.parse(body);
 					//console.log('Hora registrada con éxito!');
-					globalStatus = 'Hora registrada con éxito! Lo esperamos el día ' + req.body.fecha + '!'
+					globalStatus = '[201] Hora registrada con éxito! Lo esperamos el día ' + req.body.fecha + '!'
 					pcl(globalStatus);
         } else {
-          console.log('[postApiHora] Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
+          console.log('[400]postApiHora Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.')
           //console.log(body + 'error:' + response.statusCode)
 					globalStatus = 'Lo sentimos, no hemos podido crear su hora. Vuelva a intentarlo más tarde.'
 					pcl(globalStatus);
@@ -222,12 +222,12 @@ var getMembresias = function (req, res, next) {
 					if (!error && response.statusCode == 200) {
 							//console.log(body);
 							membresias = JSON.parse(body);
-							console.log(' [membresias] Membresias de usuario obtenidas con éxito!')
+							console.log(' [200]membresias Membresias de usuario obtenidas con éxito!')
 							//pcl(membresias)
 							membership = membresias
 					 }
 					 else {
-					 	console.log('[membresias] Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
+					 	console.log('[400]membresias Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
 						//console.log(body)
 					 }
 			})
@@ -243,12 +243,12 @@ var getHorarios = function (req, res, next) {
 					if (!error && response.statusCode == 200) {
 							//console.log(body);
 							horas = JSON.parse(body);
-							console.log('Horarios de atención obtenidas con éxito!')
+							console.log('[200] Horarios de atención obtenidas con éxito!')
 							//pcl(horas)
 							schedule = horas
 					 }
 					 else {
-					 	console.log('[horariosIndex] Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
+					 	console.log('[400]horariosIndex Error ('+ response.statusCode +') No se ha podido solicitar las horas de usuario.')
 						//console.log(body)
 					 }
 			})

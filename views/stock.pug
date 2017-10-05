@@ -86,6 +86,11 @@ block content
     script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')    
     script(type='text/javascript').
       $(document).ready(function(){
-      $('#catalogo').DataTable();
+      $('#catalogo').DataTable({
+      "paging":   true,
+      "ordering": true,
+      "info":     true,
+      "searching":   true
+      });
       })
       
